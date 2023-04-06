@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>	
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-KFQMFRLQDZ"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-KFQMFRLQDZ');
+	</script>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+
 	<meta charset="utf-8">
 	<meta content="Website" property="og:type">
 	<meta content="LiteLibria" property="og:title">
@@ -62,7 +73,7 @@
 	<script src="/config.js" defer></script> <!-- Конфигурация приложения -->
 
 	<!--build:js build/main.min.js -->
-	<script src="/updateNotes.js" defer></script> <!-- Заметки к обновлениям -->
+	<script src="/lib/updateNotes.js" defer></script> <!-- Заметки к обновлениям -->
 	<script src="/lib/meetingTips.js" defer></script> <!-- Текст подсказок -->
 
 	<script src="/lib/router/router.js" defer></script> <!-- Скрипт Роутера -->

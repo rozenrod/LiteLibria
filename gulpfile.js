@@ -50,11 +50,6 @@ gulp.task('config', function() {
   .pipe(gulp.dest("public"));
 })
 
-gulp.task('updateNotes', function() {
-	return gulp.src('src/updateNotes.js')
-		.pipe(gulp.dest(`public`))
-})
-
 gulp.task('useref', function(){
   return gulp.src('src/*.html')
 		.pipe(useref())
@@ -149,7 +144,7 @@ gulp.task("archive", function(){
 gulp.task('build', function (callback) {
   runSequence(
 		'clean:public',
-		['static_img', 'config', 'updateNotes', 'images', 'assemble', 'filesToCache', 'manifest', 'assets'], 
+		['static_img', 'config', 'images', 'assemble', 'filesToCache', 'manifest', 'assets'], 
 		'dom',
 		'sw',
     callback

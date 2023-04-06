@@ -143,11 +143,18 @@ gulp.task("archive", function(){
 
 gulp.task('build', function (callback) {
   runSequence(
-		'clean:archive',
 		'clean:public',
 		['static_img', 'config', 'updateNotes', 'images', 'assemble', 'filesToCache', 'manifest'], 
 		'dom',
 		'sw',
+    callback
+  )
+})
+
+gulp.task('archivate', function (callback) {
+  runSequence(
+		'build',
+		'clean:archive',
 		'archive',
     callback
   )

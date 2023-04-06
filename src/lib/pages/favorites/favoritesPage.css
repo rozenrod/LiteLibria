@@ -1,0 +1,38 @@
+#PHPSESSIDNone,
+#FilterNone{
+	display: none;
+	margin: auto auto;
+	width: 160px;
+	height: 195px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -100px;
+	margin-left: -80px;
+}
+#PHPSESSIDNone[data-state="active"],
+#FilterNone[data-state="active"]{
+	display: block;
+}
+#PHPSESSIDNone img,
+#FilterNone img{
+	position: relative;
+	width: 145px;
+	margin: 0 auto;
+}
+
+#auchFav{
+	background: var(--PrimaryColor);
+	color: var(--PrimaryColorText);
+	font-size: 16px;
+	font-weight: 300;
+	text-decoration: none;
+	padding: 4px 8px;
+	text-align: center;
+	border-radius: 15px;
+	transition: .3s ease;
+	cursor: pointer;
+	margin: 10px auto;
+	display: block;
+	min-width: 100px;
+}

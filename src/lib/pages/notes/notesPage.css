@@ -1,0 +1,130 @@
+.his{
+	display: flex;
+	position: relative;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+  max-width: 1000px;
+  width: 90%;
+  min-height: 100px;
+	margin: 0 auto;
+  border-radius: 10px;
+}
+.his h1{
+  text-align: left;
+  font-size: 24px;
+  color: var(--ColorThemes3);
+  padding: 5px 10px;
+}
+.his a{
+  text-align: left;
+  font-size: 24px;
+  color: var(--ColorThemes3);
+	font-weight: 400;
+	border-bottom: 1px solid #d53c3c;
+}
+
+.his_block{
+  width: 100%;
+  min-height: 10px;
+  background-color: var(--ColorThemes1);
+  margin: 10px 0 10px 0;
+  border-radius: 10px;
+  text-align: left;
+  padding: 10px 0;
+}
+.his_block p{
+  padding: 10px;
+}
+
+.his_block_v1 span{
+  color: var(--ColorThemes3);;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+.his_block_v2{
+  background: var(--PrimaryColor) !important;
+  color: var(--PrimaryColorText) !important;
+}
+
+
+
+.change-log {
+  list-style: none !important;
+  margin: 10px 10px 5px 10px;
+  background: var(--ColorThemes2);
+  padding: 5px;
+  border-radius: 10px;
+}
+.d-flex {
+  display: flex !important;
+  margin: 4px !important;
+  margin-left: 10px;
+	align-items: center !important;
+}
+.change-badge {
+  display: inline;
+  font-size: 12px;
+  font-weight: 400;
+  margin-right: 8px;
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 10px;
+  padding: 5px 10px !important;
+  flex: 0 0 75px;
+}
+.change-description{
+  padding-top: 4px;
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--ColorThemes3);
+}
+.change-description a{
+  color: var(--ColorThemes3);
+  border-bottom: 1px solid var(--PrimaryColor);
+  padding-top: 4px;
+  font-size: 14px;
+  font-weight: 300;
+}
+.his_ADDED{
+  background: #287c3b !important;
+  color: #efefef !important;
+}
+.his_FIXED{
+  background: #a78117 !important;
+  color: #efefef !important;
+}
+.his_IMPROVED{
+  background: #2f506c !important;
+  color: #efefef !important;
+}
+.his_REFACTORING{
+  background: #84389b !important;
+  color: #efefef !important;
+}
+.his_text{
+  display: inline-block;
+  background: var(--ColorThemes1);
+  color: var(--ColorThemes3);
+  padding: 5px 10px !important;
+  border-radius: 10px;
+  margin: 5px 0;
+  padding-top: 4px;
+}
+
+@media (max-width: 1000px){
+	.his_block {
+    background-color: var(--ColorThemes2);
+	}
+	.change-log {
+		background: var(--ColorThemes1);
+	}
+}
+
+@media (max-width: 800px){
+	.his{
+		width: calc(100% - 20px);
+    margin: 0 10px;
+	}
+}

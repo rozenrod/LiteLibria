@@ -1,0 +1,541 @@
+.LineBlock {
+	position: relative;
+	animation: show 0.5s;
+}
+.LineBlock h1{
+	font-weight: 400;
+	text-align: left;
+	color: var(--ColorThemes3);
+	padding: 0 10px;
+	font-size: 18px;
+	margin-top: 20px;
+}
+
+
+
+
+/* Стили для страницы Line с раздилением на 2 столбика */
+.GridBlock{
+	margin-top: 15px;
+	max-width: 1500px;
+	transition: .3s ease;
+	padding: 10px 0 10px 0;
+	display: flex;
+	align-items: flex-start;
+}
+/* Стили для левого столбика */
+.LeftBlock{
+	border-radius: 15px;
+	width: 70%;
+	min-height: 200px;
+	background: var(--ColorThemes2);
+}
+/* Стили для правого столбика */
+.RightBlock{
+	/* height: 855px; */
+	border-radius: 15px;
+	width: 30%;
+	margin-left: 10px;
+	min-height: 200px;
+}
+
+/* Стили для страницы Line для маленьких экранов */
+@media (max-width: 1000px){
+	.GridBlock{
+		display: block;
+		margin-top: 0;
+		padding: 0;
+	}
+	.LeftBlock{
+		border-radius: 0;
+		width: 100%;
+		background: var(--ColorThemes1);
+	}
+	.RightBlock{
+		height: auto;
+		border-radius: 0;
+		width: 100%;
+		margin-left: 0;
+		background: var(--ColorThemes1);
+		margin-bottom: 90px;
+	}
+}
+
+
+
+/* Адаптация LineList под раздел Updates */
+.LineList-Updates {
+	border-radius: 10px;
+	max-width: 1500px;
+	transition: .3s ease;
+	padding: 10px 0 10px 0;
+}
+.LineList-Updates h1 {
+	font-weight: 400;
+	text-align: left;
+	color: var(--ColorThemes3);
+	padding: 0 10px;
+	font-size: 18px;
+}
+@media (max-width: 1000px){
+	.LineList-Updates {
+		padding: 0;
+	}
+}
+
+/* Адаптация LineList под раздел Genres */
+.LineGenerator-Genres{
+	white-space: nowrap;
+	align-items: start;
+	display: flex;
+	padding-bottom: 5px;
+	overflow-x: scroll;
+	-ms-scroll-snap-type: x mandatory;
+	scroll-snap-type: x mandatory;
+}
+
+
+/* Адаптация LineList под раздел Announce */
+.LineList-Announce{
+	border-radius: 15px;
+	width: 100%;
+	margin-left: 10px;
+	min-height: 100px;
+	background: var(--ColorThemes2);
+	padding-top: 10px;
+}
+.LineGenerator-Announce{
+	overflow-x: auto;
+	overflow-y: auto;
+	white-space: inherit;
+	min-height: 80px;
+	max-height: 300px;
+	margin-bottom: 20px;
+}
+.LineList-Announce h1 {
+	font-weight: 400;
+	text-align: left;
+	color: var(--ColorThemes3);
+	padding: 0 10px;
+	font-size: 18px;
+	margin-top: 0;
+}
+@media (max-width: 1000px){
+	.LineList-Announce {
+    height: auto;
+    margin: 10px 0;
+    background: var(--ColorThemes1);
+	}
+	.LineGenerator-AnnounceSlider{
+		height: 125px;
+		overflow: auto;
+	}
+	.LineGenerator-Announce {
+    height: 122px !important;
+    position: relative;
+    flex-direction: row;
+    margin-bottom: 0;
+    white-space: nowrap;
+    align-items: start;
+    display: flex;
+    padding-bottom: 5px;
+    overflow-x: scroll;
+    -ms-scroll-snap-type: x mandatory;
+    scroll-snap-type: x mandatory;
+	}
+}
+
+
+
+/* Адаптация LineList под раздел Donate */
+.LineCard-Donate{
+	height: 200px;
+	margin: 0 10px 10px 10px;
+	width: 100%;
+	position: relative;
+	/* border-radius: var(--border-radius-2);
+	background: var(--ColorThemes2); */
+	display: flex;
+	/* justify-content: space-evenly; */
+	flex-direction: column;
+	align-items: center;
+}
+.LineCard-Donate a{
+	display: contents;
+}
+.LineCard-Donate-Card{
+	/* width: calc(100% - 20px); */
+	width: 100%;
+	height: 90px;
+	background: var(--ColorThemes0);
+	display: flex;
+	border-radius: 15px;
+	position: relative;
+	box-shadow: var(--shadow-l1);
+	justify-content: flex-start;
+	align-items: center;
+	margin-bottom: 10px;
+}
+.LineCard-Donate-Card img{
+	height: 80px;
+}
+.LineCard-Donate-Card p{
+	font-size: 16px;
+	font-weight: 400;
+	color: var(--ColorThemes3);
+	text-align: left;
+	margin-right: 20px
+}
+.LineCard-Donate-Card:hover {
+	opacity: 0.8;
+	cursor: pointer;
+	box-shadow: var(--shadow-l3);
+	transition: .3s ease;
+	-webkit-transform: scale(1.02) translateY(0);
+	-o-transform: scale(1.02) translateY(0);
+	transform: scale(1.02) translateY(0);
+}
+@media (prefers-color-scheme: dark) {
+	.LineCard-Donate-Card{
+		border: 2px solid var(--ColorThemes2);
+		width: calc(100% - 4px);
+	}
+}
+@media (max-width: 1000px){
+	.LineCard-Donate{
+		background: var(--ColorThemes1);
+		margin: 10px 0;
+	}
+	.LineCard-Donate-Card{
+		background: var(--ColorThemes0);
+		width: calc(100% - 10px);
+	}
+	@media (prefers-color-scheme: dark) {
+		.LineCard-Donate-Card{
+			border: 2px solid var(--ColorThemes2);
+			width: calc(100% - 14px);
+		}
+	}
+}
+
+
+/* Адаптация LineList под раздел Twitter */
+.LineList-Notes{
+	margin: 10px 10px 0 10px;
+	width: calc(100% - 20px);
+	border-radius: var(--border-radius-2);
+	background: var(--ColorThemes0);
+	padding: 5px 10px;
+}
+.LineList-Notes a{
+	font-size: 14px;
+	color: var(--PrimaryColor);
+	font-weight: 400;
+	transition: .3s ease;
+}
+.LineList-Notes h1{
+	margin-top: 5px;
+	padding: 0;
+}
+.timeline-Tweet{
+	color: var(--ColorThemes3);
+}
+@media (max-width: 1000px){
+	.LineList-Notes{
+		box-shadow: var(--shadow-l1);
+		width: calc(100% - 40px);
+	}
+}
+@media (prefers-color-scheme: dark) {
+	.LineList-Notes{
+		border: 2px solid var(--ColorThemes2);
+	}
+}
+
+
+
+/* Адаптация LineList под раздел History */
+#LineList-History{
+	display: none;
+	border-radius: 15px;
+	width: 100%;
+	margin-left: 10px;
+	min-height: 150px;
+	background: var(--ColorThemes2);
+	padding-top: 10px;
+}
+#LineList-History[data-state="active"]{
+	display: block;
+}
+.LineGenerator-History{
+	overflow-x: auto;
+	overflow-y: auto;
+	white-space: inherit;
+	align-items: start;
+	/* height: 833px; */
+}
+#LineList-History h1 {
+	font-weight: 400;
+	text-align: left;
+	color: var(--ColorThemes3);
+	padding: 0 10px;
+	font-size: 18px;
+	margin-top: 0;
+}
+/* Адаптация LineList под раздел History для маленьких экранов */
+@media (max-width: 1000px){
+	#LineList-History{
+		height: auto;
+		margin: 10px 0;
+		background: var(--ColorThemes1);
+	}
+	.LineGenerator-HistorySlider{
+		height: 135px;
+		overflow: auto;
+	}
+	.LineGenerator-History{
+    height: 122px !important;
+    position: relative;
+    flex-direction: row;
+    margin-bottom: 0;
+    white-space: nowrap;
+    align-items: start;
+    display: flex;
+    padding-bottom: 5px;
+    overflow-x: scroll;
+    -ms-scroll-snap-type: x mandatory;
+    scroll-snap-type: x mandatory;
+	}
+}
+
+
+/* Адаптация LineList под раздел Trailer */
+.LineList-Trailer {
+	max-width: 1500px;
+	transition: .3s ease;
+	/* padding-bottom: 10px; */
+	overflow-x: auto;
+	align-items: start;
+	display: -webkit-box;
+}
+.LineList-Trailer a{
+	min-width: 550px;
+	width: 100%;
+	display: block;
+}
+.LineList-Trailer h1 {
+	font-weight: 400;
+	text-align: left;
+	color: var(--ColorThemes3);
+	padding: 0 10px;
+	font-size: 18px;
+}
+.LineList-Trailer-BG{
+	width: 100%;
+	height: 250px;
+	position: relative;
+	display: block;
+	background-size: cover;
+	background-position: center;
+	border-radius: 15px 15px 0 0;
+}
+.LineList-Trailer-BG-Gradien{
+	background: linear-gradient(90deg, #000000, #000000c2, #00000000);
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-radius: 15px 15px 0 0;
+}
+@media (min-width: 800px) and (max-width: 1000px){
+	.LineList-Trailer-BG{
+		border-radius: 15px;
+	}
+	.LineList-Trailer-BG-Gradien{
+    border-radius: 15px;
+	}
+}
+@media (max-width: 799px){
+	.LineList-Trailer-BG{
+    border-radius: 0;
+	}
+	.LineList-Trailer-BG-Gradien{
+    border-radius: 0;
+	}
+}
+.LineList-Trailer-Text{
+	width: 350px;
+}
+.LineList-Trailer-Text-Big{
+	font-size: 30px;
+	font-weight: 500;
+	color: #e7e7e7;
+}
+.LineList-Trailer-Text-Medium{
+	font-size: 20px;
+	font-weight: 400;
+	color: #e7e7e7;
+	opacity: 0.8;
+	padding: 5px 0;
+	max-width: 300px;
+}
+.LineList-Trailer-Text-Small{
+	font-size: 14px;
+	font-weight: 300;
+	color: #e7e7e7;
+	opacity: 0.8;
+}
+.LineList-Trailer-Poster{
+	height: 225px;
+	background: var(--ColorThemes0);
+	aspect-ratio: 7 / 10;
+	border-radius: 15px;
+	margin-right: 10px;
+	position: relative;
+	display: block;
+	background-size: cover;
+	background-position: center;
+	transition: .3s ease;
+	transform: scale(1.00000000001);
+}
+.LineList-Trailer-Poster:hover{
+	cursor: pointer;
+	box-shadow: var(--shadow-l3);
+	transition: .3s ease;
+	-webkit-transform: scale(1.02) translateY(0);
+	-o-transform: scale(1.02) translateY(0);
+	transform: scale(1.02) translateY(0);
+}
+
+
+
+/* Адаптация LineList под раздел SelectRecommend */
+.LineList-SelectRecommend {
+	max-width: 1500px;
+	transition: .3s ease;
+	padding-bottom: 10px;
+	margin-top: 30px;
+}
+@media (min-width: 800px) and (max-width: 1000px){
+	.LineList-SelectRecommend-BG{
+		border-radius: 15px;
+	}
+	.LineList-SelectRecommend-BG-Gradien{
+    border-radius: 15px;
+	}
+}
+@media (max-width: 799px){
+	.LineList-SelectRecommend-BG{
+    border-radius: 0;
+	}
+	.LineList-SelectRecommend-BG-Gradien{
+    border-radius: 0;
+	}
+}
+
+.LineList-SelectRecommend h1 {
+	font-weight: 400;
+	text-align: left;
+	color: var(--ColorThemes3);
+	padding: 0 10px;
+	font-size: 18px;
+}
+.LineList-SelectRecommend-BG{
+	width: 100%;
+	height: 250px;
+	position: relative;
+	display: block;
+	background-size: cover;
+	background-position: center;
+}
+.LineList-SelectRecommend-BG-Gradien{
+	background: linear-gradient(90deg, #000000, #000000c2, #00000000);
+	width: 100%;
+	height: 100%;
+	overflow-x: auto;
+	display: -webkit-box;
+	display: inline-flex;
+	align-items: center;
+}
+.LineList-SelectRecommend-Text{
+	width: 350px;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+.LineList-SelectRecommend-Text-Big{
+	font-size: 30px;
+	font-weight: 500;
+	color: #e7e7e7;
+}
+.LineList-SelectRecommend-Text-Medium{
+	font-size: 20px;
+	font-weight: 400;
+	color: #e7e7e7;
+	opacity: 0.8;
+	padding: 5px 0;
+}
+.LineList-SelectRecommend-Text-Small{
+	font-size: 14px;
+	font-weight: 300;
+	color: #e7e7e7;
+	opacity: 0.8;
+}
+.LineList-SelectRecommend-Poster{
+	height: 225px;
+	background: var(--ColorThemes0);
+	aspect-ratio: 7 / 10;
+	margin-right: 10px;
+	position: relative;
+	display: block;
+	background-size: cover;
+	background-position: center;
+	border-radius: 15px;
+	transition: .3s ease;
+	transform: scale(1.00000000001);
+}
+.LineList-SelectRecommend-Poster:hover{
+	cursor: pointer;
+	box-shadow: var(--shadow-l3);
+	transition: .3s ease;
+	-webkit-transform: scale(1.02) translateY(0);
+	-o-transform: scale(1.02) translateY(0);
+	transform: scale(1.02) translateY(0);
+}
+
+
+
+
+#HistoryNoneLine{
+	height: 100px;
+	width: calc(100% - 20px);
+	margin: 10px;
+	background: var(--ColorThemes0);
+	border-radius: 15px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	box-shadow: var(--shadow-l1);
+}
+#HistoryNoneLine img{
+	height: 80px;
+}
+#HistoryNoneLine p{
+	font-size: 16px;
+	font-weight: 400;
+	color: var(--ColorThemes3);
+	text-align: left;
+}
+@media (max-width: 1000px){
+	#HistoryNoneLine {
+		height: 90px;
+    width: 250px;
+	}
+	#HistoryNoneLine img{
+		height: 80px;
+	}
+}

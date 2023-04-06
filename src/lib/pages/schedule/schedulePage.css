@@ -1,0 +1,64 @@
+/* Стили для страницы Schedule */
+.ScheduleBlock {
+	position: relative;
+	animation: show 0.5s;
+	border-radius: 15px;
+	max-width: 1500px;
+	transition: .3s ease;
+	background: var(--ColorThemes2);
+	margin-top: 10px;
+}
+.ScheduleList {
+	padding: 10px 5px 0 5px;
+	min-height: 235px;
+}
+.ScheduleList h1 {
+	font-weight: 400;
+	text-align: left;
+	color: var(--ColorThemes3);
+	padding: 0 10px;
+	font-size: 18px;
+}
+.ScheduleListButton {
+	float: right;
+	margin-right: 10px;
+}
+.ScheduleListButton svg {
+	width: 25px;
+}
+.ScheduleListButton svg:hover{
+	cursor: pointer;
+	box-shadow: var(--shadow-l3);
+	transition: .3s ease;
+	-webkit-transform: scale(1.02) translateY(0);
+	-o-transform: scale(1.02) translateY(0);
+	transform: scale(1.02) translateY(0);
+}
+
+.LoadApiButton{
+	text-decoration: none;
+	font-size: 15px;
+	font-weight: 400;
+	height: 35px;
+	width: 135px;
+	margin-top: 20px;
+	color: var(--PrimaryColorText);
+	padding: 2px 10px;
+	background: var(--PrimaryColor);
+	border-radius: 15px;
+	opacity: 1;
+	transition: opacity 0.3s ease, box-shadow 0.3s ease;
+}
+.LoadApiButton:hover {
+	cursor: pointer;
+	opacity: 0.9;
+	transition: opacity 0.3s ease, box-shadow 0.3s ease;
+	box-shadow: var(--shadow-l3);
+}
+
+@media (max-width: 1000px){
+	.ScheduleList {
+		transition: .3s ease;
+		background: var(--ColorThemes1);
+	}
+}

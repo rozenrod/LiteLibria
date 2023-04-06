@@ -1,0 +1,38 @@
+{
+  "author": "rozenrod.com",
+  "name": "LiteLibria",
+  "short_name": "LiteLibria",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/",
+  "background_color": "#f3f3f3",
+  "theme_color": "#fbfbfb",
+  "version": "2.0.0",
+  "icons": [
+        { "src": "img/icon/web/favicon.ico", "type": "image/x-icon", "sizes": "32x32" },
+        { "src": "img/icon/web/icon-192.png", "type": "image/png", "sizes": "192x192" },
+        { "src": "img/icon/web/icon-512.png", "type": "image/png", "sizes": "512x512" },
+        { "src": "img/icon/web/icon-192-maskable.png", "type": "image/png", "sizes": "192x192", "purpose": "maskable" },
+        { "src": "img/icon/web/icon-512-maskable.png", "type": "image/png", "sizes": "512x512", "purpose": "maskable" }
+      ],
+  "shortcuts": [
+    {
+      "name": "Избранное",
+      "short_name": "Избранное",
+      "url": "/#/favorites",
+      "icons": [{ "src": "img/icon/shortcuts/1.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "История Просмотров",
+      "short_name": "История",
+      "url": "/#/history",
+      "icons": [{ "src": "img/icon/shortcuts/2.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Каталог",
+      "short_name": "Каталог",
+      "url": "/#/catalog",
+      "icons": [{ "src": "img/icon/shortcuts/3.png", "sizes": "192x192" }]
+    }
+  ]
+}

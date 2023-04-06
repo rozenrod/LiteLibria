@@ -1,0 +1,106 @@
+/* Стили для страницы History */
+.HistoryBlock {
+	position: relative;
+	animation: show 0.5s;
+}
+.HistoryList {
+	border-radius: 15px;
+	max-width: 1500px;
+	transition: .3s ease;
+	padding: 10px 0 10px 0;
+	background: var(--ColorThemes2);
+	margin-top: 10px;
+	min-height: calc(100vh - 170px);
+}
+.HistoryList h1 {
+	font-weight: 400;
+	text-align: left;
+	color: var(--ColorThemes3);
+	padding: 0 10px;
+	font-size: 18px;
+}
+.HistoryCard {
+	width: calc(100% - 20px);
+	position: relative;
+	display: inline-flex;
+	overflow: hidden;
+	flex-direction: row;
+	box-shadow: var(--shadow-l1);
+	transition: .3s ease;
+	margin: 6px;
+	border-radius: var(--border-radius-2);
+	background: var(--ColorThemes1);
+	color: var(--ColorThemes3);
+	align-items: center;
+}
+.HistoryCard img{
+	min-width: 63px;
+  height: 90px;
+  aspect-ratio: 7 / 10;
+	border-radius: var(--card-border-radius);
+	padding: 10px;
+}
+.HistoryCard-BlockText{
+	padding: 10px 0;
+	text-overflow: ellipsis;
+	width: calc(100% - 95px);
+}
+.HistoryCard-Title{
+	font-weight: 400;
+}
+.HistoryCard p,
+.HistoryCard a{
+	font-size: 14px;
+	text-align: left;
+	width: -webkit-fill-available;
+	text-overflow: ellipsis;
+	float: left;
+	overflow: hidden;
+}
+.HistoryCard-Open{
+	font-weight: 300;
+	color: var(--ColorThemes3);
+	background: var(--ColorThemes2);
+	padding: 4px 8px;
+	margin-top: 10px;
+	border-radius: 15px;
+	cursor: pointer;
+	transition: .3s ease;
+	width: 65px !important;
+	text-align: center !important;
+}
+.HistoryCard-Del{
+	font-weight: 300;
+	color: var(--PrimaryColorText);
+	background: var(--PrimaryColor);
+	padding: 4px 8px;
+	margin-top: 10px;
+	border-radius: 15px;
+	cursor: pointer;
+	transition: .3s ease;
+	width: 65px !important;
+	text-align: center !important;
+	float: right !important;
+}
+.HistoryCard-Open:hover,
+.HistoryCard-Del:hover {
+	opacity: 0.9;
+	box-shadow: var(--shadow-l1);
+	transition: .3s ease;
+	-webkit-transform: scale(1.005) translateY(0);
+	-o-transform: scale(1.005) translateY(0);
+	transform: scale(1.005) translateY(0);
+}
+@media (max-width: 1000px){
+	.HistoryList {
+		background: var(--ColorThemes1);
+	}
+	.HistoryCard{
+		background: var(--ColorThemes0);
+	}
+}
+@media (prefers-color-scheme: dark) {
+	.HistoryCard{
+		border: 2px solid var(--ColorThemes2);
+	}
+}

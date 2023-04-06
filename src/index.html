@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<!-- Start Single Page Apps for GitHub Pages -->
+	<script>
+		(function(){
+			var redirect = sessionStorage.redirect;
+			delete sessionStorage.redirect;
+			if (redirect && redirect != location.href) {
+				history.replaceState(null, null, redirect);
+			}
+		})();
+	</script>
+	<!-- End Single Page Apps for GitHub Pages -->
+	
+	<meta charset="utf-8">
+	<meta content="Website" property="og:type">
+	<meta content="LiteLibria" property="og:title">
+	<meta content="LiteLibria — приложение, позволяющее не только смотреть Аниме в любимой озвучке, но и делать это с комфортом." property="og:description">
+	<meta content="https://litelibria.com/img/litelibria.jpeg" property="og:image">
+	<meta content="image/jpeg" property="og:image:type">
+	<meta content="1004" property="og:image:width">
+	<meta content="703" property="og:image:height">
+	<meta content="https://server.litelibria.com" property="og:url">
+	<meta content="LiteLibria" property="og:site_name">
+	
+	<meta content="summary_large_image" property="twitter:card">
+	<meta content="LiteLibria" name="twitter:title">
+	<meta content="LiteLibria — приложение, позволяющее не только смотреть Аниме в любимой озвучке, но и делать это с комфортом." name="twitter:description">
+	<meta content="https://litelibria.com/img/litelibria.jpeg" name="twitter:image">
+	<meta content="LiteLibria" name="twitter:site">
+
+	<title>LiteLibria</title>
+
+	<meta content="LiteLibria — приложение, позволяющее не только смотреть Аниме в любимой озвучке, но и делать это с комфортом." name="description">
+
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
+
+	<link rel="manifest" href="/manifest.json">
+
+
+	<!-- iOS web app configuration -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-title" content="LiteLibria">
+	<link rel="icon" href="../img/icon/web/favicon.ico" sizes="any">
+	<link rel="apple-touch-icon" href="../img/icon/web/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="../img/icon/web/Logo-152.png">
+	<link rel="apple-touch-icon" sizes="167x167" href="../img/icon/web/Logo-167.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="../img/icon/web/Logo-180.png">
+	<link rel="apple-touch-startup-image" href="../img/icon/web/apple-touch-icon.png">
+	<!-- iOS web app configuration -->
+
+
+
+
+	<!--build:css build/styles.min.css-->
+
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="/lib/pages/home/homePage.css" />
+	<link rel="stylesheet" type="text/css" href="/lib/pages/catalog/catalogPage.css" />
+	<link rel="stylesheet" type="text/css" href="/lib/pages/schedule/schedulePage.css" />
+	<link rel="stylesheet" type="text/css" href="/lib/pages/favorites/favoritesPage.css" />
+	<link rel="stylesheet" type="text/css" href="/lib/pages/history/historyPage.css" />
+	<link rel="stylesheet" type="text/css" href="/lib/pages/option/optionPage.css" />
+	<link rel="stylesheet" type="text/css" href="/lib/pages/release/releasePage.css" />
+	<link rel="stylesheet" type="text/css" href="/lib/pages/search/searchPage.css" />
+	<link rel="stylesheet" type="text/css" href="/lib/pages/notes/notesPage.css" />
+
+
+	<link rel="stylesheet" type="text/css" href="/css/cards.css" />
+	<!--endbuild-->
+
+	<!-- Конфигурация SW -->
+	<script src="sw.js" ></script>
+
+	<script src="/config.js" defer></script> <!-- Конфигурация приложения -->
+
+	<!--build:js build/main.min.js -->
+	<script src="/updateNotes.js" defer></script> <!-- Конфигурация приложения -->
+	<script src="/lib/meetingTips.js" defer></script> <!-- Текст подсказок -->
+
+	<script src="/lib/router/router.js" defer></script> <!-- Скрипт Роутера -->
+	<script src="/lib/router/routes.js" defer></script> <!-- Пути Роутера -->
+
+	<script src="/lib/history/history.js" defer></script> <!-- Скрипты истории просмотров -->
+	<script src="/lib/history/historySync.js" defer></script>  <!-- Скрипты истории просмотров -->
+	<script src="/lib/history/loadNameHistory.js" defer></script> <!-- Скрипты истории просмотров -->
+
+	<script src="/lib/player/hls.min.js" defer></script> <!-- HLS для плеера -->
+	<script src="/lib/player/playerjs.js" defer></script> <!-- Плеер -->
+
+	<script src="/lib/components/constants.js"></script> <!-- Загрузка компонентов -->
+	<script src="/lib/components/preloaderHide.js" defer></script> <!-- Загрузка компонентов -->
+	<script src="/lib/components/swipeUpdater.js" defer></script> <!-- Загрузка компонентов -->
+	<script src="/lib/components/detectOS.js" defer></script> <!-- Загрузка компонентов -->
+	<script src="/lib/components/randomColor.min.js" defer></script> <!-- Загрузка компонентов -->
+	<script src="/lib/components/webPush.js" defer></script> <!-- Загрузка компонентов -->
+	<script src="/lib/components/statusEpisode.js" defer></script> <!-- Загрузка компонентов -->
+	<script src="/lib/components/webSocket.js" defer></script> <!-- Загрузка компонентов -->
+	<script src="/lib/components/scrollToTop.js" defer></script> <!-- Загрузка компонентов -->
+	<script src="/lib/components/cards.js" defer></script> <!-- Загрузка компонентов -->
+	<script src="/lib/components/popup.js" defer></script> <!-- Загрузка компонентов -->
+
+	<script src="/lib/pages/home/homePage.js" defer></script> <!-- Загрузка страницы -->
+	<script src="/lib/pages/catalog/catalogPage.js" defer></script> <!-- Загрузка страницы -->
+	<script src="/lib/pages/schedule/schedulePage.js" defer></script> <!-- Загрузка страницы -->
+	<script src="/lib/pages/favorites/favoritesPage.js" defer></script> <!-- Загрузка страницы -->
+	<script src="/lib/pages/history/historyPage.js" defer></script> <!-- Загрузка страницы -->
+	<script src="/lib/pages/option/optionPage.js" defer></script> <!-- Загрузка страницы -->
+	<script src="/lib/pages/release/releasePage.js" defer></script> <!-- Загрузка страницы -->
+	<script src="/lib/pages/search/searchPage.js" defer></script> <!-- Загрузка страницы -->
+	<script src="/lib/pages/notes/notesPage.js" defer></script> <!-- Загрузка страницы -->
+	<script src="/lib/pages/404.js" defer></script> <!-- Загрузка страницы -->
+
+	<script src="/lib/app.js" defer></script> <!-- Загрузка главного скрипта -->
+	<!-- endbuild -->
+
+
+
+	<!-- Подключенеие Google Service -->
+	<script async defer src="https://apis.google.com//js/api.js" onload="gapiLoaded()"></script>
+	<script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
+</head>
+<body version="Tyufon-2.0.0">
+
+	<meta name="theme-color" content="#fbfbfb" media="(prefers-color-scheme: light)"> 
+	<meta name="theme-color" content="#1c1c19" media="(prefers-color-scheme: dark)">
+
+
+
+	<!-- Анимация загрузки страници -->
+	<div id="preloader" data-nosnippet>
+		<div id="preloader_preload"></div>
+		<p id="preloader_text_block">
+			<span>Полезно знать:</span>
+			<br>
+			<span id="preloader_text"></span>
+		</p>
+  </div>
+
+
+
+	<!-- Анимация обновления страници свайпом -->
+	<div id="swipe_updater">
+		<div id="swipe_block">
+			<div id="swipe_bg">
+				<svg width="0" height="300">
+					<path d="
+					m 0 0
+					h 0
+					v 50
+					c 0 50  50 50  50 100
+					c 0 50 -50 50 -50 100
+					v 50
+					h -50"></path>
+					</svg>
+			</div>
+			<svg id="swipe_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+				<path d="M413.1 222.5l22.2 22.2c9.4 9.4 9.4 24.6 0 33.9L241 473c-9.4 9.4-24.6 9.4-33.9 0L12.7 278.6c-9.4-9.4-9.4-24.6 0-33.9l22.2-22.2c9.5-9.5 25-9.3 34.3.4L184 343.4V56c0-13.3 10.7-24 24-24h32c13.3 0 24 10.7 24 24v287.4l114.8-120.5c9.3-9.8 24.8-10 34.3-.4z"></path>
+			</svg>
+		</div>
+	</div>
+
+
+
+	<!-- Кнопка возврата страници вверх -->
+	<div id="backToTop" title="Наверх">
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+			<path d="M413.1 222.5l22.2 22.2c9.4 9.4 9.4 24.6 0 33.9L241 473c-9.4 9.4-24.6 9.4-33.9 0L12.7 278.6c-9.4-9.4-9.4-24.6 0-33.9l22.2-22.2c9.5-9.5 25-9.3 34.3.4L184 343.4V56c0-13.3 10.7-24 24-24h32c13.3 0 24 10.7 24 24v287.4l114.8-120.5c9.3-9.8 24.8-10 34.3-.4z"/>
+		</svg>
+	</div>
+
+
+
+
+	<!-- Выбор истории -->
+	<div class="history_app" id="history_mess" style="display: none;"> 
+		<div class="add_history_center"> 
+			<p>В приложении уже есть история!</p> 
+			<div class="history_t"> 
+				<div class="text_t">Использовать историю приложения</div> 
+				<button class="history_button" onclick="questionConfigUpload(false)">Выбрать</button> 
+			</div> 
+			<div class="history_t"> 
+				<div class="text_t">Использовать историю Google Drive</div> 
+				<button class="history_button" onclick="questionConfigUpload(true)">Выбрать</button> 
+			</div> 
+			<div class="text_t" style="padding: 5px;">*После выбора истории приложения и Google Drive будут синхронизированы!</div> 
+		</div> 
+	</div>
+
+
+	<!-- Выбор истории -->
+	<div id="popup">
+		<div id="popup_card">
+			<div id="popup_header">
+				<h3 id="popup_title"></h3>
+				<svg id="popup_close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="256px" height="256px"><path d="M 39.486328 6.9785156 A 1.50015 1.50015 0 0 0 38.439453 7.4394531 L 24 21.878906 L 9.5605469 7.4394531 A 1.50015 1.50015 0 0 0 8.484375 6.984375 A 1.50015 1.50015 0 0 0 7.4394531 9.5605469 L 21.878906 24 L 7.4394531 38.439453 A 1.50015 1.50015 0 1 0 9.5605469 40.560547 L 24 26.121094 L 38.439453 40.560547 A 1.50015 1.50015 0 1 0 40.560547 38.439453 L 26.121094 24 L 40.560547 9.5605469 A 1.50015 1.50015 0 0 0 39.486328 6.9785156 z"/></svg>
+			</div>
+			<div id="popup_content"></div>
+		</div>
+	</div>
+
+
+	<!-- Меню приложения -->
+	<div class="navigation_c" id="navi">
+		<div class="navigation" id="navigation_block">
+			<ul id="menu_n">
+				<li id="but_home">
+					<div>
+						<span class="icon_m" id="b_page_home">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+								<path d="M261.56 101.28a8 8 0 00-11.06 0L66.4 277.15a8 8 0 00-2.47 5.79L63.9 448a32 32 0 0032 32H192a16 16 0 0016-16V328a8 8 0 018-8h80a8 8 0 018 8v136a16 16 0 0016 16h96.06a32 32 0 0032-32V282.94a8 8 0 00-2.47-5.79z"></path>
+								<path d="M490.91 244.15l-74.8-71.56V64a16 16 0 00-16-16h-48a16 16 0 00-16 16v32l-57.92-55.38C272.77 35.14 264.71 32 256 32c-8.68 0-16.72 3.14-22.14 8.63l-212.7 203.5c-6.22 6-7 15.87-1.34 22.37A16 16 0 0043 267.56L250.5 69.28a8 8 0 0111.06 0l207.52 198.28a16 16 0 0022.59-.44c6.14-6.36 5.63-16.86-.76-22.97z"></path>
+							</svg>
+						</span>
+						<span class="text_m">Главная</span>
+					</div>
+					<a href="/" data-route></a>
+				</li>
+				<li>
+					<div>
+						<span class="icon_m" id="b_page_catalog">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+								<path d="M368 96H144a16 16 0 010-32h224a16 16 0 010 32zM400 144H112a16 16 0 010-32h288a16 16 0 010 32zM419.13 448H92.87A44.92 44.92 0 0148 403.13V204.87A44.92 44.92 0 0192.87 160h326.26A44.92 44.92 0 01464 204.87v198.26A44.92 44.92 0 01419.13 448z"></path>
+							</svg>
+						</span>
+						<span class="text_m">Каталог</span>
+					</div>
+					<a href="/catalog" data-route></a>
+				</li>
+				<li>
+					<div>
+						<span class="icon_m" id="b_page_favorites">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+								<path d="M394 480a16 16 0 01-9.39-3L256 383.76 127.39 477a16 16 0 01-24.55-18.08L153 310.35 23 221.2a16 16 0 019-29.2h160.38l48.4-148.95a16 16 0 0130.44 0l48.4 149H480a16 16 0 019.05 29.2L359 310.35l50.13 148.53A16 16 0 01394 480z"></path>
+							</svg>
+						</span>
+						<span class="text_m">Избранное</span>
+					</div>
+					<a href="/favorites" data-route></a>
+				</li>
+				<li>
+					<div>
+						<span class="icon_m" id="b_page_options">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 172 172">
+								<path d="M75.18001,14.33333c-3.43283,0 -6.36736,2.42659 -7.02669,5.79492l-2.39355,12.28971c-5.8821,2.22427 -11.32102,5.33176 -16.097,9.25228l-11.78581,-4.05924c-3.2465,-1.118 -6.81841,0.22441 -8.53841,3.19141l-10.80599,18.72852c-1.71283,2.97417 -1.08945,6.74999 1.49772,9.00033l9.44824,8.21647c-0.49137,3.0197 -0.81185,6.09382 -0.81185,9.25228c0,3.15846 0.32048,6.23258 0.81185,9.25228l-9.44824,8.21647c-2.58717,2.25033 -3.21055,6.02616 -1.49772,9.00032l10.80599,18.72852c1.71283,2.97417 5.29191,4.31623 8.53841,3.2054l11.78581,-4.05924c4.77441,3.91806 10.21756,7.01501 16.097,9.23828l2.39355,12.28972c0.65933,3.36833 3.59386,5.79492 7.02669,5.79492h21.63998c3.43283,0 6.36735,-2.42659 7.02669,-5.79492l2.39356,-12.28972c5.88211,-2.22427 11.32102,-5.33176 16.097,-9.25227l11.78581,4.05924c3.2465,1.118 6.81841,-0.21724 8.53841,-3.1914l10.80599,-18.74252c1.71284,-2.97417 1.08945,-6.73599 -1.49772,-8.98633l-9.44824,-8.21647c0.49137,-3.0197 0.81185,-6.09382 0.81185,-9.25228c0,-3.15846 -0.32048,-6.23258 -0.81185,-9.25228l9.44824,-8.21647c2.58717,-2.25033 3.21056,-6.02616 1.49772,-9.00033l-10.80599,-18.72852c-1.71283,-2.97417 -5.29191,-4.31624 -8.53841,-3.2054l-11.78581,4.05924c-4.7744,-3.91806 -10.21755,-7.01501 -16.097,-9.23828l-2.39356,-12.28971c-0.65933,-3.36833 -3.59385,-5.79492 -7.02669,-5.79492zM86,57.33333c15.83117,0 28.66667,12.8355 28.66667,28.66667c0,15.83117 -12.8355,28.66667 -28.66667,28.66667c-15.83117,0 -28.66667,-12.8355 -28.66667,-28.66667c0,-15.83117 12.8355,-28.66667 28.66667,-28.66667z"></path>
+							</svg>
+						</span>
+						<span class="text_m" >Опции</span>
+					</div>
+					<a href="/options" data-route></a>
+				</li>
+				<li id="b_search">
+					<div>
+						<span class="icon_m" id="b_page_search">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+								<path d="M456.69 421.39L362.6 327.3a173.81 173.81 0 0034.84-104.58C397.44 126.38 319.06 48 222.72 48S48 126.38 48 222.72s78.38 174.72 174.72 174.72A173.81 173.81 0 00327.3 362.6l94.09 94.09a25 25 0 0035.3-35.3zM97.92 222.72a124.8 124.8 0 11124.8 124.8 124.95 124.95 0 01-124.8-124.8z"></path>
+							</svg>
+						</span>
+						<span class="text_m">Поиск</span>
+					</div>
+					<a href="/search" data-route></a>
+				</li>
+			</ul>
+
+			<div id="menu_right">
+				<div id="update-banner-1" data-state="noupdate">
+					<div class="content">
+							<div class="headline"></div>
+							<div class="subhead"></div>
+							<div id="update-banner-1-icon">
+								<svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" width="64px" height="64px" viewBox="0 0 128 128" xml:space="preserve">
+									<g>
+										<path d="M64 9.75A54.25 54.25 0 0 0 9.75 64H0a64 64 0 0 1 128 0h-9.75A54.25 54.25 0 0 0 64 9.75z" fill="#ffffff"></path>
+										<animateTransform attributeName="transform" type="rotate" from="0 64 64" to="360 64 64" dur="1400ms" repeatCount="indefinite"></animateTransform>
+									</g>
+								</svg>
+							</div>
+					</div>
+				</div>
+				<ul>
+					<li>
+						<div>
+							<span class="icon_m">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 172 172">
+									<path fill="var(--ColorThemes3)" d="M86,21.5c-34.27,0 -62.30939,26.89969 -64.30404,60.67871l-7.14567,-7.14567c-1.01222,-1.0424 -2.4033,-1.63064 -3.85628,-1.6307c-2.18814,0.00053 -4.1576,1.32735 -4.98006,3.35504c-0.82245,2.02769 -0.33375,4.35156 1.23575,5.87624l16.125,16.125c2.0991,2.09823 5.50149,2.09823 7.60059,0l16.125,-16.125c1.40412,-1.34815 1.96971,-3.35005 1.47866,-5.23364c-0.49105,-1.88359 -1.96202,-3.35456 -3.84561,-3.84561c-1.88359,-0.49105 -3.88549,0.07455 -5.23364,1.47866l-6.73275,6.73275c2.15533,-27.75469 25.2122,-49.51579 53.53304,-49.51579c18.18886,0 34.16487,9.01846 43.90283,22.80876c1.10757,1.56927 2.96825,2.42838 4.88105,2.25367c1.91279,-0.17471 3.58705,-1.35669 4.392,-3.10064c0.80495,-1.74395 0.61828,-3.78487 -0.48968,-5.35386c-11.66886,-16.52471 -30.93522,-27.35791 -52.6862,-27.35791zM145.04802,71.66667c-1.39872,0.02045 -2.73437,0.58534 -3.72331,1.57471l-16.125,16.125c-1.40412,1.34815 -1.96971,3.35005 -1.47866,5.23364c0.49105,1.88359 1.96202,3.35456 3.84561,3.84561c1.88359,0.49105 3.88549,-0.07455 5.23364,-1.47866l6.73275,-6.73275c-2.15534,27.75469 -25.2122,49.51579 -53.53304,49.51579c-18.18886,0 -34.16487,-9.01846 -43.90283,-22.80876c-1.10757,-1.56927 -2.96825,-2.42838 -4.88105,-2.25367c-1.91279,0.17471 -3.58705,1.35669 -4.392,3.10064c-0.80495,1.74395 -0.61828,3.78487 0.48968,5.35386c11.66886,16.52471 30.93522,27.35791 52.6862,27.35791c34.27,0 62.30939,-26.89969 64.30403,-60.67871l7.14567,7.14567c1.34815,1.40412 3.35005,1.96971 5.23364,1.47866c1.88359,-0.49105 3.35456,-1.96202 3.84561,-3.84561c0.49105,-1.88359 -0.07455,-3.88549 -1.47866,-5.23364l-16.125,-16.125c-1.02666,-1.02708 -2.4252,-1.59508 -3.87728,-1.57471z"></path>
+								</svg>
+							</span>
+							<span class="text_m">Обновить</span>
+						</div>
+						<a href="#" data-route id="updateButton"></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- Уведомление и кнопка обновления приложения -->
+	<div id="update-banner-2" data-state="noupdate">
+		<div class="content">
+				<div class="headline"></div>
+				<div class="subhead"></div>
+				<div id="update-banner-2-icon">
+					<svg xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" width="64px" height="64px" viewBox="0 0 128 128" xml:space="preserve">
+						<g>
+							<path d="M64 9.75A54.25 54.25 0 0 0 9.75 64H0a64 64 0 0 1 128 0h-9.75A54.25 54.25 0 0 0 64 9.75z" fill="#ffffff"></path>
+							<animateTransform attributeName="transform" type="rotate" from="0 64 64" to="360 64 64" dur="1400ms" repeatCount="indefinite"></animateTransform>
+						</g>
+					</svg>
+				</div>
+		</div>
+	</div>
+
+
+
+
+	<!-- Блок контента приложения -->
+	<div id="app"></div>
+</body>
+</html>

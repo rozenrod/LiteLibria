@@ -1,0 +1,227 @@
+/* Стили для страницы Options */
+.OptionsBlock{
+	position: relative;
+	animation: show 0.5s;
+	border-radius: 15px;
+	max-width: 1500px;
+	transition: .3s ease;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
+	margin-top: 15px;
+}
+/* Стили для блока аккаунта */
+.OptionsAccount{
+	min-height: 34px;
+	transition: .3s ease;
+	border-radius: 15px;
+	padding: 10px 0;
+}
+.OptionsAccountLogo {
+	width: 75px;
+	height: 75px;
+	background: var(--PrimaryColor);
+	transition: .3s ease;
+	border-radius: 15px;
+	border: 5px solid var(--ColorThemes0);
+	box-shadow: var(--shadow-l3);
+	display: block;
+	margin: 0 auto;
+	z-index: 5;
+	position: relative;
+	background-position: center;
+	background-size: cover;
+}
+.OptionsAccountText{
+	text-align: left;
+	padding: 5px 20px 0px 20px;
+	font-size: 16px;
+	display: block;
+	margin: 10px;
+}
+.OptionsAccountTextProfile{
+	background: var(--ColorThemes0);
+	border-radius: var(--border-radius);
+	padding: 10px;
+	margin: 10px 0;
+}
+.OptionsAccountText p{
+	text-align: left;
+	color: var(--ColorThemes3);
+	font-size: 14px;
+	margin-top: 4px;
+	font-weight: 300;
+}
+#logout,
+#login{
+	background: var(--PrimaryColor);
+	color: var(--PrimaryColorText);
+	font-size: 16px;
+	font-weight: 300;
+	text-decoration: none;
+	padding: 4px 8px;
+	text-align: center;
+	border-radius: 15px;
+	transition: .3s ease;
+	cursor: pointer;
+	margin: 10px auto;
+	display: block;
+	min-width: 100px;
+}
+
+.OptionsBlockCard{
+	width: calc(50% - 5px);
+}
+.OptionsCard{
+	text-align: left;
+	color: var(--ColorThemes3);
+	font-weight: 400;
+	padding: 20px;
+	background: var(--ColorThemes2);
+	margin: 0 0 15px 0;
+	border-radius: 15px;
+	font-size: 16px;
+	display: block;
+}
+.OptionsCard p {
+	text-align: left;
+	color: var(--ColorThemes3);
+	font-size: 14px;
+	margin-top: 4px;
+	font-weight: 400;
+}
+.OptionsCard hr{
+	border: 1px solid var(--ColorThemes1);
+	margin-bottom: 15px;
+}
+
+.OptionsTitle {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+}
+.OptionsTitle svg {
+	width: 22px;
+	fill: var(--ColorThemes3);
+	margin-right: 5px;
+}
+.OptionsTitle h3 {
+	text-align: left;
+	font-size: 18px;
+	font-weight: 500;
+	color: var(--ColorThemes3);
+}
+
+.settings_filter_p{
+	font-size: 13px !important;
+	margin-top: 5px !important;
+	opacity: 0.8 !important;
+}
+.settings_filter_p a{
+	font-size: 13px !important;
+	margin-top: 5px !important;
+	color: var(--ColorThemes3);
+	font-weight: 400;
+	border-bottom: 1px solid var(--PrimaryColor);
+	text-decoration: none;
+}
+
+.formMirror{
+	background: var(--ColorThemes0);
+	padding: 15px;
+	border-radius: 15px;
+	display: inline-grid;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+	justify-items: stretch;
+	width: calc(100% - 30px);
+}
+.blockMirror{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 10px;
+}
+.MirrorBox{
+	float: right;
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: 400;
+	height: 30px;
+	width: 180px;
+	color: var(--ColorThemes3);
+	padding: 0px 10px;
+	margin-top: -4px;
+	margin-left: 10px;
+	background: var(--ColorThemes2);
+	border-radius: 20px;
+	-webkit-appearance: none;
+}
+
+.OptionsCardButton {
+	background: var(--ColorThemes1);
+	color: var(--ColorThemes3);
+	margin: 8px 5px 0 0;
+	font-size: 16px;
+	font-weight: 300;
+	text-decoration: none;
+	padding: 4px 8px;
+	text-align: center;
+	border-radius: 15px;
+	transition: .3s ease;
+	cursor: pointer;
+}
+.OptionsCardButton[data-state="Select"]{
+	background: var(--PrimaryColor);
+	color: var(--PrimaryColorText);
+}
+
+#auth,
+#profile{
+	position: sticky;
+	top: 10px;
+	background: var(--ColorThemes2);
+	margin-right: 15px;
+	border-radius: var(--border-radius);
+}
+
+#auth[data-state="deactivated"],
+#profile[data-state="deactivated"]{
+	display: none;
+}
+
+#error_mes{
+	background: var(--PrimaryColor);
+	color: var(--PrimaryColorText);
+	padding: 2px 10px;
+	text-align: center;
+	border-radius: var(--border-radius);
+}
+
+@media (max-width: 800px){
+	.OptionsBlock{
+    flex-direction: column;
+		padding: 0 10px;
+	}
+	#auth,
+	#profile{
+		position: relative;
+		margin: 0 0 15px 0;
+		background: 0;
+	}
+	.OptionsBlockCard {
+		padding: 0;
+		width: 100%;
+	}
+	.OptionsAccountLogo {
+    margin: 0 auto -40px auto;
+	}
+	.OptionsAccountText {
+		background: var(--ColorThemes2);
+		padding: 50px 10px 10px 10px;
+		margin: 0;
+    border-radius: var(--border-radius);
+	}
+}

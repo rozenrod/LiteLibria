@@ -1,0 +1,350 @@
+/* Стили для страницы Catalog */
+.CatalogBlock {
+	position: relative;
+	animation: show 0.5s;
+}
+.CatalogList {
+	border-radius: 15px;
+	max-width: 1500px;
+	transition: .3s ease;
+	padding: 10px 0 10px 0;
+	background: var(--ColorThemes2);
+	margin-top: 10px;
+	min-height: calc(100vh - 105px)
+}
+.CatalogList h1 {
+	font-weight: 400;
+	text-align: left;
+	color: var(--ColorThemes3);
+	padding: 0 10px;
+	font-size: 18px;
+}
+.CatalogListButton {
+	float: right;
+	margin-right: 10px;
+	width: 25px;
+	height: 25px;
+	background: var(--ColorThemes2);
+	border-radius: 10px;
+	padding: 4px;
+	margin-top: -3px;
+	transition: .3s ease;
+}
+.CatalogListButton svg {
+	width: 25px;
+	height: 25px;
+}
+.CatalogListButton:hover{
+	cursor: pointer;
+	background: var(--ColorThemes1);
+	box-shadow: var(--shadow-l3);
+	-webkit-transform: scale(1.02) translateY(0);
+	-o-transform: scale(1.02) translateY(0);
+	transform: scale(1.02) translateY(0);
+}
+
+.LoadApiButton{
+	text-decoration: none;
+	font-size: 15px;
+	font-weight: 400;
+	height: 35px;
+	width: 135px;
+	margin-top: 20px;
+	color: var(--PrimaryColorText);
+	padding: 2px 10px;
+	background: var(--PrimaryColor);
+	border-radius: 15px;
+	opacity: 1;
+	transition: opacity 0.3s ease, box-shadow 0.3s ease;
+}
+.LoadApiButton:hover {
+	cursor: pointer;
+	opacity: 0.9;
+	transition: opacity 0.3s ease, box-shadow 0.3s ease;
+	box-shadow: var(--shadow-l3);
+}
+
+@media (max-width: 1000px){
+	.CatalogListButton {
+		background: var(--ColorThemes1);
+	}
+	.CatalogListButton:hover{
+		background: var(--ColorThemes2);
+	}
+}
+
+@media (max-width: 1000px){
+	.CatalogList {
+		transition: .3s ease;
+		background: var(--ColorThemes1);
+		margin-bottom: 50px;
+	}
+}
+
+
+/* Стили для Блока Сортировки */
+.SortingBlock{
+	position: relative;
+	animation: show 0.5s;
+	border-radius: 10px;
+	max-width: 1500px;
+	transition: .3s ease;
+	padding: 10px 0 10px 0;
+	margin-top: 10px;
+}
+.SortingBlockForm{
+	display: flex;
+	align-items: center;
+}
+.SortingBlockForm-Grid{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+.SortingBlockForm-Top{
+	margin-bottom: 3px;
+	display: flex;
+}
+.SortingBlockForm-Bottom{
+	margin-top: 3px;
+	display: flex;
+}
+.SortingChosen {
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: 400;
+	min-width: 90px;
+	height: 30px;
+	color: var(--ColorThemes3);
+	padding: 2px 10px;
+	margin-right: 3px;
+	background: var(--ColorThemes2);
+	border-radius: 15px;
+	opacity: 0.8;
+	cursor: pointer;
+	text-align: left;
+}
+.SortingChosen[data-state="select"] {
+	color: var(--PrimaryColorText);
+	background: var(--PrimaryColor);
+	opacity: 1;
+}
+.SortingContainer{
+	background: var(--ColorThemes0);
+	padding: 4px 5px 4px 5px;
+	border-radius: 18px;
+	position: relative;
+	display: flex;
+	top: 0px;
+	align-items: center;
+}
+.SortingCheckboxContainer {
+  position: relative;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+	width: 30px;
+  height: 30px;
+}
+.SortingCheckboxContainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.SortingCheckmark {
+  position: absolute;
+  left: 0;
+  height: 30px;
+  width: 30px;
+  background: var(--ColorThemes2);
+  border-radius: var(--border-radius);
+  padding: 0;
+	transition: .3s ease;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.SortingCheckmark svg{
+	width: 18px;
+	fill: var(--ColorThemes3);
+	opacity: 0.8;
+}
+.SortingCheckboxContainer:hover input ~ .SortingCheckmark1 {
+  background: var(--ColorThemes2);
+  padding: 0;
+}
+.SortingCheckboxContainer input:checked ~ .SortingCheckmark {
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+	transform: rotate(180deg);
+	transition: .3s ease;
+}
+.SortingButton {
+	text-decoration: none;
+	font-size: 15px;
+	font-weight: 400;
+	height: 30px;
+	color: var(--PrimaryColorText);
+	padding: 2px 10px;
+	background: var(--PrimaryColor);
+	border-radius: 15px;
+	opacity: 1;
+	text-align: center;
+	transition: opacity 0.3s ease, box-shadow 0.3s ease;
+	display: flex;
+	align-items: center;
+	margin-left: 10px;
+}
+.SortingButton svg{
+	width: 25px;
+	fill: var(--PrimaryColorText);
+	margin-right: 5px;
+}
+.SortingButton:hover {
+	cursor: pointer;
+	opacity: 0.9;
+	transition: opacity 0.3s ease, box-shadow 0.3s ease;
+	box-shadow: var(--shadow-l1);
+}
+input[type="file"] {
+  display: none;
+}
+.SortingBlockFile {
+  text-decoration: none;
+	font-size: 15px;
+	font-weight: 400;
+	height: 30px;
+	color: var(--PrimaryColorText);
+	padding: 0 10px;
+	background: var(--PrimaryColor);
+	border-radius: 15px;
+	opacity: 1;
+	text-align: center;
+	transition: opacity 0.3s ease, box-shadow 0.3s ease;
+	display: flex;
+	align-items: center;
+	margin-left: 10px;
+}
+.SortingBlockFile svg{
+	width: 25px;
+	fill: var(--PrimaryColorText);
+	margin-right: 5px;
+}
+.SortingBlockFile:hover {
+	cursor: pointer;
+	opacity: 0.9;
+	transition: opacity 0.3s ease, box-shadow 0.3s ease;
+	box-shadow: var(--shadow-l1);
+}
+
+.SortingBlockSelect{
+	display: block;
+	margin: 10px 0 0 0;
+	border-radius: 15px;
+	max-width: 1500px;
+	transition: .3s ease;
+	padding: 10px;
+	background: var(--ColorThemes2);
+}
+.SortingBlockSelect p{
+	font-weight: 400;
+	text-align: left;
+	color: var(--ColorThemes3);
+	font-size: 14px;
+}
+.SortingBlockSelect hr{
+	margin: 10px;
+}
+.SortingBlockSelectButton{
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+.SortingChosenButton{
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: 400;
+	min-width: 90px;
+	height: 30px;
+	color: var(--ColorThemes3);
+	padding: 2px 10px;
+	background: var(--ColorThemes2);
+	border-radius: 15px;
+	opacity: 0.8;
+	cursor: pointer;
+	text-align: left;
+	margin: 4px;
+	border: 2px solid var(--ColorThemes2);
+}
+.SortingChosenButton[data-state="select"] {
+	color: var(--ColorThemes1);
+	background: var(--ColorThemes3);
+	opacity: 1;
+	border: 2px solid var(--ColorThemes3);
+}
+.SortingChosenButton[data-sort="select"] {
+	border: 2px solid var(--PrimaryColor);
+}
+
+.SortingSelectChosen {
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: 400;
+	min-width: 50px;
+	height: 30px;
+	color: var(--ColorThemes1);
+	padding: 2px 10px;
+	margin: 2px;
+	background: var(--ColorThemes3);
+	border-radius: 15px;
+	opacity: 0.8;
+	cursor: pointer;
+}
+.SortingSelectChosen[data-state="select"] {
+	color: var(--PrimaryColorText);
+	background: var(--PrimaryColor);
+	opacity: 1;
+}
+
+@media (max-width: 1000px){
+	.SortingBlock{
+		margin: 0 10px;
+	}
+	.SortingBlockForm{
+		display: grid;
+	}
+	.SortingChosen {
+		width: 100%;
+		margin-bottom: 10px;
+		margin-right: 0px;
+	}
+	.SortingContainer{
+		margin-right: 0;
+    margin-top: 3px;
+		padding: 5px 0px 3px 5px;
+		border-radius: 18px;
+	}
+	#SortingOrderBy{
+		width: calc(100% - 45px);
+    margin-right: 10px;
+		margin-bottom: 2px;
+	}
+	.SortingButton{
+		width: 100%;
+    margin-top: 10px;
+		margin-left: 0px;
+	}
+
+	.SortingBlockFile{
+    margin-top: 10px;
+		margin-left: 0px;
+	}
+}

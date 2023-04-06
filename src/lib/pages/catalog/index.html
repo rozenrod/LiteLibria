@@ -1,0 +1,86 @@
+<!-- Блок Сортировки	 -->
+<div class="SortingBlock" id="SortingBlock" style="display:none;">
+	<div class="SortingBlockForm">
+		<button class="SortingChosenButton" id="SortingSelect_genres">Выбрать жанры</button>
+		<button class="SortingChosenButton" id="SortingSelect_year">Выбрать год</button>
+		<button class="SortingChosenButton" id="SortingSelect_season_code">Выбрать сезон</button>
+		<button class="SortingChosenButton" id="SortingSelect_team">Выбрать команду</button>
+		<button class="SortingChosenButton" id="SortingSelect_type">Тип релиза</button>
+
+		<span class="SortingContainer">
+			<select class="SortingChosen" id="SortingOrderBy">
+				<option value="" selected>Сортировать по ...</option>
+				<option value="season.year">Году</option>
+				<option value="code">Названию</option>
+				<option value="in_favorites">Популярности</option>
+				<option value="type.episodes">Количеству серий</option>
+				<option value="season.code">Типу</option>
+			</select>
+			<label class="SortingCheckboxContainer">
+				<input type="checkbox" id="SortingChecUpTop">
+				<span class="SortingCheckmark">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M413.1 222.5l22.2 22.2c9.4 9.4 9.4 24.6 0 33.9L241 473c-9.4 9.4-24.6 9.4-33.9 0L12.7 278.6c-9.4-9.4-9.4-24.6 0-33.9l22.2-22.2c9.5-9.5 25-9.3 34.3.4L184 343.4V56c0-13.3 10.7-24 24-24h32c13.3 0 24 10.7 24 24v287.4l114.8-120.5c9.3-9.8 24.8-10 34.3-.4z"/></svg>
+				</span>
+			</label>
+		</span>
+		<button class="SortingButton" id="SortingClear">Сбросить</button>
+	</div>
+
+	<div class="SortingBlockSelect" id="SortingBlock_genres" style="display:none;"></div>
+	<div class="SortingBlockSelect" id="SortingBlock_year" style="display:none;"></div>
+	<div class="SortingBlockSelect" id="SortingBlock_season_code" style="display:none;"></div>
+	<div class="SortingBlockSelect" id="SortingBlock_team" style="display:none;"></div>
+	<div class="SortingBlockSelect" id="SortingBlock_type" style="display:none;"></div>
+</div>
+
+
+
+<!-- Блок Каталог	 -->
+<div class="CatalogBlock">
+	<div class="CatalogList">
+
+		<div style="display: flow-root;">
+			<h1 style="float: left;">Каталог</h1>
+
+			<div class="CatalogListButton" id="CatalogList">
+				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 226 226"><g><path fill="var(--ColorThemes3)" d="M207.16667,56.5v37.66667c0,5.198 -4.21867,9.41667 -9.41667,9.41667h-169.5c-5.198,0 -9.41667,-4.21867 -9.41667,-9.41667v-37.66667c0,-10.35833 8.475,-18.83333 18.83333,-18.83333h150.66667c10.35833,0 18.83333,8.475 18.83333,18.83333zM28.25,122.41667h169.5c5.198,0 9.41667,4.21867 9.41667,9.41667v37.66667c0,10.35833 -8.475,18.83333 -18.83333,18.83333h-150.66667c-10.35833,0 -18.83333,-8.475 -18.83333,-18.83333v-37.66667c0,-5.198 4.21867,-9.41667 9.41667,-9.41667z"></path></g></svg>
+			</div>
+			<div class="CatalogListButton" id="CatalogGrid_Small" style="display:none;">
+				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 172 172"><g><path fill="var(--ColorThemes3)" d="M21.5,21.5c-3.96317,0 -7.16667,3.2035 -7.16667,7.16667v50.16667h35.83333v-57.33333zM64.5,21.5v57.33333h43v-57.33333zM121.83333,21.5v57.33333h35.83333v-50.16667c0,-3.96317 -3.2035,-7.16667 -7.16667,-7.16667zM14.33333,93.16667v50.16667c0,3.96317 3.2035,7.16667 7.16667,7.16667h28.66667v-57.33333zM64.5,93.16667v57.33333h43v-57.33333zM121.83333,93.16667v57.33333h28.66667c3.96317,0 7.16667,-3.2035 7.16667,-7.16667v-50.16667z"></path></g></svg>
+			</div>
+			<div class="CatalogListButton" id="CatalogGrid" style="display:none;">
+				<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 226 226"><g><path fill="var(--ColorThemes3)" d="M47.08333,28.25c-10.38658,0 -18.83333,8.44675 -18.83333,18.83333v37.66667c0,10.38658 8.44675,18.83333 18.83333,18.83333h37.66667c10.38658,0 18.83333,-8.44675 18.83333,-18.83333v-37.66667c0,-10.38658 -8.44675,-18.83333 -18.83333,-18.83333zM141.25,28.25c-10.38658,0 -18.83333,8.44675 -18.83333,18.83333v37.66667c0,10.38658 8.44675,18.83333 18.83333,18.83333h37.66667c10.38658,0 18.83333,-8.44675 18.83333,-18.83333v-37.66667c0,-10.38658 -8.44675,-18.83333 -18.83333,-18.83333zM47.08333,122.41667c-10.38658,0 -18.83333,8.44675 -18.83333,18.83333v37.66667c0,10.38658 8.44675,18.83333 18.83333,18.83333h37.66667c10.38658,0 18.83333,-8.44675 18.83333,-18.83333v-37.66667c0,-10.38658 -8.44675,-18.83333 -18.83333,-18.83333zM141.25,122.41667c-10.38658,0 -18.83333,8.44675 -18.83333,18.83333v37.66667c0,10.38658 8.44675,18.83333 18.83333,18.83333h37.66667c10.38658,0 18.83333,-8.44675 18.83333,-18.83333v-37.66667c0,-10.38658 -8.44675,-18.83333 -18.83333,-18.83333z"></path></g></svg>
+			</div>
+
+			<div class="CatalogListButton" id="FilterOpen">
+				<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 24 24" id="filterColor1" style="fill: var(--ColorThemes3);" xml:space="preserve"><g><path xmlns="http://www.w3.org/2000/svg" d="m21 2h-18a1.0007 1.0007 0 0 0 -.8193 1.5732l6.8193 9.7422v7.6846a1.0015 1.0015 0 0 0 1.53.8481l4-2.5a1.0014 1.0014 0 0 0 .47-.8481v-5.1846l6.8193-9.7422a1.0007 1.0007 0 0 0 -.8193-1.5732z"></path></g></svg>
+			</div>
+			<div class="CatalogListButton" id="FilterClose" style="display:none;">
+				<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" x="0" y="0" viewBox="0 0 24 24" id="filterColor2" style="fill: var(--ColorThemes3);" xml:space="preserve"><g><path xmlns="http://www.w3.org/2000/svg" d="M9,21V13.3154L2.1807,3.5732A1.0006,1.0006,0,0,1,3,2H21a1.0006,1.0006,0,0,1,.8193,1.5732L15,13.3154V18.5a1.0013,1.0013,0,0,1-.47.8481l-4,2.5A1.001,1.001,0,0,1,9,21ZM4.9209,4l5.8984,8.4268A1.0022,1.0022,0,0,1,11,13v6.1958l2-1.25V13a1.0022,1.0022,0,0,1,.1807-.5732L19.0791,4Z"></path></g></svg>
+			</div>
+
+			<div class="CatalogListButton" id="getRandom">
+				<svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 256 256"><g transform="scale(5.33333,5.33333)"><path fill="var(--ColorThemes3)" d="M24,3.98828c-1.48532,0 -2.96964,0.3474 -4.32812,1.04297c-0.0013,0.00065 -0.0026,0.0013 -0.00391,0.00195l-11.68555,6.01562c-1.82836,0.94163 -2.98242,2.83325 -2.98242,4.89063v16.12109c0,2.05674 1.15275,3.94774 2.98242,4.88867l11.68555,6.01758c0.00065,0.00065 0.0013,0.0013 0.00195,0.00195c2.71697,1.39113 5.94123,1.39113 8.6582,0c0.0013,-0.00065 0.0026,-0.0013 0.00391,-0.00195l11.68555,-6.01758c1.82836,-0.94163 2.98047,-2.83193 2.98047,-4.88867v-16.12109c0,-2.05625 -1.15156,-3.94751 -2.98047,-4.88867h-0.00195l-11.68359,-6.01758c-0.00065,-0.00065 -0.0013,-0.0013 -0.00195,-0.00195c-1.35844,-0.69557 -2.84476,-1.04297 -4.33008,-1.04297zM24,6.98828c1.01568,0 2.03238,0.23841 2.96289,0.71484l11.67969,6.01367c0.00065,0.00065 0.0013,0.0013 0.00195,0.00195c0.83433,0.42906 1.35352,1.28145 1.35352,2.2207v16.12109c0,0.93926 -0.51983,1.79229 -1.35547,2.22266l-11.68164,6.01367c-1.85973,0.95221 -4.05972,0.95278 -5.91992,0.00195l-0.00391,-0.00195l-11.68164,-6.01367c0,-0.00065 0,-0.0013 0,-0.00195c-0.83438,-0.42907 -1.35547,-1.28145 -1.35547,-2.2207v-16.12109c0,-0.94063 0.51983,-1.79229 1.35547,-2.22266l11.68359,-6.01367c0.93051,-0.47644 1.94526,-0.71484 2.96094,-0.71484zM24,12c-1.38071,0 -2.5,0.67157 -2.5,1.5c0,0.82843 1.11929,1.5 2.5,1.5c1.38071,0 2.5,-0.67157 2.5,-1.5c0,-0.82843 -1.11929,-1.5 -2.5,-1.5zM11.4707,14.49023c-0.69247,0.00592 -1.29091,0.48506 -1.44815,1.15947c-0.15724,0.67441 0.16759,1.36881 0.78604,1.68037l8.83203,4.58984c0.90769,0.4714 1.87497,0.77151 2.85938,0.92969v14.65039c-0.00765,0.54095 0.27656,1.04412 0.74381,1.31683c0.46725,0.27271 1.04514,0.27271 1.51238,0c0.46725,-0.27271 0.75146,-0.77588 0.74381,-1.31683v-14.65039c0.98374,-0.15827 1.95031,-0.45859 2.85742,-0.92969c0.00065,0 0.0013,0 0.00195,0l8.83203,-4.58789c0.73566,-0.38185 1.02248,-1.28778 0.64063,-2.02344c-0.38185,-0.73566 -1.28778,-1.02248 -2.02344,-0.64062l-8.83398,4.58984c-0.91329,0.47396 -1.90927,0.71365 -2.90625,0.72461c-0.03055,-0.00224 -0.06117,-0.00354 -0.0918,-0.00391c-0.01695,0.00101 -0.03388,0.00232 -0.05078,0.00391c-0.99627,-0.01113 -1.9898,-0.25069 -2.90234,-0.72461l-8.83203,-4.58789c-0.22137,-0.11936 -0.4692,-0.18115 -0.7207,-0.17969zM11.5,20c-0.82843,0 -1.5,1.11929 -1.5,2.5c0,1.38071 0.67157,2.5 1.5,2.5c0.82843,0 1.5,-1.11929 1.5,-2.5c0,-1.38071 -0.67157,-2.5 -1.5,-2.5zM35.5,21c-0.82843,0 -1.5,1.11929 -1.5,2.5c0,1.38071 0.67157,2.5 1.5,2.5c0.82843,0 1.5,-1.11929 1.5,-2.5c0,-1.38071 -0.67157,-2.5 -1.5,-2.5zM15.5,26c-0.82843,0 -1.5,1.11929 -1.5,2.5c0,1.38071 0.67157,2.5 1.5,2.5c0.82843,0 1.5,-1.11929 1.5,-2.5c0,-1.38071 -0.67157,-2.5 -1.5,-2.5zM30.5,30c-0.82843,0 -1.5,1.11929 -1.5,2.5c0,1.38071 0.67157,2.5 1.5,2.5c0.82843,0 1.5,-1.11929 1.5,-2.5c0,-1.38071 -0.67157,-2.5 -1.5,-2.5zM19.5,32c-0.82843,0 -1.5,1.11929 -1.5,2.5c0,1.38071 0.67157,2.5 1.5,2.5c0.82843,0 1.5,-1.11929 1.5,-2.5c0,-1.38071 -0.67157,-2.5 -1.5,-2.5z"></path></g></svg>
+			</div>
+		</div>
+
+		<div id="LineGenerator" class="LineGenerator">
+			<!-- Карточки с контентом -->
+
+		</div>
+
+		<!-- Картинка в случае отсутствия ответа  -->
+		<div id="FilterNone" style="display:none;">
+			<img src="img/libriatyan/4.webp" style="width: 145px;">
+			<br /><br />
+			<p style="color: var(--ColorThemes3);">Ничего не найдено...</p>
+		</div>
+
+		<!-- Кнопка включения автодобавления тайтлов  -->
+		<div id="eventCatalogLoadApi"></div>
+
+		<div id="CatalogAnim" class="LoadAnim" style="top: 10px; position: relative; margin-left: auto; margin-right: auto; width: 45px; display: none;">
+			<svg style="width: 45px;" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" width="64px" height="64px" viewBox="0 0 128 128" xml:space="preserve"><g><path d="M64 9.75A54.25 54.25 0 0 0 9.75 64H0a64 64 0 0 1 128 0h-9.75A54.25 54.25 0 0 0 64 9.75z" fill="#d53c3c"></path><animateTransform attributeName="transform" type="rotate" from="0 64 64" to="360 64 64" dur="1400ms" repeatCount="indefinite"></animateTransform></g></svg>
+		</div>
+	</div>
+</div>

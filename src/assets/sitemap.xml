@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<url>
+  <loc>https://litelibria.com/</loc>
+  <lastmod>2022-04-13T12:43:00+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://litelibria.com/#/search</loc>
+  <lastmod>2022-04-13T12:43:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://litelibria.com/#/schedule</loc>
+  <lastmod>2022-04-13T12:43:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://litelibria.com/#/favorites</loc>
+  <lastmod>2022-04-13T12:43:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://litelibria.com/#/release</loc>
+  <lastmod>2022-04-13T12:43:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://litelibria.com/#/catalog</loc>
+  <lastmod>2022-04-13T12:43:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://litelibria.com/#/options</loc>
+  <lastmod>2022-04-13T12:43:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://litelibria.com/game.html</loc>
+  <lastmod>2022-04-13T12:43:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://litelibria.com/buildHistory.html</loc>
+  <lastmod>2022-04-13T12:43:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+</urlset>

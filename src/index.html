@@ -1,18 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-	<!-- Start Single Page Apps for GitHub Pages -->
-	<script>
-		(function(){
-			var redirect = sessionStorage.redirect;
-			delete sessionStorage.redirect;
-			if (redirect && redirect != location.href) {
-				history.replaceState(null, null, redirect);
-			}
-		})();
-	</script>
-	<!-- End Single Page Apps for GitHub Pages -->
-	
+<head>	
 	<meta charset="utf-8">
 	<meta content="Website" property="og:type">
 	<meta content="LiteLibria" property="og:title">
@@ -65,8 +53,6 @@
 	<link rel="stylesheet" type="text/css" href="/lib/pages/release/releasePage.css" />
 	<link rel="stylesheet" type="text/css" href="/lib/pages/search/searchPage.css" />
 	<link rel="stylesheet" type="text/css" href="/lib/pages/notes/notesPage.css" />
-
-
 	<link rel="stylesheet" type="text/css" href="/css/cards.css" />
 	<!--endbuild-->
 
@@ -76,7 +62,7 @@
 	<script src="/config.js" defer></script> <!-- Конфигурация приложения -->
 
 	<!--build:js build/main.min.js -->
-	<script src="/updateNotes.js" defer></script> <!-- Конфигурация приложения -->
+	<script src="/updateNotes.js" defer></script> <!-- Заметки к обновлениям -->
 	<script src="/lib/meetingTips.js" defer></script> <!-- Текст подсказок -->
 
 	<script src="/lib/router/router.js" defer></script> <!-- Скрипт Роутера -->

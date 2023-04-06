@@ -37,6 +37,11 @@ gulp.task('static_img', function() {
 		.pipe(gulp.dest('public/img'))
 })
 
+gulp.task('assets', function() {
+	return gulp.src('src/assets/**/*')
+		.pipe(gulp.dest('public'))
+})
+
 gulp.task('config', function() {
 	return gulp.src("src/config.js")
   .pipe(modifyFile((content, path, file) => {
@@ -143,11 +148,18 @@ gulp.task("archive", function(){
 
 gulp.task('build', function (callback) {
   runSequence(
-		'clean:archive',
 		'clean:public',
-		['static_img', 'config', 'updateNotes', 'images', 'assemble', 'filesToCache', 'manifest'], 
+		['static_img', 'config', 'updateNotes', 'images', 'assemble', 'filesToCache', 'manifest', 'assets'], 
 		'dom',
 		'sw',
+    callback
+  )
+})
+
+gulp.task('archivate', function (callback) {
+  runSequence(
+		'build',
+		'clean:archive',
 		'archive',
     callback
   )

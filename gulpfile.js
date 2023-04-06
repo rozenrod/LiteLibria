@@ -25,6 +25,9 @@ const CACHE_VERSION = CACHE_VERSION_MAJOR+'.'+CACHE_VERSION_MINOR+'.'+CACHE_VERS
 
 
 
+gulp.task('clean:archive', async function(){
+	return await del('archive/**/*');
+});
 gulp.task('clean:public', async function(){
 	return await del('public/**/*');
 });
@@ -140,8 +143,8 @@ gulp.task("archive", function(){
 
 gulp.task('build', function (callback) {
   runSequence(
-		
-		'clean:public', 
+		'clean:archive',
+		'clean:public',
 		['static_img', 'config', 'updateNotes', 'images', 'assemble', 'filesToCache', 'manifest'], 
 		'dom',
 		'sw',

@@ -174,6 +174,7 @@ const Search = {
 		Search.list = [];
 	},
 	getStorage: async function() {
+		if(!localStorage.getItem('search')) return {};
 		if(localStorage.getItem('search').length > 0){
 			Search.q = localStorage.getItem('search');
 			return await this.loadAPI({"q": localStorage.getItem('search')});

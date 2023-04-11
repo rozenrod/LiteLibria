@@ -1,3 +1,76 @@
+/* P2P */
+.text{
+	fill: var(--ColorThemes3);
+}
+.container{
+	width: 800px;
+}
+.container *, ::.container, ::.container {
+	box-sizing: border-box;
+}
+#graph {
+	overflow: hidden;
+	background: var(--ColorThemes2);
+	border-radius: 15px;
+	margin: 2em auto;
+}
+
+#chart_containerPad {
+	background: var(--ColorThemes2);
+	border-radius: 15px;
+	padding: 20px 10px;
+}
+#chart_container {
+	position: relative;
+	padding-left: 20px;
+	width: 100%;
+}
+#chart svg{
+	max-height: 250px;
+	width: calc(100% - 20px);
+}
+#y_axis {
+	position: absolute;
+	top: 0;
+	width: 40px;
+	left: -20px;
+	fill: var(--ColorThemes3);
+}
+#y_axis > svg {
+	overflow: visible;
+}
+#legend {
+	position: absolute;
+	top: 20px;
+	left: 40px;
+	z-index: 1;
+	color: var(--ColorThemes1);
+	background: var(--ColorThemes3);
+	border-radius: 10px;
+}
+#legend-totals {
+	position: absolute;
+	bottom: 20px;
+	left: 40px;
+	z-index: 1;
+	color: var(--ColorThemes1);
+	background: var(--ColorThemes3);
+	border-radius: 10px;
+}
+#main-view .hide {
+	display: none;
+}
+@media (max-width: 800px){
+	#chart_containerPad {
+		background: var(--ColorThemes1);
+	}
+	#graph {
+		background: var(--ColorThemes1);
+	}
+}
+
+
+
 /* Стили для страницы Relise */
 .ReleaseBlock {
 	max-width: 1500px;

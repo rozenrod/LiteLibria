@@ -12,6 +12,18 @@
 	</script>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 
+	<!-- Start Single Page Apps for GitHub Pages -->
+	<script>
+		(function(){
+			var redirect = sessionStorage.redirect;
+			delete sessionStorage.redirect;
+			if (redirect && redirect != location.href) {
+				history.replaceState(null, null, redirect);
+			}
+		})();
+	</script>
+	<!-- End Single Page Apps for GitHub Pages -->
+
 	<meta charset="utf-8">
 	<meta content="Website" property="og:type">
 	<meta content="LiteLibria" property="og:title">
@@ -35,6 +47,9 @@
 
 	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
 
+	<meta name="theme-color" content="#fbfbfb" media="(prefers-color-scheme: light)"> 
+	<meta name="theme-color" content="#1c1c19" media="(prefers-color-scheme: dark)">
+
 	<link rel="manifest" href="/manifest.json">
 
 
@@ -53,7 +68,6 @@
 
 
 	<!--build:css build/styles.min.css-->
-
 	<link rel="stylesheet" type="text/css" href="/css/style.css" />
 	<link rel="stylesheet" type="text/css" href="/lib/pages/home/homePage.css" />
 	<link rel="stylesheet" type="text/css" href="/lib/pages/catalog/catalogPage.css" />
@@ -67,12 +81,25 @@
 	<link rel="stylesheet" type="text/css" href="/css/cards.css" />
 	<!--endbuild-->
 
+	<link rel="stylesheet" type="text/css" href="/p2p/rickshaw.min.css"> <!-- P2P -->
+
 	<!-- Конфигурация SW -->
 	<script src="sw.js" ></script>
 
 	<script src="/config.js" defer></script> <!-- Конфигурация приложения -->
 
+	
+	<script src="/p2p/Scripts-p2p.js"></script> <!-- P2P -->
+	<script src="/p2p/p2p-media-loader-core.min.js"></script> <!-- P2P -->
+	<script src="/p2p/p2p-media-loader-hlsjs.min.js"></script> <!-- P2P -->
+	<script src="/p2p/p2p-graph.js"></script> <!-- P2P -->
+	<script src="/p2p/d3.min.js"></script> <!-- P2P -->
+	<script src="/p2p/rickshaw.min.js"></script> <!-- P2P -->
+	
+
 	<!--build:js build/main.min.js -->
+
+	<script src="/lib/components/constants.js" defer></script> <!-- Загрузка компонентов -->
 	<script src="/lib/updateNotes.js" defer></script> <!-- Заметки к обновлениям -->
 	<script src="/lib/meetingTips.js" defer></script> <!-- Текст подсказок -->
 
@@ -86,7 +113,6 @@
 	<script src="/lib/player/hls.min.js" defer></script> <!-- HLS для плеера -->
 	<script src="/lib/player/playerjs.js" defer></script> <!-- Плеер -->
 
-	<script src="/lib/components/constants.js"></script> <!-- Загрузка компонентов -->
 	<script src="/lib/components/preloaderHide.js" defer></script> <!-- Загрузка компонентов -->
 	<script src="/lib/components/swipeUpdater.js" defer></script> <!-- Загрузка компонентов -->
 	<script src="/lib/components/detectOS.js" defer></script> <!-- Загрузка компонентов -->
@@ -120,11 +146,6 @@
 </head>
 <body version="Tyufon-2.0.0">
 
-	<meta name="theme-color" content="#fbfbfb" media="(prefers-color-scheme: light)"> 
-	<meta name="theme-color" content="#1c1c19" media="(prefers-color-scheme: dark)">
-
-
-
 	<!-- Анимация загрузки страници -->
 	<div id="preloader" data-nosnippet>
 		<div id="preloader_preload"></div>
@@ -133,7 +154,7 @@
 			<br>
 			<span id="preloader_text"></span>
 		</p>
-  </div>
+  	</div>
 
 
 

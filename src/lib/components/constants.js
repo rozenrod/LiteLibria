@@ -4,6 +4,11 @@ let styleDebug = false;
 let pageAPP;
 let StatusEpisode = [];
 
+// P2P
+let myLogin = localStorage.getItem('myLogin');
+let p2pMode = localStorage.getItem('p2pMode') || false;
+
+
 // Переменные для WebPush
 let isSubscribed = false;
 let swRegistration = null;

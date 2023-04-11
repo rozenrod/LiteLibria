@@ -1,6 +1,19 @@
 updateNotes = [
   {
     "prefix":"Kaamira",
+    "version":"2.0.1",
+    "date":"11 April 2023",
+    "update":[
+      {
+				"type":"ADDED",
+        "text":"Добавлена опция включения P2P.",
+			},{
+				"type":"FIXED",
+        "text":"Исправлены мелкие ошибки.",
+			}
+    ]
+  },{
+    "prefix":"Kaamira",
     "version":"2.0.0",
     "date":"6 April 2023",
     "update":[

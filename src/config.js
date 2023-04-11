@@ -1,7 +1,7 @@
 let config = {
 	"g_APIKey": "AIzaSyDnCKI8zpxJ5Iwpa7xpXx1jkKZY0Gr9yqo",
 	"g_clientId": "116898535578-na8fsq2p1igt77ve615sa444ur2l1bvv.apps.googleusercontent.com",
-	"domains": "firebase.litelibria.com",
+	"domains": "litelibria.com",
 	"CustomPosters": "https://api.7u7.uk/anilibria_bot/getThumbnail/",
 	"webpPreview": "https://api.litelibria.com/preview/",
 	"webpPosters": "https://api.litelibria.com/posters/",

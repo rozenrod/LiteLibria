@@ -11,8 +11,8 @@ const del = require('del');
 const runSequence = require('gulp4-run-sequence');
 const jsonEditor = require('gulp-json-editor');
 const dom = require('gulp-dom');
-const modifyFile = require('gulp-modify-file')
-const zip = require('gulp-zip')
+const modifyFile = require('gulp-modify-file');
+const zip = require('gulp-zip');
 
 
 // Condig
@@ -20,7 +20,7 @@ const CACHE_PREFIX = 'Kaamira';
 const CACHE_VERSION_MAJOR = 2;
 const CACHE_VERSION_MINOR = 0;
 // const CACHE_VERSION_PATCH = Date.now();
-const CACHE_VERSION_PATCH = 0;
+const CACHE_VERSION_PATCH = 1;
 const CACHE_VERSION = CACHE_VERSION_MAJOR+'.'+CACHE_VERSION_MINOR+'.'+CACHE_VERSION_PATCH;
 
 
@@ -40,6 +40,11 @@ gulp.task('static_img', function() {
 gulp.task('assets', function() {
 	return gulp.src('src/assets/**/*')
 		.pipe(gulp.dest('public'))
+})
+
+gulp.task('p2p', function() {
+	return gulp.src('src/p2p/**/*')
+		.pipe(gulp.dest('public/p2p'))
 })
 
 gulp.task('config', function() {
@@ -144,7 +149,7 @@ gulp.task("archive", function(){
 gulp.task('build', function (callback) {
   runSequence(
 		'clean:public',
-		['static_img', 'config', 'images', 'assemble', 'filesToCache', 'manifest', 'assets'], 
+		['static_img', 'config', 'images', 'assemble', 'filesToCache', 'manifest', 'assets', 'p2p'], 
 		'dom',
 		'sw',
     callback

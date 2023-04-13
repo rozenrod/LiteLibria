@@ -122,26 +122,26 @@
 }
 @media (max-width: 1000px){
 	.LineList-Announce {
-    height: auto;
-    margin: 10px 0;
-    background: var(--ColorThemes1);
+		height: auto;
+		margin: 10px 0;
+		background: var(--ColorThemes1);
 	}
 	.LineGenerator-AnnounceSlider{
-		height: 125px;
+		min-height: 125px;
 		overflow: auto;
 	}
 	.LineGenerator-Announce {
-    height: 122px !important;
-    position: relative;
-    flex-direction: row;
-    margin-bottom: 0;
-    white-space: nowrap;
-    align-items: start;
-    display: flex;
-    padding-bottom: 5px;
-    overflow-x: scroll;
-    -ms-scroll-snap-type: x mandatory;
-    scroll-snap-type: x mandatory;
+		min-height: 122px !important;
+		position: relative;
+		flex-direction: row;
+		margin-bottom: 0;
+		white-space: nowrap;
+		align-items: start;
+		display: flex;
+		padding-bottom: 5px;
+		overflow-x: scroll;
+		-ms-scroll-snap-type: x mandatory;
+		scroll-snap-type: x mandatory;
 	}
 }
 
@@ -290,21 +290,21 @@
 		background: var(--ColorThemes1);
 	}
 	.LineGenerator-HistorySlider{
-		height: 135px;
+		min-height: 135px;
 		overflow: auto;
 	}
 	.LineGenerator-History{
-    height: 122px !important;
-    position: relative;
-    flex-direction: row;
-    margin-bottom: 0;
-    white-space: nowrap;
-    align-items: start;
-    display: flex;
-    padding-bottom: 5px;
-    overflow-x: scroll;
-    -ms-scroll-snap-type: x mandatory;
-    scroll-snap-type: x mandatory;
+		min-height: 122px !important;
+		position: relative;
+		flex-direction: row;
+		margin-bottom: 0;
+		white-space: nowrap;
+		align-items: start;
+		display: flex;
+		padding-bottom: 5px;
+		overflow-x: scroll;
+		-ms-scroll-snap-type: x mandatory;
+		scroll-snap-type: x mandatory;
 	}
 }
 

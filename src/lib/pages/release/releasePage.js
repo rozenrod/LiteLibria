@@ -7,7 +7,6 @@ const Release = {
 
 		await this.setHTML(id);
 
-		document.title = 'Расписание — LiteLibria';
 		preloaderHide();
 
 		return this;

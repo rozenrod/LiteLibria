@@ -29,7 +29,7 @@ LiteLibria - PWA приложение разработанное на основ
 `gulp build`
 
 ### Сборка приложения и сжатие в архив
-`gulp build`
+`gulp archivate`
 
 ### Команды для загрузки на firebase
 

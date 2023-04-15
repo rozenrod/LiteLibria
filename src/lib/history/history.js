@@ -31,13 +31,13 @@ function historyLoad(){
 
 // Функция добавления или изменения нового объекта в истории
 function historySave(id, serie, time1, time2, date, name, serieLength){
-	var history = [];
+	let history = [];
 	if(localStorage.getItem("history")){
 		history = JSON.parse(localStorage.getItem("history"))
 	}
 
 	// Проверка совпадения.
-	var result = history.some(element => {
+	let result = history.some(element => {
 		if(element.id == id && element.serie == serie){
 			return element;
 		}
@@ -64,11 +64,11 @@ function historySave(id, serie, time1, time2, date, name, serieLength){
 
 // Функция удаления релиза из истории
 function historyDell(titel, serie = null){
-	var history = [];
+	let history = [];
 	if(localStorage.getItem("history")){
 		history = JSON.parse(localStorage.getItem("history"))
 		if(serie != null){
-			var FilterTitel = history.filter(function(items) {
+			let FilterTitel = history.filter(function(items) {
 				return items.id == titel && items.serie == serie;
 			});
 			if(history.indexOf(FilterTitel[0]) > -1){
@@ -76,7 +76,7 @@ function historyDell(titel, serie = null){
 			}
 		} else {
 			for (let i = 0; i < history.length; i++) {
-				var FilterTitel = history.filter(function(items) {
+				let FilterTitel = history.filter(function(items) {
 					return items.id == titel;
 				});
 
@@ -87,7 +87,7 @@ function historyDell(titel, serie = null){
 		}
 		localStorage.setItem('history', JSON.stringify(history));
 
-		var idItem = 'pljsplayfrom_' + config['domains'] + titel;
+		let idItem = 'pljsplayfrom_' + config['domains'] + titel;
 		localStorage.removeItem(idItem);
 		historyConvert();
 	}
@@ -96,7 +96,7 @@ function historyDell(titel, serie = null){
 
 // Функция получения отсортированной истории Приложения
 function historyGet(sort = null, titel = null, serie = null){
-	var history = [];
+	let history = [];
 	if(localStorage.getItem("history")){
 		history = JSON.parse(localStorage.getItem("history"))
 		
@@ -110,7 +110,7 @@ function historyGet(sort = null, titel = null, serie = null){
 				return 0;
 			});
 		} else if(sort == 'titel' && titel != null && serie != null) {
-			var FilterTitel = history.filter(function(items) {
+			let FilterTitel = history.filter(function(items) {
 				return items.id == titel && items.serie == serie;
 			});
 			if(FilterTitel.length > 0) {
@@ -141,25 +141,72 @@ function historyGet(sort = null, titel = null, serie = null){
 
 // Функция конвертации истории Приложения в историю PlayerJS
 function historyConvert(titel = null, serie = null){
-	var history = historyGet();
+	let history = historyGet();
 	if(history){
 		// Если нет запроса релиза, то сохраняем в хранилище все последние просмотры из истории Приложения в формате PlayerJS
 		if(titel == null || serie == null){
-			var UniqueTitle = getUniqueElems(history);
+			let UniqueTitle = getUniqueElems(history);
 			for (let i = 0; i < UniqueTitle.length; i++) {
-				var idItem = 'pljsplayfrom_' + config['domains'] + UniqueTitle[i].id;
-				var stringItem = "{x-"+ (UniqueTitle[i].serie-1) +"-"+ UniqueTitle[i].id +"s"+ UniqueTitle[i].serie +"}"+ UniqueTitle[i].time[0] +"--"+ UniqueTitle[i].time[1] +"--"+ UniqueTitle[i].date;
+				let idItem = 'pljsplayfrom_' + config['domains'] + UniqueTitle[i].id;
+				let stringItem = "{x-"+ (UniqueTitle[i].serie-1) +"-"+ UniqueTitle[i].id +"s"+ UniqueTitle[i].serie +"}"+ UniqueTitle[i].time[0] +"--"+ UniqueTitle[i].time[1] +"--"+ UniqueTitle[i].date;
 				localStorage.setItem(idItem, stringItem)
 			}
 		} else {
-			var FilterTitel = history.filter(function(items) {
+			let FilterTitel = history.filter(function(items) {
 				return items.id == titel && items.serie == serie;
 			});
 
-			var idItem = 'pljsplayfrom_' + config['domains'] + FilterTitel[0].id;
-			var stringItem = "{x-"+ (FilterTitel[0].serie-1) +"-"+ FilterTitel[0].id +"s"+ FilterTitel[0].serie +"}"+ FilterTitel[0].time[0] +"--"+ FilterTitel[0].time[1] +"--"+ FilterTitel[0].date;
+			let idItem = 'pljsplayfrom_' + config['domains'] + FilterTitel[0].id;
+			let stringItem = "{x-"+ (FilterTitel[0].serie-1) +"-"+ FilterTitel[0].id +"s"+ FilterTitel[0].serie +"}"+ FilterTitel[0].time[0] +"--"+ FilterTitel[0].time[1] +"--"+ FilterTitel[0].date;
 			localStorage.setItem(idItem, stringItem)
 		}
+	}
+}
+
+// Функция обьединения истории Google и истории приложения.
+async function historySync(remoteConfig, configFileId){
+	let cash = [];
+	let newHistory = [];
+
+	let history = historyGet();
+
+	if(history.length > 0){
+
+		if(history.length > remoteConfig.length) {
+			cash = history.concat(remoteConfig);
+
+			for (let q = 0; q < history.length; q++) {
+				let result = cash.filter(items => {
+					return items.id == history[q].id && items.serie == history[q].serie;
+				});
+				let result2 = result.reduce((acc, curr) => acc.date > curr.date ? acc : curr);
+				newHistory.push(result2)
+			}
+			localStorage.setItem('history', JSON.stringify(newHistory));
+	
+			await upload(configFileId, newHistory);
+
+			historyConvert();
+		} else {
+			cash = remoteConfig.concat(history);
+
+			for (let q = 0; q < remoteConfig.length; q++) {
+				let result = cash.filter(items => {
+					return items.id == remoteConfig[q].id && items.serie == remoteConfig[q].serie;
+				});
+				let result2 = result.reduce((acc, curr) => acc.date > curr.date ? acc : curr);
+				newHistory.push(result2)
+			}
+			localStorage.setItem('history', JSON.stringify(newHistory));
+	
+			await upload(configFileId, newHistory);
+
+			historyConvert();
+		}
+
+	} else {
+		localStorage.setItem('history', JSON.stringify(remoteConfig));
+		historyConvert();
 	}
 }
 
@@ -168,13 +215,13 @@ function historyConvert(titel = null, serie = null){
 
 // Вспомогательная функция разбора строки истории PlayerJS 
 function ParsePlayerStorage(x, comand) {
-	var	v = '';
-	var x_seria_bit = '';
-	var x_id = '';
-	var x_seria = '';
-	var x_time = 0;
-	var x_time_old = 0;
-	var x_date = 0;
+	let	v = '';
+	let x_seria_bit = '';
+	let x_id = '';
+	let x_seria = '';
+	let x_time = 0;
+	let x_time_old = 0;
+	let x_date = 0;
 
 	if (x.indexOf("{") == 0) {
 		v = x.substr(1, x.indexOf("}") - 1)
@@ -182,8 +229,8 @@ function ParsePlayerStorage(x, comand) {
 	}
 	if (v) {
 		if (v.indexOf("-") > 0) {
-			var q = v.split("-");
-			var qs = v.split("s");
+			let q = v.split("-");
+			let qs = v.split("s");
 			x_seria_bit = parseFloat(q[1]);
 			x_id = parseFloat(q[2]);
 			x_seria = parseFloat(qs[1]);
@@ -191,7 +238,7 @@ function ParsePlayerStorage(x, comand) {
 	}
 	if (x) {
 		if (x.indexOf("--") > 0) {
-				var y = x.split("--");
+				let y = x.split("--");
 				x_time = parseFloat(y[0]);
 				x_time_old = parseFloat(y[1]);
 				x_date = parseFloat(y[2]);
@@ -222,12 +269,12 @@ function ParsePlayerStorage(x, comand) {
 
 // Вспомогательная функция вывода последнего просмотра по времени 
 function getUniqueElems(A){   
-	var n;
-	var B = [];
+	let n;
+	let B = [];
 	if(A != null){
 		n = A.length
 	}
-	for (var i = 1, j = 0, t; i < n+1; i++){ 
+	for (let i = 1, j = 0, t; i < n+1; i++){ 
 		if(i != n){
 			if (A[i-1].id == A[i].id){
 				t = A[i-1];

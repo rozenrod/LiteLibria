@@ -1,9 +1,11 @@
-var SYNC_PERIOD = 1000 * 60 * 2     // 2 минуты
+// var SYNC_PERIOD = 1000 * 60 * 2     // 2 минуты
 
-var apiKey = config["g_apiKey"];
-var clientId = config["g_clientId"];
-var discoveryDocs = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
-var scopes = 'https://www.googleapis.com/auth/drive.appdata';
+var SYNC_PERIOD = 1000 * 30     // 30 секунд
+
+var API_KEY = config["g_apiKey"];
+var CLIENT_ID = config["g_clientId"];
+var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/drive/v3/rest"];
+var SCOPES = 'https://www.googleapis.com/auth/drive.appdata';
 
 var DEFAULT_CONFIG = []
 let configSyncTimeoutId
@@ -16,31 +18,52 @@ let googleLogIn = false;
 function gapiLoaded() {
 	gapi.load('client', intializeGapiClient);
 }
+
 async function intializeGapiClient() {
 	await gapi.client.init({
-		apiKey: apiKey,
-		discoveryDocs: discoveryDocs,
+		'apiKey': API_KEY,
+		'clientId': CLIENT_ID,
+		'discoveryDocs': DISCOVERY_DOCS,
+		'scope': SCOPES
+	}).then(function () {
+		GoogleAuth = gapi.auth2.getAuthInstance();
+		var user = GoogleAuth.currentUser.get();
+      	var isAuthorized = user.hasGrantedScopes(SCOPES);
+
+		if(isAuthorized){
+			gapiInited = true;
+			initHistory();
+		}
+		googleLogIn = isAuthorized;
+		checkLogIn();
 	});
 	gapiInited = true;
 }
+// async function intializeGapiClient() {
+// 	await gapi.client.init({
+// 		apiKey : API_KEY ,
+// 		discoveryDocs: DISCOVERY_DOCS,
+// 	});
+// 	gapiInited = true;
+// }
+
 function gisLoaded() {
 	tokenClient = google.accounts.oauth2.initTokenClient({
-		client_id: clientId,
-		scope: scopes,
-		callback: '', // defined later
+		client_id: CLIENT_ID,
+		scope: SCOPES,
+		callback: '',
 	});
 	gisInited = true;
 }
 
-function logIn() {
+function handleAuthClick() {
 	tokenClient.callback = async (resp) => {
 		if (resp.error !== undefined) {
 			throw (resp);
 		}
-		document.getElementById('signout-button').style.display = '';
-		document.getElementById('authorize-button').style.display = 'none';
 		initHistory();
 		googleLogIn = true;
+		checkLogIn();
 	};
 	if (gapi.client.getToken() === null) {
 		// tokenClient.requestAccessToken({prompt: 'consent'});
@@ -49,13 +72,13 @@ function logIn() {
 		tokenClient.requestAccessToken({prompt: ''});
 	}
 }
-function logOut() {
+function handleSignoutClick() {
 	const token = gapi.client.getToken();
 	if (token !== null) {
 		google.accounts.oauth2.revoke(token.access_token);
 		gapi.client.setToken('');
-		document.getElementById('signout-button').style.display = 'none';
-		document.getElementById('authorize-button').style.display = '';
+		googleLogIn = false;
+		checkLogIn();
 	}
 }
 
@@ -117,7 +140,7 @@ async function upload(fileId, content) {
 		path: `/upload/drive/v3/files/${fileId}`,
 		method: 'PATCH',
 		params: {uploadType: 'media'},
-		body: typeof content === 'string' ? content : JSON.stringify(content)
+		body: JSON.stringify(content)
 	})
 }
 
@@ -147,57 +170,16 @@ async function saveConfig(newConfig) {
 async function syncConfig() {
 	const configFileId = await getConfigFileId()
 	try {
-		var remoteConfig = await download(configFileId)
-		if (!remoteConfig || typeof remoteConfig !== 'object' || remoteConfig.length == 0 || remoteConfig == JSON.stringify('')) {
-			upload(configFileId, getConfig())
-		} else {
-			localStorage.setItem('history', JSON.stringify(remoteConfig))
-			historyConvert();
-		}
-	} catch(e) {
-		if (e.status === 404) {
-			localStorage.removeItem('configFileId')
-			syncConfig()
-		} else {
-			throw e
-		}
-	}
-}
-async function questionConfig() {
-	const configFileId = await getConfigFileId()
-	try {
-		var remoteConfig = await download(configFileId)
-		if (!remoteConfig || typeof remoteConfig !== 'object' || remoteConfig.length == 0 || remoteConfig == JSON.stringify('')) {
-			upload(configFileId, getConfig())
-		} else {
-			document.getElementById('history_mess').setAttribute("style", "display:block;");
-		}
-	} catch(e) {
-		if (e.status === 404) {
-			localStorage.removeItem('configFileId')
-			syncConfig()
-		} else {
-			throw e
-		}
-	}
-}
-async function questionConfigUpload(n){
-	document.getElementById('history_mess').setAttribute("style", "display:none;");
-	const configFileId = await getConfigFileId()
-	try {
-		var remoteConfig = await download(configFileId)
-		if(n == true){
-			
-			localStorage.setItem('history', JSON.stringify(remoteConfig))
-			historyConvert();
-			History.list = [];
-			setTimeout(async function (){
-				document.getElementById('HistoryGenerator').innerHTML = ``;
-				await History.getHistory();
-				await History.setHTML();
-			}, 800)
-		} else {
-			upload(configFileId, getConfig())
+		var remoteConfig = await download(configFileId);
+		
+		if(styleDebug) console.log("Google history", remoteConfig);
+
+		historySync(remoteConfig, configFileId);
+		History.list = [];
+		if(document.getElementById('HistoryGenerator')){
+			document.getElementById('HistoryGenerator').innerHTML = ``;
+			await History.getHistory();
+			await History.setHTML();
 		}
 	} catch(e) {
 		if (e.status === 404) {
@@ -222,7 +204,22 @@ function scheduleConfigSync(delay) {
 
 function initHistory(){
 	if (gapiInited && gisInited) {
-		questionConfig()
-    scheduleConfigSync()
-  }
+		syncConfig()
+		scheduleConfigSync()
+	}
+}
+
+function checkLogIn(){
+	if(document.getElementById("signinButton")) {
+		let signinButton = document.getElementById("signinButton");
+		let signoutButton = document.getElementById("signoutButton");
+
+		if(googleLogIn) {
+			signinButton.style.display = 'none';
+			signoutButton.style.display = '';
+		} else {
+			signinButton.style.display = '';
+			signoutButton.style.display = 'none';
+		}
+	}
 }

@@ -78,6 +78,8 @@ window.addEventListener('load', async function () {
 	Favorites.loadAPI();
 	Option.account.loadAPI();
 	Search.getStorage();
+
+	// if(localStorage.getItem('G_SyncMode') == 'true') handleAuthClick();
 });
 
 

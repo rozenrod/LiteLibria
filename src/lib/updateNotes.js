@@ -1,6 +1,35 @@
 updateNotes = [
   {
     "prefix":"Kaamira",
+    "version":"2.0.4",
+    "date":"15 April 2023",
+    "update":[
+      {
+				"type":"REFACTORING",
+        "text":"Переработан принцип синхронизации истории Google Drive.",
+			},{
+				"type":"REFACTORING",
+        "text":"Переработан блок `Связанные релизы`.",
+			},{
+				"type":"FIXED",
+        "text":"Исправлены мелкие ошибки.",
+			}
+    ]
+  },{
+    "prefix":"Kaamira",
+    "version":"2.0.3",
+    "date":"14 April 2023",
+    "update":[
+      {
+				"type":"REFACTORING",
+        "text":"Переработан принцип синхронизации истории Google Drive.",
+			},{
+				"type":"FIXED",
+        "text":"Исправлены мелкие ошибки.",
+			}
+    ]
+  },{
+    "prefix":"Kaamira",
     "version":"2.0.2",
     "date":"13 April 2023",
     "update":[

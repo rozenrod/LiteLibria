@@ -1,6 +1,4 @@
-// var SYNC_PERIOD = 1000 * 60 * 2     // 2 минуты
-
-var SYNC_PERIOD = 1000 * 30     // 30 секунд
+var SYNC_PERIOD = 1000 * 60 * 2     // 2 минуты
 
 var API_KEY = config["g_apiKey"];
 var CLIENT_ID = config["g_clientId"];

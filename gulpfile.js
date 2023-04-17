@@ -15,12 +15,15 @@ const modifyFile = require('gulp-modify-file');
 const zip = require('gulp-zip');
 
 
+var cheerio = require('gulp-cheerio');
+
+
 // Condig
 const CACHE_PREFIX = 'Kaamira';
 const CACHE_VERSION_MAJOR = 2;
 const CACHE_VERSION_MINOR = 0;
 // const CACHE_VERSION_PATCH = Date.now();
-const CACHE_VERSION_PATCH = 4;
+const CACHE_VERSION_PATCH = 5;
 const CACHE_VERSION = CACHE_VERSION_MAJOR+'.'+CACHE_VERSION_MINOR+'.'+CACHE_VERSION_PATCH;
 
 
@@ -45,6 +48,11 @@ gulp.task('assets', function() {
 gulp.task('p2p', function() {
 	return gulp.src('src/p2p/**/*')
 		.pipe(gulp.dest('public/p2p'))
+})
+
+gulp.task('gHistory', function() {
+	return gulp.src('src/gHistory/**/*')
+		.pipe(gulp.dest('public/gHistory'))
 })
 
 gulp.task('config', function() {
@@ -91,8 +99,8 @@ gulp.task('dom', function() {
 				element.setAttribute('href', HREF.replace('build/', `/build-${CACHE_VERSION}/`));
 			}
 
-			for (let i = 0; i < this.querySelectorAll('script').length; i++) {
-				element = this.querySelectorAll('script')[i]
+			for (let i = 0; i < this.querySelectorAll('script[src]').length; i++) {
+				element = this.querySelectorAll('script[src]')[i]
 				SRC = element.src;
 				if(SRC == 'build/main.min.js') element.setAttribute('defer', '');
 				element.setAttribute('src', SRC.replace('build/', `/build-${CACHE_VERSION}/`));
@@ -149,7 +157,7 @@ gulp.task("archive", function(){
 gulp.task('build', function (callback) {
   runSequence(
 		'clean:public',
-		['static_img', 'config', 'images', 'assemble', 'filesToCache', 'manifest', 'assets', 'p2p'], 
+		['static_img', 'config', 'images', 'assemble', 'filesToCache', 'manifest', 'assets', 'p2p', 'gHistory'], 
 		'dom',
 		'sw',
     callback

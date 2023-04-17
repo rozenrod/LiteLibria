@@ -242,8 +242,8 @@
 }
 @media (max-width: 1000px){
 	.LineList-Notes{
-		box-shadow: var(--shadow-l1);
-		width: calc(100% - 40px);
+		padding: 0;
+    	background: var(--ColorThemes1);
 	}
 }
 @media (prefers-color-scheme: dark) {

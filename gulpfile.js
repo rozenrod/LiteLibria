@@ -150,7 +150,7 @@ gulp.task("sw", function(){
 
 gulp.task("archive", function(){
   return gulp.src('public/**/*')
-		.pipe(zip(`archive-${Date.now()}.zip`))
+		.pipe(zip(`archive-${CACHE_VERSION}.zip`))
 		.pipe(gulp.dest('archive'))
 });
 

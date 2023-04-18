@@ -15,12 +15,12 @@ jobs:
         run: |
           echo "done!"
 
-      - uses: actions/checkout@v3
+      - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: latest
+          automatic_release_tag: "latest"
           prerelease: true
           title: "Development Build"
           files: |
-            README.md
-            archive/archive-2.0.5.zip
+            LICENSE.txt
+            *.jar

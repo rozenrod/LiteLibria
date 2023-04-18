@@ -1,8 +1,11 @@
 #
 #
 
-name: "Release"
-'on': pull_request
+name: pre-release
+'on':
+  push:
+    branches:
+      - main
 
 jobs:
   Release:
@@ -10,10 +13,8 @@ jobs:
     runs-on: "ubuntu-latest"
 
     steps:
-      # ...
       - name: "Build"
-        run: |
-          echo "done!"
+        run: npm ci && npm run build
 
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:

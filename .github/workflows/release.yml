@@ -2,8 +2,10 @@
 #
 
 name: Publish Release
-
-'on': pull_request
+'on':
+  push:
+    branches:
+      - main
 
 jobs:
   run:
@@ -19,7 +21,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{github.ref}}
-        body: "Development Build"
+        body: "Release Build"
         files: archive/*.zip
 
     - name: Remove old Releases

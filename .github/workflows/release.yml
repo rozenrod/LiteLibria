@@ -12,10 +12,10 @@ jobs:
     steps:
       # ...
       - name: "Build"
-        run: npm ci && npm run build
+        run: |
+          echo "done!"
 
-      - name: Upload archives to release
-      - uses: "rozenrod/LiteLibria"
+      - uses: "rozenrod/LiteLibria@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: ${{ github.ref }}

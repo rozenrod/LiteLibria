@@ -3,7 +3,10 @@
 
 name: "Release"
 
-'on': pull_request
+on:
+  push:
+    branches:
+      - "master"
 
 jobs:
   Release:
@@ -20,4 +23,5 @@ jobs:
           prerelease: true
           title: "Development Build"
           files: |
+            LICENSE.txt
             *.zip

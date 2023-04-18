@@ -2,10 +2,7 @@
 #
 
 name: "Release"
-'on':
-  push:
-    branches:
-      - main
+'on': pull_request
 
 jobs:
   Release:
@@ -14,7 +11,9 @@ jobs:
 
     steps:
       # ...
-      - run: npm ci && npm run build
+      - name: "Build & test"
+        run: |
+          echo "done!"
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"

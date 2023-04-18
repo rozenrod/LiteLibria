@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - name: Build Releases
     - run: npm ci && npm run build
-    
+
     - name: Upload to Releases
       uses: softprops/action-gh-release@v1
       env:
@@ -20,7 +20,7 @@ jobs:
       with:
         tag_name: "latest"
         body: "Development Build"
-        files: archive/*.mmdb
+        files: archive/*.zip
 
     - name: Remove old Releases
       uses: dev-drprasad/delete-older-releases@v0.2.0

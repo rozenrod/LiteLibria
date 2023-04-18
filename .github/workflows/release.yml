@@ -11,7 +11,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-      run: npm ci && npm run build
+    - run: npm ci && npm run build
+    
     - name: Upload to Releases
       uses: softprops/action-gh-release@v1
       env:

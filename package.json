@@ -4,7 +4,8 @@
   "description": "LiteLibria - PWA приложение разработанное на основе официального ApiV3 сайта AniLibria.tv",
   "main": "app.js",
   "scripts": {
-    "build": "gulp build"
+    "build": "gulp build",
+    "archivate": "gulp archivate"
   },
   "author": "Rozenrod",
   "license": "MIT",

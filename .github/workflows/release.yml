@@ -6,19 +6,20 @@ name: "Release"
 
 jobs:
   Release:
-    name: Publish archive
-    runs-on: ubuntu-latest
+    name: "Release"
+    runs-on: "ubuntu-latest"
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Build
-      run: npm ci && npm run build
-    - name: Upload archives to release
-      uses: svenstaro/upload-release-action@v2
-      with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: archive/*
-        asset_name: mything
-        tag: ${{ github.ref }}
-        overwrite: true
-        body: "This is my release text"
+      # ...
+      - name: "Build & test"
+        run: |
+          echo "done!"
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: ${{ github.ref }}
+          prerelease: true
+          title: "Development Build"
+          files: |
+            README.md
+            archive/archive-2.0.5.zip

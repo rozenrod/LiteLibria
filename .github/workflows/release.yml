@@ -11,10 +11,11 @@ jobs:
 
     steps:
       # ...
-      - name: "Build & test"
-        run: |
-          echo "done!"
-      - uses: "marvinpinto/action-automatic-releases@latest"
+      - name: "Build"
+        run: npm ci && npm run build
+
+      - name: Upload archives to release
+      - uses: "./archive/"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: ${{ github.ref }}
@@ -22,4 +23,4 @@ jobs:
           title: "Development Build"
           files: |
             README.md
-            archive/archive-2.0.5.zip
+            archive/*.zip

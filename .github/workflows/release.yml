@@ -15,7 +15,7 @@ jobs:
         run: npm ci && npm run build
 
       - name: Upload archives to release
-      - uses: "./archive/"
+      - uses: "rozenrod/LiteLibria"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: ${{ github.ref }}
@@ -23,4 +23,4 @@ jobs:
           title: "Development Build"
           files: |
             README.md
-            archive/*.zip
+            archive/archive-2.0.5.zip

@@ -150,7 +150,7 @@ gulp.task("sw", function(){
 
 gulp.task("archive", function(){
   return gulp.src('public/**/*')
-		.pipe(zip(`archive-${CACHE_VERSION}.zip`))
+		.pipe(zip(`archive-${Date.now()}.zip`))
 		.pipe(gulp.dest('archive'))
 });
 
@@ -160,15 +160,6 @@ gulp.task('build', function (callback) {
 		['static_img', 'config', 'images', 'assemble', 'filesToCache', 'manifest', 'assets', 'p2p', 'gHistory'], 
 		'dom',
 		'sw',
-		'clean:archive',
-		'archive',
-    callback
-  )
-})
-
-gulp.task('archivate', function (callback) {
-  runSequence(
-		'build',
 		'clean:archive',
 		'archive',
     callback

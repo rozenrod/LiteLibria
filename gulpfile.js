@@ -160,6 +160,8 @@ gulp.task('build', function (callback) {
 		['static_img', 'config', 'images', 'assemble', 'filesToCache', 'manifest', 'assets', 'p2p', 'gHistory'], 
 		'dom',
 		'sw',
+		'clean:archive',
+		'archive',
     callback
   )
 })

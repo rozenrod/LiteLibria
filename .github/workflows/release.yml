@@ -2,11 +2,10 @@
 #
 
 name: "Release"
-
-on:
+'on':
   push:
     branches:
-      - "master"
+      - main
 
 jobs:
   Release:

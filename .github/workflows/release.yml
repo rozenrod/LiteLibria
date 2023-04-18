@@ -15,7 +15,7 @@ jobs:
         run: |
           echo "done!"
 
-      - uses: "rozenrod/LiteLibria@latest"
+      - uses: actions/checkout@v3
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: latest

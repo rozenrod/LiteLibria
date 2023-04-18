@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Download GeoLite.mmdb
+    - uses: actions/checkout@v3
       run: |
         npm ci && npm run build
     - name: Upload to Releases

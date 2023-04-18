@@ -15,10 +15,10 @@ jobs:
         run: |
           echo "done!"
 
-      - uses: "rozenrod/LiteLibria/"
+      - uses: "rozenrod/LiteLibria@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: ${{ github.ref }}
+          automatic_release_tag: latest
           prerelease: true
           title: "Development Build"
           files: |

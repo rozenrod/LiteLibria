@@ -50,9 +50,9 @@ gulp.task('p2p', function() {
 		.pipe(gulp.dest('public/p2p'))
 })
 
-gulp.task('gHistory', function() {
-	return gulp.src('src/gHistory/**/*')
-		.pipe(gulp.dest('public/gHistory'))
+gulp.task('cloud', function() {
+	return gulp.src('src/cloud/**/*')
+		.pipe(gulp.dest('public/cloud'))
 })
 
 gulp.task('config', function() {
@@ -157,7 +157,7 @@ gulp.task("archive", function(){
 gulp.task('build', function (callback) {
   runSequence(
 		'clean:public',
-		['static_img', 'config', 'images', 'assemble', 'filesToCache', 'manifest', 'assets', 'p2p', 'gHistory'], 
+		['static_img', 'config', 'images', 'assemble', 'filesToCache', 'manifest', 'assets', 'p2p', 'cloud'], 
 		'dom',
 		'sw',
 		'clean:archive',

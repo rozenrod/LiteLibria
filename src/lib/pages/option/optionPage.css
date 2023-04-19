@@ -17,6 +17,8 @@
 	transition: .3s ease;
 	border-radius: 15px;
 	padding: 10px 0;
+	margin-bottom: 15px;
+	background: var(--ColorThemes2);
 }
 .OptionsAccountLogo {
 	width: 75px;
@@ -180,11 +182,13 @@
 
 #auth,
 #profile{
+	border-radius: var(--border-radius);
+}
+
+#auth{
+	background: var(--ColorThemes2);
 	position: sticky;
 	top: 10px;
-	background: var(--ColorThemes2);
-	margin-right: 15px;
-	border-radius: var(--border-radius);
 }
 
 #auth[data-state="deactivated"],

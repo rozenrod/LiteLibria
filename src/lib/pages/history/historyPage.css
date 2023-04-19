@@ -19,6 +19,13 @@
 	padding: 0 10px;
 	font-size: 18px;
 }
+.HistoryList h3 {
+	font-weight: 400;
+    text-align: left;
+    color: var(--ColorThemes3);
+    padding: 1px 10px;
+    font-size: 16px;
+}
 .HistoryCard {
 	width: calc(100% - 20px);
 	position: relative;

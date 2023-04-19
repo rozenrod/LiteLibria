@@ -191,7 +191,7 @@ const Release = {
 
 		ReleaseNamesEn.innerHTML = `Навзание EN: ${this.list.names.en}`;
 
-		ReleaseSHIKIMORI.querySelector('a').href = `https://shikimori.one/animes?search=${this.list.names.en}`;
+		ReleaseSHIKIMORI.querySelector('a').href = `https://shikimori.me/animes?search=${this.list.names.en}`;
 
 		if(this.list.player.episodes.last == 1){
 			PlaySerie.setAttribute("style", "display:none;");

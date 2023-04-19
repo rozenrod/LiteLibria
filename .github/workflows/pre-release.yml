@@ -1,7 +1,7 @@
 #
 #
 
-name: "pre-release"
+name: Pre-release
 'on': pull_request
 
 jobs:

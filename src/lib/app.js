@@ -7,13 +7,18 @@ Router.config({ mode: 'history'});
 
 // Функция загрузки приложения
 window.addEventListener('load', async function () {
-	if(styleDebug) console.log('2. Получаем ширину приложения');
+	if(styleDebug) console.log('2. Получаем облачную историю приложения');
+	if(localStorage.getItem('CloudSync') == 'true') await Cloud.init();
+
+
+
+	if(styleDebug) console.log('3. Получаем ширину приложения');
 	appWidth(widthAPP);
 	if(styleDebug) console.log('[Width APP] ', widthAPP, 'px');
 
 
 
-	if(styleDebug) console.log('3. Проверяем ОС устройства');
+	if(styleDebug) console.log('4. Проверяем ОС устройства');
 	if(styleDebug) console.log('[OS] ', detectOS());
 	if (window.matchMedia('(display-mode: standalone)').matches) {
 		if (detectOS() == 'Android') {
@@ -31,13 +36,13 @@ window.addEventListener('load', async function () {
 
 
 
-	if(styleDebug) console.log('4. Проверяем выбранный режим постеров');
+	if(styleDebug) console.log('5. Проверяем выбранный режим постеров');
 	if(!localStorage.getItem('postersMode')) localStorage.setItem('postersMode', 'webp')
 	if(styleDebug) console.log('[Posters Mode] ', localStorage.getItem('postersMode'));
 
 
 
-	if(styleDebug) console.log('5. Проверка версии приложения');
+	if(styleDebug) console.log('6. Проверка версии приложения');
 	if(localStorage.getItem('appVersion') !== config.version){
 		Popup.update();
 		localStorage.setItem('appVersion', config.version);
@@ -45,27 +50,28 @@ window.addEventListener('load', async function () {
 	if(styleDebug) console.log('[appVersion]', localStorage.getItem('appVersion'));
 
 
-	if(styleDebug) console.log('6. Получаем адрес страницы и запросы query');
+	if(styleDebug) console.log('7. Получаем адрес страницы и запросы query');
 	Router.check().listen();
 
 
 
-	if(styleDebug) console.log('7. Запуск функции WebSocket');
+	if(styleDebug) console.log('8. Запуск функции WebSocket');
 	WebSocketStatusEpisode();
 
 
 
-	if(styleDebug) console.log('8. Запрос PublicKey');
+	if(styleDebug) console.log('9. Запрос PublicKey');
 	await GetPublicKey();
 
 
 
-	if(styleDebug) console.log('9. Запрос ScrollToTop');
+	if(styleDebug) console.log('10. Запрос ScrollToTop');
 	ScrollToTop.init();
 
 
 
-	if(styleDebug) console.log('10. Предзагрузка всех API');
+	if(styleDebug) console.log('11. Предзагрузка всех API');
+
 	Home.updates.loadAPI();
 	Home.genres.loadAPI();
 	Home.schedule.loadAPI();

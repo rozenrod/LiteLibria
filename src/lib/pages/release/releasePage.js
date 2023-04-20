@@ -735,9 +735,10 @@ function PlayerjsEvents(event,id,info){
 	}
 
 	if(event=="time"){
-		if(Math.round(info) % 10 === 0){
-			releaseHistorySave();
-		}
+		console.log(info);
+		// if(Math.round(info) % 10 === 0){
+		// 	releaseHistorySave();
+		// }
 	}
 }
 

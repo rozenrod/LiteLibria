@@ -39,8 +39,6 @@ function historySave(id, serie, time1, time2, date, name, serieLength){
 	if(IsJsonString(history)) history = [];
 	if(history.length <= 0) history = [];
 
-	console.log(history);
-
 	// Проверка совпадения.
 	let result = history.some(element => {
 		if(element.id == id && element.serie == serie){

@@ -13,22 +13,43 @@ const Cloud = {
         .then((data) => {
             if(styleDebug) console.log('Success:', data);
             
-            if(!localStorage.getItem('hashAPP')) localStorage.setItem('hashAPP', data.hash)
+            localStorage.setItem('hashAPP', data.hash)
             Cloud.list = data;
 
-            historySync(data.history)
+            if(IsJsonString(data.history)) {
+                historySync(JSON.parse(data.history))
+            }
+            else {
+                historySync(data.history)
+            }
         })
         .catch((error) => {
             if(styleDebug) console.error('Error:', error);
         });
+
+        History.list = [];
+        await History.getHistory();
+        if(document.getElementById('HistoryGenerator')){ 
+            document.getElementById('HistoryGenerator').innerHTML = ``;
+            await History.getHistory();
+            await History.setHTML();
+        }
+        if(document.getElementById('LineGenerator-History')){
+            document.getElementById('LineGenerator-History').innerHTML = "";
+            await Home.history.setHTML();
+        }
+
+        if(styleDebug) console.log("Cloud data ", Cloud.list)
     },
     update: async function({history, config}) {
         let url = `https://cloud.litelibria.com/?hash=${localStorage.getItem('hashAPP')}&sessid=${localStorage.getItem('PHPSESSID')}`
 
         fetch(url, {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ "history": history, "config": config})
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ "history": JSON.stringify(history), "config": config})
         })
         .then((response) => response.json())
         .then((data) => {
@@ -50,8 +71,9 @@ function CloudSync(delay) {
 	}
 	configSyncTimeoutId = setTimeout(() => {
 		Cloud.load()
-        if(styleDebug) console.log("Cloud data ", Cloud.list)
 			.catch(e => console.log('Failed to synchronize Cloud', e))
-			.finally(() => CloudSync())
+			.finally(() => {
+                if(localStorage.getItem('CloudSync') == 'true') CloudSync()
+            })
 	}, typeof delay === 'undefined' ? SYNC_PERIOD : delay)
 }

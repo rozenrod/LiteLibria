@@ -36,6 +36,11 @@ function historySave(id, serie, time1, time2, date, name, serieLength){
 		history = JSON.parse(localStorage.getItem("history"))
 	}
 
+	if(IsJsonString(history)) history = [];
+	if(history.length <= 0) history = [];
+
+	console.log(history);
+
 	// Проверка совпадения.
 	let result = history.some(element => {
 		if(element.id == id && element.serie == serie){
@@ -99,6 +104,9 @@ function historyGet(sort = null, titel = null, serie = null){
 	let history = [];
 	if(localStorage.getItem("history")){
 		history = JSON.parse(localStorage.getItem("history"))
+
+		if(IsJsonString(history)) return '';
+		if(history.length <= 0) return '';
 		
 		if(sort == 'date'){
 			// Сортируем историю по времени
@@ -179,14 +187,10 @@ async function historySync(cloudHistory){
 				let result = cash.filter(items => {
 					return items.id == history[q].id && items.serie == history[q].serie;
 				});
+
 				let result2 = result.reduce((acc, curr) => acc.date > curr.date ? acc : curr);
 				newHistory.push(result2)
 			}
-			localStorage.setItem('history', JSON.stringify(newHistory));
-	
-			if(localStorage.getItem('CloudSync') == 'true') await Cloud.update({"history": newHistory});
-
-			historyConvert();
 		} else {
 			cash = cloudHistory.concat(history);
 
@@ -194,15 +198,17 @@ async function historySync(cloudHistory){
 				let result = cash.filter(items => {
 					return items.id == cloudHistory[q].id && items.serie == cloudHistory[q].serie;
 				});
+
 				let result2 = result.reduce((acc, curr) => acc.date > curr.date ? acc : curr);
 				newHistory.push(result2)
 			}
-			localStorage.setItem('history', JSON.stringify(newHistory));
-	
-			if(localStorage.getItem('CloudSync') == 'true') await Cloud.update({"history": newHistory});
-
-			historyConvert();
 		}
+
+		localStorage.setItem('history', JSON.stringify(newHistory));
+	
+		if(localStorage.getItem('CloudSync') == 'true') await Cloud.update({"history": newHistory});
+
+		historyConvert();
 
 	} else {
 		localStorage.setItem('history', JSON.stringify(cloudHistory));

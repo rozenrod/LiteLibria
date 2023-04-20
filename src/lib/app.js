@@ -165,6 +165,8 @@ function appReload(){
 	Favorites.loadAPI();
 	Option.account.loadAPI();
 
+	if(localStorage.getItem('CloudSync') == 'true') Cloud.load();
+
 	console.log(window.location.pathname);
 
 	Router.navigate(window.location.pathname, false).check();

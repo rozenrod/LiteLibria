@@ -53,6 +53,8 @@ const Option = {
 			let logout = document.getElementById('logout');
 			let form = document.getElementById('form_login');
 			let login = document.getElementById('login');
+			let Cloud_Sync1_style = document.getElementById('Cloud_Sync1_style');
+			let Cloud_Sync2_style = document.getElementById('Cloud_Sync2_style');
 			
 			let my_login = document.getElementById('my_login');
 			let my_nickname = document.getElementById('my_nickname');
@@ -98,6 +100,11 @@ const Option = {
 				auth.setAttribute("data-state", "");
 				Option.account.list = [];
 				Favorites.list = [];
+
+				localStorage.setItem('hashAPP', '');
+				localStorage.setItem('CloudSync', 'false');
+				Cloud_Sync1_style.dataset.state = '';
+				Cloud_Sync2_style.dataset.state = 'Select';
 			})
 			login.addEventListener("click", () => {
 				let formData = new FormData();
@@ -137,9 +144,6 @@ const Option = {
 		'setHTML': async function() {
 			let CloudSync = localStorage.getItem('CloudSync');
 
-
-
-			// Загрузка постеров
 			let Cloud_Sync1_style = document.getElementById('Cloud_Sync1_style');
 			let Cloud_Sync2_style = document.getElementById('Cloud_Sync2_style');
 

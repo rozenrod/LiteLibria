@@ -22,6 +22,7 @@ let socket;
 let player;
 let playerName;
 let playerLength;
+let playerPlay = false;
 
 if(!localStorage.getItem('styleDebug')){
 	localStorage.setItem('styleDebug', 'false')

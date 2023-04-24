@@ -2,6 +2,7 @@ const Cloud = {
     list: {},
     init: async function() {
         await Cloud.load();
+        await Cloud.update({"history": JSON.parse(localStorage.getItem("history"))});
         CloudSync();
         if(styleDebug) console.log("Cloud data ", Cloud.list)
     },
@@ -62,7 +63,7 @@ const Cloud = {
     }
 }
 
-let SYNC_PERIOD = 1000 * 60 * 2     // 2 минуты
+let SYNC_PERIOD = 1000 * 60 * 5     // 2 минуты
 let configSyncTimeoutId
 
 function CloudSync(delay) {

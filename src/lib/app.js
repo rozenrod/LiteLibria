@@ -108,6 +108,7 @@ function menuPageActive(page){
 	document.getElementById('b_page_options').setAttribute("data-state", page === 'options' ? "active" : "");
 
 	if(player) player.api("stop");
+	playerPlay = false;
 
 	pageAPP = page
 

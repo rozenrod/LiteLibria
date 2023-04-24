@@ -203,8 +203,6 @@ async function historySync(cloudHistory){
 		}
 
 		localStorage.setItem('history', JSON.stringify(newHistory));
-	
-		if(localStorage.getItem('CloudSync') == 'true') await Cloud.update({"history": newHistory});
 
 		historyConvert();
 

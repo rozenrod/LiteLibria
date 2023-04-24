@@ -651,16 +651,16 @@ const Release = {
 
 // Функция смены серии плейлиста
 function releaseHistoryPlay(titel, serie){
-	playerID = "id:"+titel+"s"+serie;
-	playerTime = '';
-
-	if(historyGet().length != 0){
-		if(historyGet('titel', titel, serie) != -1){
-			time = historyGet('titel', titel, serie).time[0]
-			playerTime = "[seek:"+time+"]";
+	playerTime = () => {
+		if(historyGet().length != 0){
+			if(historyGet('titel', titel, serie) != -1){
+				return `[seek:${historyGet('titel', titel, serie).time[0]}]`;
+			}
 		}
-	}
-	player.api("play", playerID+playerTime)
+		return "[seek:0]";
+	};
+	
+	player.api("play", `id:${titel}s${serie}${playerTime(titel, serie)}`)
 }
 
 // Функции отслеживания событий плеера
@@ -711,6 +711,9 @@ function PlayerjsEvents(event,id,info){
 			}
 		}
 
+		playerPlay = true;
+		releaseHystorySync();
+
 		// Функция открытия полноэкранного режима в мобильной версии
 		var width = document.documentElement.clientWidth;
 		if(width <= 800){
@@ -719,6 +722,7 @@ function PlayerjsEvents(event,id,info){
 	}
 
 	if(event=="pause"){
+		playerPlay = false;
 		releaseHistorySave();
 	}
 
@@ -728,17 +732,6 @@ function PlayerjsEvents(event,id,info){
 
 	if(event=="exitfullscreen"){
 		player_navigation('flex');
-	}
-
-	if(event=="seek"){
-		releaseHistorySave();
-	}
-
-	if(event=="time"){
-		console.log(info);
-		// if(Math.round(info) % 10 === 0){
-		// 	releaseHistorySave();
-		// }
 	}
 }
 
@@ -781,4 +774,20 @@ function player_navigation(display){
 		document.getElementById('backToTop').style.display = '';
 		document.body.setAttribute("style", "");
 	}
+}
+
+let RELEASE_SYNC_PERIOD = 1000 * 60 * 1;
+let releaseSyncTimeoutId;
+
+function releaseHystorySync(delay) {
+	if (releaseSyncTimeoutId) {
+		clearTimeout(releaseSyncTimeoutId);
+	}
+	releaseSyncTimeoutId = setTimeout(() => {
+		releaseHistorySave()
+			.catch(e => console.log('Failed to synchronize Cloud', e))
+			.finally(() => {
+                if(playerPlay) releaseHystorySync();
+            })
+	}, typeof delay === 'undefined' ? RELEASE_SYNC_PERIOD : delay)
 }

@@ -2,7 +2,7 @@ updateNotes = [
   {
     "prefix":"Kaamira",
     "version":"2.0.6",
-    "date":"17 April 2023",
+    "date":"3 May 2023",
     "update":[
       {
 				"type":"ADDED",
@@ -10,6 +10,9 @@ updateNotes = [
 			},{
 				"type":"FIXED",
         "text":"Исправлена ссылка SHIKIMORI на страницах релизов.",
+			},{
+				"type":"IMPROVED",
+        "text":"Обновлён PlayerJS.",
 			}
     ]
   },{

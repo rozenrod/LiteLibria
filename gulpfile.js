@@ -5,7 +5,6 @@ const gulpIf = require('gulp-if');
 const rename = require('gulp-rename');
 const cssnano = require('gulp-cssnano');
 const imagemin = require('gulp-imagemin');
-const webp = require('gulp-webp');
 const cache = require('gulp-cache');
 const del = require('del');
 const runSequence = require('gulp4-run-sequence');
@@ -14,9 +13,7 @@ const dom = require('gulp-dom');
 const modifyFile = require('gulp-modify-file');
 const zip = require('gulp-zip');
 
-
-var cheerio = require('gulp-cheerio');
-
+const sftp = require('gulp-sftp');
 
 // Condig
 const CACHE_PREFIX = 'Kaamira';
@@ -165,3 +162,21 @@ gulp.task('build', function (callback) {
     callback
   )
 })
+
+
+gulp.task('ssh', function () {
+    return gulp.src('public/**/*')
+        .pipe(sftp({
+            host: '192.168.0.200',
+			auth: 'keyMain',
+			remotePath: '/home/rozenrod/webapps/server.litelibria.com/'
+        }));
+});
+
+gulp.task('deploy', function (callback) {
+	runSequence(
+		  'build',
+		  'ssh',
+	  callback
+	)
+  })

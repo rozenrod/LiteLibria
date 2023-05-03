@@ -86,6 +86,9 @@ window.addEventListener('load', async function () {
 	Search.getStorage();
 
 	// if(localStorage.getItem('G_SyncMode') == 'true') handleAuthClick();
+
+	if(styleDebug) console.log('12. Обнуление Badge');
+	clearBadge();
 });
 
 
@@ -177,6 +180,9 @@ function appReload(){
 
 	// Открытие нового соединения WebSocket
 	WebSocketStatusEpisode();
+
+	// Обнуление Badge
+	clearBadge();
 }
 
 

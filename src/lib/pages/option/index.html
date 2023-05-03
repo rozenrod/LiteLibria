@@ -3,8 +3,7 @@
 
 	<!-- Блок Аккаунта	 -->
 	<div class="OptionsBlockCard" id="profile" data-state="">
-		<!-- <div class="OptionsAccountLogo" id="my_profile_img"> </div> -->
-		<div class="OptionsAccount">
+		<div class="OptionsAccount" id="profile" data-state="">
 			<div class="OptionsAccountLogo" id="my_profile_img"> </div>
 			<div class="OptionsAccountText">
 				<p class="OptionsAccountTextProfile">Логин: <span id="my_login"></span></p>
@@ -16,6 +15,26 @@
 				<p class="settings_filter_p">*LiteLibria не собирает никаких личных данных о вас, они хранятся только на вашем устройстве!</p>
 				<Button id="logout">Выйти из аккаунта</Button>
 			</div>
+		</div>
+
+		<div class="OptionsCard">
+			<span class="OptionsTitle">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+					<path d="M 12.5 4 C 10.032499 4 8 6.0324991 8 8.5 L 8 39.5 C 8 41.967501 10.032499 44 12.5 44 L 35.5 44 C 37.967501 44 40 41.967501 40 39.5 L 40 18.5 A 1.50015 1.50015 0 0 0 39.560547 17.439453 L 39.544922 17.423828 L 26.560547 4.4394531 A 1.50015 1.50015 0 0 0 25.5 4 L 12.5 4 z M 12.5 7 L 24 7 L 24 15.5 C 24 17.967501 26.032499 20 28.5 20 L 37 20 L 37 39.5 C 37 40.346499 36.346499 41 35.5 41 L 12.5 41 C 11.653501 41 11 40.346499 11 39.5 L 11 8.5 C 11 7.6535009 11.653501 7 12.5 7 z M 27 9.1210938 L 34.878906 17 L 28.5 17 C 27.653501 17 27 16.346499 27 15.5 L 27 9.1210938 z M 24 23 C 21.058002 23 18.699714 25.193161 18.203125 28 L 18 28 C 15.256343 28 13 30.256343 13 33 C 13 35.743657 15.256343 38 18 38 L 30 38 C 32.743657 38 35 35.743657 35 33 C 35 30.256343 32.743657 28 30 28 L 29.796875 28 C 29.300286 25.193161 26.941998 23 24 23 z M 24 26 C 25.674135 26 27 27.325865 27 29 L 27 29.5 A 1.50015 1.50015 0 0 0 28.5 31 L 30 31 C 31.122343 31 32 31.877657 32 33 C 32 34.122343 31.122343 35 30 35 L 18 35 C 16.877657 35 16 34.122343 16 33 C 16 31.877657 16.877657 31 18 31 L 19.5 31 A 1.50015 1.50015 0 0 0 21 29.5 L 21 29 C 21 27.325865 22.325865 26 24 26 z"/>
+				</svg>
+				<h3>Настройки синхронизаций (Beta)</h3>
+			</span>
+			<p class="settings_filter_p">Фоновая синхронизация истории приложения между устройствами.</p>
+			<div id="settings_home_block_style" style="margin-bottom: 15px;">
+				<button id="Cloud_Sync1_style" class="OptionsCardButton" title="Выбрать">Включить</button>
+				<button id="Cloud_Sync2_style" class="OptionsCardButton" title="Выбрать">Отключить</button>
+			</div>
+			<hr>
+			<div id="settings_home_block_style" style="margin: 15px 0;">
+				<a href="/history" class="OptionsCardButton" data-route>Страница истории</a>
+			</div>
+			<p class="settings_filter_p">*При включении фоновой синхронизации, сервер LiteLibria будет использовать адрес электронной почты вашего профиля в качестве идентификатора базы данных.</p>
+			<p class="settings_filter_p">*Нажмите для выбора</p>
 		</div>
 	</div>
 
@@ -42,22 +61,8 @@
 		</div>
 	</div>
 
-	<div class="OptionsBlockCard">
-		<!-- <div class="OptionsCard">
-			<span class="OptionsTitle">
-				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
-					<path d="M 17.107422 5.0078125 L 17.107422 6.5078125 L 16.458984 6.8574219 L 15.826172 5.7910156 L 3.1953125 28.962891 A 1.50015 1.50015 0 0 0 3.1738281 30.357422 L 9.1621094 42.177734 A 1.50015 1.50015 0 0 0 10.5 43 L 36.5 43 A 1.50015 1.50015 0 0 0 37.796875 42.253906 L 44.685547 30.416016 A 1.50015 1.50015 0 0 0 45 29.5 L 45 29.470703 A 1.50015 1.50015 0 0 0 44.707031 28.583984 L 32.203125 5.7871094 A 1.50015 1.50015 0 0 0 30.888672 5.0078125 L 17.144531 5.0078125 L 17.107422 5.0078125 z M 19.619141 8.0078125 L 30 8.0078125 L 40.953125 27.972656 L 30.386719 27.986328 L 19.619141 8.0078125 z M 17.119141 9.6894531 L 22.003906 18.753906 L 10.591797 38.361328 L 6.2070312 29.705078 L 17.119141 9.6894531 z M 23.673828 21.849609 L 26.982422 27.990234 L 20.095703 27.998047 L 23.673828 21.849609 z M 40.890625 30.974609 L 35.636719 40 L 13.109375 40 L 18.347656 31 L 40.890625 30.974609 z"/>
-				</svg>
-				<h3>Настройки синхронизаций</h3>
-			</span>
-			<p class="settings_filter_p">Синхронизация истории при загрузке приложения</p>
-			<div id="settings_home_block_style" style="margin-bottom: 15px;">
-				<button id="G_Sync1_style" class="OptionsCardButton" title="Выбрать">Включить</button>
-				<button id="G_Sync2_style" class="OptionsCardButton" title="Выбрать">Отключить</button>
-			</div>
-			<p class="settings_filter_p">*Нажмите для выбора</p>
-		</div> -->
 
+	<div class="OptionsBlockCard">
 		<div class="OptionsCard">
 			<span class="OptionsTitle">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 172 172">

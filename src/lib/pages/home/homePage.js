@@ -316,9 +316,9 @@ const Home = {
 					if(json[i].name == undefined ){
 						loadNameHistory(json[i].id, json[i].serie, json[i].time[0], json[i].time[1], json[i].date)
 					}
-					if(json[i].serieLength == undefined ){
-						loadNameHistory(json[i].id, json[i].serie, json[i].time[0], json[i].time[1], json[i].date)
-					}
+					// if(json[i].serieLength == undefined ){
+					// 	loadNameHistory(json[i].id, json[i].serie, json[i].time[0], json[i].time[1], json[i].date)
+					// }
 					posters = `${config["webpPosters"]}${json[i].id}.webp`;
 
 					if(json[i].serieLength > json[i].serie){

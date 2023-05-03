@@ -36,6 +36,9 @@ function historySave(id, serie, time1, time2, date, name, serieLength){
 		history = JSON.parse(localStorage.getItem("history"))
 	}
 
+	if(IsJsonString(history)) history = [];
+	if(history.length <= 0) history = [];
+
 	// Проверка совпадения.
 	let result = history.some(element => {
 		if(element.id == id && element.serie == serie){
@@ -50,13 +53,13 @@ function historySave(id, serie, time1, time2, date, name, serieLength){
 			if(element.id == id && element.serie == serie){
 				history[index] = {"id": id, "serie": serie, "time": [time1, time2], "date": date, "name": name, "serieLength": serieLength};
 				localStorage.setItem("history", JSON.stringify(history))
-				saveConfig(history)
+				if(localStorage.getItem('CloudSync') == 'true') Cloud.update({"history": history});
 				return;
 			}
 		});
 	} else {
 		history.push({"id": id, "serie": serie, "time": [time1, time2], "date": date, "name": name, "serieLength": serieLength});
-		saveConfig(history)
+		if(localStorage.getItem('CloudSync') == 'true') Cloud.update({"history": history});
 		localStorage.setItem("history", JSON.stringify(history))
 	}
 }
@@ -99,6 +102,9 @@ function historyGet(sort = null, titel = null, serie = null){
 	let history = [];
 	if(localStorage.getItem("history")){
 		history = JSON.parse(localStorage.getItem("history"))
+
+		if(IsJsonString(history)) return '';
+		if(history.length <= 0) return '';
 		
 		if(sort == 'date'){
 			// Сортируем историю по времени
@@ -164,7 +170,7 @@ function historyConvert(titel = null, serie = null){
 }
 
 // Функция обьединения истории Google и истории приложения.
-async function historySync(remoteConfig, configFileId){
+async function historySync(cloudHistory){
 	let cash = [];
 	let newHistory = [];
 
@@ -172,40 +178,36 @@ async function historySync(remoteConfig, configFileId){
 
 	if(history.length > 0){
 
-		if(history.length > remoteConfig.length) {
-			cash = history.concat(remoteConfig);
+		if(history.length > cloudHistory.length) {
+			cash = history.concat(cloudHistory);
 
 			for (let q = 0; q < history.length; q++) {
 				let result = cash.filter(items => {
 					return items.id == history[q].id && items.serie == history[q].serie;
 				});
+
 				let result2 = result.reduce((acc, curr) => acc.date > curr.date ? acc : curr);
 				newHistory.push(result2)
 			}
-			localStorage.setItem('history', JSON.stringify(newHistory));
-	
-			await upload(configFileId, newHistory);
-
-			historyConvert();
 		} else {
-			cash = remoteConfig.concat(history);
+			cash = cloudHistory.concat(history);
 
-			for (let q = 0; q < remoteConfig.length; q++) {
+			for (let q = 0; q < cloudHistory.length; q++) {
 				let result = cash.filter(items => {
-					return items.id == remoteConfig[q].id && items.serie == remoteConfig[q].serie;
+					return items.id == cloudHistory[q].id && items.serie == cloudHistory[q].serie;
 				});
+
 				let result2 = result.reduce((acc, curr) => acc.date > curr.date ? acc : curr);
 				newHistory.push(result2)
 			}
-			localStorage.setItem('history', JSON.stringify(newHistory));
-	
-			await upload(configFileId, newHistory);
-
-			historyConvert();
 		}
 
+		localStorage.setItem('history', JSON.stringify(newHistory));
+
+		historyConvert();
+
 	} else {
-		localStorage.setItem('history', JSON.stringify(remoteConfig));
+		localStorage.setItem('history', JSON.stringify(cloudHistory));
 		historyConvert();
 	}
 }

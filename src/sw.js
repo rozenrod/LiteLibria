@@ -20,7 +20,13 @@ function urlB64ToUint8Array(base64String) {
   return outputArray;
 }
 
+let requestCounter = 0;
+
 self.addEventListener('push', function(event) {
+  if ('setAppBadge' in navigator) {
+    navigator.setAppBadge(++requestCounter);
+  }
+
   console.log('[Service Worker] Push Received.');
   console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
 

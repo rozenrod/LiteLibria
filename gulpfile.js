@@ -5,7 +5,6 @@ const gulpIf = require('gulp-if');
 const rename = require('gulp-rename');
 const cssnano = require('gulp-cssnano');
 const imagemin = require('gulp-imagemin');
-const webp = require('gulp-webp');
 const cache = require('gulp-cache');
 const del = require('del');
 const runSequence = require('gulp4-run-sequence');
@@ -14,16 +13,14 @@ const dom = require('gulp-dom');
 const modifyFile = require('gulp-modify-file');
 const zip = require('gulp-zip');
 
-
-var cheerio = require('gulp-cheerio');
-
+const sftp = require('gulp-sftp');
 
 // Condig
 const CACHE_PREFIX = 'Kaamira';
 const CACHE_VERSION_MAJOR = 2;
 const CACHE_VERSION_MINOR = 0;
 // const CACHE_VERSION_PATCH = Date.now();
-const CACHE_VERSION_PATCH = 5;
+const CACHE_VERSION_PATCH = 6;
 const CACHE_VERSION = CACHE_VERSION_MAJOR+'.'+CACHE_VERSION_MINOR+'.'+CACHE_VERSION_PATCH;
 
 
@@ -50,9 +47,9 @@ gulp.task('p2p', function() {
 		.pipe(gulp.dest('public/p2p'))
 })
 
-gulp.task('gHistory', function() {
-	return gulp.src('src/gHistory/**/*')
-		.pipe(gulp.dest('public/gHistory'))
+gulp.task('cloud', function() {
+	return gulp.src('src/cloud/**/*')
+		.pipe(gulp.dest('public/cloud'))
 })
 
 gulp.task('config', function() {
@@ -157,7 +154,7 @@ gulp.task("archive", function(){
 gulp.task('build', function (callback) {
   runSequence(
 		'clean:public',
-		['static_img', 'config', 'images', 'assemble', 'filesToCache', 'manifest', 'assets', 'p2p', 'gHistory'], 
+		['static_img', 'config', 'images', 'assemble', 'filesToCache', 'manifest', 'assets', 'p2p', 'cloud'], 
 		'dom',
 		'sw',
 		'clean:archive',
@@ -165,3 +162,21 @@ gulp.task('build', function (callback) {
     callback
   )
 })
+
+
+gulp.task('ssh', function () {
+    return gulp.src('public/**/*')
+        .pipe(sftp({
+            host: '192.168.0.200',
+			auth: 'keyMain',
+			remotePath: '/home/rozenrod/webapps/server.litelibria.com/'
+        }));
+});
+
+gulp.task('deploy', function (callback) {
+	runSequence(
+		  'build',
+		  'ssh',
+	  callback
+	)
+  })

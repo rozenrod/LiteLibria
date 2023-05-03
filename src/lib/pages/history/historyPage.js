@@ -2,7 +2,7 @@ const History = {
 	list: [],
 	init: async function() {
 		// let html = await fetch('/lib/pages/history/index.html').then((response) => response.text());
-		let html = `<div class=SortingBlock><div class=SortingBlockForm><span class=SortingContainer><select class=SortingChosen id=SortingOrderBy><option value=date>Дате<option value=release>Релизу</select> <label class=SortingCheckboxContainer><input checked id=SortingChecUpTop type=checkbox> <span class=SortingCheckmark><svg viewBox="0 0 448 512"xmlns=http://www.w3.org/2000/svg><path d="M413.1 222.5l22.2 22.2c9.4 9.4 9.4 24.6 0 33.9L241 473c-9.4 9.4-24.6 9.4-33.9 0L12.7 278.6c-9.4-9.4-9.4-24.6 0-33.9l22.2-22.2c9.5-9.5 25-9.3 34.3.4L184 343.4V56c0-13.3 10.7-24 24-24h32c13.3 0 24 10.7 24 24v287.4l114.8-120.5c9.3-9.8 24.8-10 34.3-.4z"/></svg></span></label> </span><button class=SortingButton id=ClearSortingHistory>Сбросить</button> <button class=SortingButton id=signinButton>Синхронизировать Google</button> <button class=SortingButton id=signoutButton style=display:none>Выйти из Google</button></div></div><div class=HistoryBlock><div class=HistoryList><div style=display:flow-root><h1 style=float:left>История просмотров</h1></div><div id=HistoryGenerator><div id=FilterNone><img src=img/libriatyan/4.webp><br><br><p style=color:var(--ColorThemes3)>Пока пусто...</div></div></div></div>`;
+		let html = `<div class="SortingBlock"><div class="SortingBlockForm"><span class="SortingContainer"><select class="SortingChosen" id="SortingOrderBy"><option value="date">Дате</option><option value="release">Релизу</option></select><label class="SortingCheckboxContainer"><input type="checkbox" checked="checked" id="SortingChecUpTop"><span class="SortingCheckmark"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M413.1 222.5l22.2 22.2c9.4 9.4 9.4 24.6 0 33.9L241 473c-9.4 9.4-24.6 9.4-33.9 0L12.7 278.6c-9.4-9.4-9.4-24.6 0-33.9l22.2-22.2c9.5-9.5 25-9.3 34.3.4L184 343.4V56c0-13.3 10.7-24 24-24h32c13.3 0 24 10.7 24 24v287.4l114.8-120.5c9.3-9.8 24.8-10 34.3-.4z"/></svg></span></label></span><button class="SortingButton" id="ClearSortingHistory">Сбросить</button></div></div><div class="HistoryBlock"><div class="HistoryList"><div style="display:flow-root"><h1 style="float:left">История просмотров</h1><h3 style="float:right" id="CloudMess" title="Время последней синхронизации"></h3></div><div id="HistoryGenerator"><div id="FilterNone"><img src="img/libriatyan/4.webp"><br><br><p style="color:var(--ColorThemes3)">Пока пусто...</p></div></div></div></div>`;
 		app.innerHTML = html;
 
 		await this.getHistory();
@@ -12,8 +12,9 @@ const History = {
 		preloaderHide();
 
 		let ClearSortingHistory = document.getElementById("ClearSortingHistory");
-		let signinButton = document.getElementById("signinButton");
-		let signoutButton = document.getElementById("signoutButton");
+		let CloudMess = document.getElementById("CloudMess");
+
+		if(localStorage.getItem('CloudSync') == 'true') CloudMess.innerText = timeConverter(await Cloud.list.updated)
 
 		let SortingOrderBy = document.querySelector("#SortingOrderBy")
 		let SortingChecUpTop = document.querySelector("#SortingChecUpTop")
@@ -28,13 +29,6 @@ const History = {
 			await History.setHTML();
 		});
 
-		signinButton.addEventListener("click", () => {
-			handleAuthClick();
-		});
-		signoutButton.addEventListener("click", () => {
-			handleSignoutClick();
-		});
-
 		SortingOrderBy.addEventListener('change', function (e) {
 			SortingHistory()
 		});
@@ -42,7 +36,6 @@ const History = {
 			SortingHistory()
 		});
 
-		checkLogIn();
 	},
 	getHistory: async function() {
 		History.list = await historyGet('date');
@@ -67,9 +60,9 @@ const History = {
 				if(HistoryList[i].name == undefined ){
 					loadNameHistory(HistoryList[i].id, HistoryList[i].serie, HistoryList[i].time[0], HistoryList[i].time[1], HistoryList[i].date)
 				}
-				if(HistoryList[i].serieLength == undefined ){
-					loadNameHistory(HistoryList[i].id, HistoryList[i].serie, HistoryList[i].time[0], HistoryList[i].time[1], HistoryList[i].date)
-				}
+				// if(HistoryList[i].serieLength == undefined ){
+				// 	loadNameHistory(HistoryList[i].id, HistoryList[i].serie, HistoryList[i].time[0], HistoryList[i].time[1], HistoryList[i].date)
+				// }
 
 				div.innerHTML = `
 					<img src="${config["webpPosters"]}${HistoryList[i].id}.webp" alt="">

@@ -686,6 +686,7 @@ function PlayerjsEvents(event,id,info){
 	if(event=="new"){
 		if(p2pMode) engine.destroy(); // Разрываем P2P раздачу для прошлого файла
 		if(p2pMode) refreshChart(); // Обновление графика Rickshaw
+		releaseHistorySave();
 	}
 
 	if(event=="play"){
@@ -726,12 +727,17 @@ function PlayerjsEvents(event,id,info){
 		releaseHistorySave();
 	}
 
+	if(event=="end"){
+		releaseHistorySave();
+	}
+
 	if(event=="fullscreen"){
 		player_navigation('none');
 	}
 
 	if(event=="exitfullscreen"){
 		player_navigation('flex');
+		releaseHistorySave();
 	}
 }
 

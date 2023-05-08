@@ -1,7 +1,7 @@
 updateNotes = [
   {
     "prefix":"Kaamira",
-    "version":"2.0.6",
+    "version":"2.0.7",
     "date":"8 May 2023",
     "update":[
       {

@@ -88,7 +88,6 @@ function myHistoryDell(title, serie){
 	if(HistoryList.length <= 0){
 		document.getElementById("HistoryNone").style.display = "block";
 	}
-	saveConfig(HistoryList)
 }
 
 // Функция сортировки

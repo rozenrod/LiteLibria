@@ -687,9 +687,11 @@ function PlayerjsEvents(event,id,info){
 		if(p2pMode) engine.destroy(); // Разрываем P2P раздачу для прошлого файла
 		if(p2pMode) refreshChart(); // Обновление графика Rickshaw
 		releaseHistorySave();
+		serieHistory = player.api("playlist_id").split('s')[1];
 	}
 
 	if(event=="play"){
+		serieHistory = player.api("playlist_id").split('s')[1];
 		if(p2pMode){
 			if (p2pml.core.HybridLoader.isSupported()) {
 				// Запуск P2P раздачи
@@ -742,11 +744,11 @@ function PlayerjsEvents(event,id,info){
 }
 
 // Функция сохранения истории Приложения
-function releaseHistorySave(){
+function releaseHistorySave(s){
 	let playlistID = player.api("playlist_id").split('s');
 
 	let titel = playlistID[0];
-	let serie = playlistID[1];
+	let serie = serieHistory;
 	let time = player.api("time");
 	let duration = player.api("duration");
 	let date = Date.now();

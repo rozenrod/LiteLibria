@@ -23,6 +23,7 @@ let player;
 let playerName;
 let playerLength;
 let playerPlay = false;
+let serieHistory;
 
 if(!localStorage.getItem('styleDebug')){
 	localStorage.setItem('styleDebug', 'false')

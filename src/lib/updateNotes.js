@@ -1,6 +1,22 @@
 updateNotes = [
   {
     "prefix":"Kaamira",
+    "version":"2.0.8",
+    "date":"19 May 2023",
+    "update":[
+      {
+				"type":"FIXED",
+        "text":"Исправлены ошибки на странице релиза.",
+			},{
+				"type":"FIXED",
+        "text":"Повышена стабильность синхронизации истории между устройствами.",
+			},{
+				"type":"IMPROVED",
+        "text":"Обновлён PlayerJS.",
+			}
+    ]
+  },{
+    "prefix":"Kaamira",
     "version":"2.0.7",
     "date":"8 May 2023",
     "update":[

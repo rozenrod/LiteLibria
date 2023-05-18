@@ -45,7 +45,7 @@ const Cloud = {
     update: async function({history, config}) {
         let url = `https://cloud.litelibria.com/?hash=${localStorage.getItem('hashAPP')}&sessid=${localStorage.getItem('PHPSESSID')}`
 
-        fetch(url, {
+        await fetch(url, {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json',

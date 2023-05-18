@@ -31,6 +31,7 @@ function historyLoad(){
 
 // Функция добавления или изменения нового объекта в истории
 function historySave(id, serie, time1, time2, date, name, serieLength){
+	console.log('save');
 	let history = [];
 	if(localStorage.getItem("history")){
 		history = JSON.parse(localStorage.getItem("history"))
@@ -42,13 +43,15 @@ function historySave(id, serie, time1, time2, date, name, serieLength){
 	// Проверка совпадения.
 	let result = history.some(element => {
 		if(element.id == id && element.serie == serie){
-			return element;
+			return true;
+		} else {
+			return false;
 		}
 	});
 
 	// Если релиз уже есть в истории, то обновляем его.
 	// Когда релиза нет в истории, то сохраняем как новый.
-	if(result == true){
+	if(result){
 		history.forEach((element, index) => {
 			if(element.id == id && element.serie == serie){
 				history[index] = {"id": id, "serie": serie, "time": [time1, time2], "date": date, "name": name, "serieLength": serieLength};

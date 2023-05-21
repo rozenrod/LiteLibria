@@ -31,7 +31,6 @@ function historyLoad(){
 
 // Функция добавления или изменения нового объекта в истории
 function historySave(id, serie, time1, time2, date, name, serieLength){
-	console.log('save');
 	let history = [];
 	if(localStorage.getItem("history")){
 		history = JSON.parse(localStorage.getItem("history"))
@@ -61,7 +60,7 @@ function historySave(id, serie, time1, time2, date, name, serieLength){
 			}
 		});
 	} else {
-		history.push({"id": id, "serie": serie, "time": [time1, time2], "date": date, "name": name, "serieLength": serieLength});
+		if(serie) history.push({"id": id, "serie": serie, "time": [time1, time2], "date": date, "name": name, "serieLength": serieLength});
 		if(localStorage.getItem('CloudSync') == 'true') Cloud.update({"history": history});
 		localStorage.setItem("history", JSON.stringify(history))
 	}

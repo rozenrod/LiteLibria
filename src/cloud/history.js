@@ -90,6 +90,7 @@ function historyDell(titel, serie = null){
 				}
 			}
 		}
+		if(localStorage.getItem('CloudSync') == 'true') Cloud.update({"history": history});
 		localStorage.setItem('history', JSON.stringify(history));
 
 		let idItem = 'pljsplayfrom_' + config['domains'] + titel;

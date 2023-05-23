@@ -63,7 +63,7 @@ const Cloud = {
     }
 }
 
-let SYNC_PERIOD = 1000 * 60 * 5     // 2 минуты
+let SYNC_PERIOD = 1000 * 60 * 5     // 5 минут
 let configSyncTimeoutId
 
 function CloudSync(delay) {

@@ -686,12 +686,9 @@ function PlayerjsEvents(event,id,info){
 	if(event=="new"){
 		if(p2pMode) engine.destroy(); // Разрываем P2P раздачу для прошлого файла
 		if(p2pMode) refreshChart(); // Обновление графика Rickshaw
-		releaseHistorySave();
-		serieHistory = player.api("playlist_id").split('s')[1];
 	}
 
 	if(event=="play"){
-		serieHistory = player.api("playlist_id").split('s')[1];
 		if(p2pMode){
 			if (p2pml.core.HybridLoader.isSupported()) {
 				// Запуск P2P раздачи
@@ -744,11 +741,11 @@ function PlayerjsEvents(event,id,info){
 }
 
 // Функция сохранения истории Приложения
-function releaseHistorySave(s){
+async function releaseHistorySave(){
 	let playlistID = player.api("playlist_id").split('s');
 
 	let titel = playlistID[0];
-	let serie = serieHistory;
+	let serie = playlistID[1];
 	let time = player.api("time");
 	let duration = player.api("duration");
 	let date = Date.now();
@@ -784,10 +781,10 @@ function player_navigation(display){
 	}
 }
 
-let RELEASE_SYNC_PERIOD = 1000 * 60 * 1;
+let RELEASE_SYNC_PERIOD = 1000 * 60;
 let releaseSyncTimeoutId;
 
-function releaseHystorySync(delay) {
+function releaseHystorySync() {
 	if (releaseSyncTimeoutId) {
 		clearTimeout(releaseSyncTimeoutId);
 	}
@@ -797,5 +794,5 @@ function releaseHystorySync(delay) {
 			.finally(() => {
                 if(playerPlay) releaseHystorySync();
             })
-	}, typeof delay === 'undefined' ? RELEASE_SYNC_PERIOD : delay)
+	}, RELEASE_SYNC_PERIOD)
 }

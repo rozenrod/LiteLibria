@@ -750,7 +750,7 @@ async function releaseHistorySave(){
 	let duration = player.api("duration");
 	let date = Date.now();
 
-	historySave(titel, serie, time, duration, date, playerName, playerLength);
+	if(player.api("duration")) historySave(titel, serie, time, duration, date, playerName, playerLength);
 }
 
 // Функция скрытия элементов интерфейса в полноэкранном режиме

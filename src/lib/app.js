@@ -115,6 +115,8 @@ function menuPageActive(page){
 
 	pageAPP = page
 
+	clearTimeout(releaseSyncTimeoutId);
+
 	// if (!history.state) return;
 	// if(window.scrollY >= 0) window.scroll(0, history.state.position);
 }
@@ -139,6 +141,8 @@ updateButton.addEventListener('click', function(){
 
 
 function appReload(){
+	clearTimeout(releaseSyncTimeoutId);
+
 	// Переменные запросов API
 	Home.updates.list = [];
 	Home.genres.list = [];

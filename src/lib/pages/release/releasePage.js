@@ -198,11 +198,6 @@ const Release = {
 			document.getElementById('Hidden-2').setAttribute("data-state", "active");
 			document.getElementById('Hidden-3').setAttribute("data-state", "");
 			ReleaseViewAll.querySelector('a').innerHTML = "";
-		} else {
-			document.getElementById('Hidden-1').setAttribute("data-state", "");
-			document.getElementById('Hidden-2').setAttribute("data-state", "");
-			document.getElementById('Hidden-3').setAttribute("data-state", "");
-			ReleaseViewAll.querySelector('a').innerHTML = 'Подробнее...'
 		}
 		window.addEventListener(`resize`, e => {
 			if(window.innerWidth <= 800){
@@ -213,7 +208,7 @@ const Release = {
 			} else {
 				document.getElementById('Hidden-1').setAttribute("data-state", "");
 				document.getElementById('Hidden-2').setAttribute("data-state", "");
-				document.getElementById('Hidden-3').setAttribute("data-state", "");
+				document.getElementById('Hidden-3').setAttribute("data-state", "active");
 				ReleaseViewAll.querySelector('a').innerHTML = 'Подробнее...'
 			}
 		});

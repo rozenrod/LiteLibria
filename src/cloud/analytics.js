@@ -12,9 +12,12 @@ const Analytics = {
         window.addEventListener("click", (event) => {
             if(href != window.location.href){
                 href = window.location.href;
-                Analytics.sync();
+                setTimeout(() => Analytics.sync(), 500)
             }
         });
+
+
+
     }, 
     sync: async function() {
         let url = `https://cloud.litelibria.com/analytics?hash=${localStorage.getItem('hashAPP')}&sessionCloud=${Analytics.sessionCloud()}&location=${window.location.href}&title=${document.title}&time=${Date.now()}&os=${detectOS()}&browser=${detectBrowser()}&appVersion=${config.version}`

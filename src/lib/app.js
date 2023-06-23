@@ -11,7 +11,6 @@ window.addEventListener('load', async function () {
 	if(localStorage.getItem('CloudSync') == 'true') await Cloud.init();
 
 
-
 	if(styleDebug) console.log('3. Получаем ширину приложения');
 	appWidth(widthAPP);
 	if(styleDebug) console.log('[Width APP] ', widthAPP, 'px');
@@ -89,6 +88,12 @@ window.addEventListener('load', async function () {
 
 	if(styleDebug) console.log('12. Обнуление Badge');
 	clearBadge();
+
+	if(styleDebug) console.log('13. Отправка аналитики');
+	Analytics.sync();
+
+	if(styleDebug) console.log('14. Запуск периодической отправка аналитики');
+	Analytics.init();
 });
 
 
@@ -172,6 +177,8 @@ function appReload(){
 	Schedule.loadAPI();
 	Favorites.loadAPI();
 	Option.account.loadAPI();
+
+	Analytics.init();
 
 	if(localStorage.getItem('CloudSync') == 'true') Cloud.load();
 

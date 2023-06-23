@@ -1,5 +1,3 @@
-let AnalyticsTimeoutId;
-let ANALYTUCS_SYNC_PERIOD = 1000 * 60;
 const Analytics = {
     sessionCloud: function() {
         if(sessionStorage.getItem('sessionCloud')){
@@ -10,16 +8,13 @@ const Analytics = {
     },
 
     init: async function() {
-        if (AnalyticsTimeoutId) {
-            clearTimeout(AnalyticsTimeoutId);
-        }
-        AnalyticsTimeoutId = setTimeout(() => {
-            Analytics.sync()
-                .catch(e => console.log('Failed to synchronize Cloud Analytics', e))
-                .finally(() => {
-                    Analytics.init();
-                })
-        }, ANALYTUCS_SYNC_PERIOD)
+        let href;
+        window.addEventListener("click", (event) => {
+            if(href != window.location.href){
+                href = window.location.href;
+                Analytics.sync();
+            }
+        });
     }, 
     sync: async function() {
         let url = `https://cloud.litelibria.com/analytics?hash=${localStorage.getItem('hashAPP')}&sessionCloud=${Analytics.sessionCloud()}&location=${window.location.href}&title=${document.title}&time=${Date.now()}&os=${detectOS()}&browser=${detectBrowser()}&appVersion=${config.version}`

@@ -90,9 +90,6 @@ window.addEventListener('load', async function () {
 	clearBadge();
 
 	if(styleDebug) console.log('13. Отправка аналитики');
-	Analytics.sync();
-
-	if(styleDebug) console.log('14. Запуск периодической отправка аналитики');
 	Analytics.init();
 });
 

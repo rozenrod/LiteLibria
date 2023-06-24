@@ -175,8 +175,6 @@ function appReload(){
 	Favorites.loadAPI();
 	Option.account.loadAPI();
 
-	Analytics.init();
-
 	if(localStorage.getItem('CloudSync') == 'true') Cloud.load();
 
 	console.log(window.location.pathname);

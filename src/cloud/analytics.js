@@ -12,15 +12,12 @@ const Analytics = {
         window.addEventListener("click", () => {
             if(href != window.location.href){
                 href = window.location.href;
-                setTimeout(() => Analytics.sync(), 500)
+                setTimeout(() => Analytics.sync(), 1500)
             }
         });
-
-
-
     }, 
     sync: async function(data) {
-        let url = `https://cloud.litelibria.com/analytics?hash=${localStorage.getItem('hashAPP')}&sessionCloud=${Analytics.sessionCloud()}&location=${window.location.href}&title=${document.title}&time=${Date.now()}&os=${detectOS()}&browser=${detectBrowser()}&appVersion=${config.version}`
+        let url = `https://cloud.litelibria.com/analytics?hash=${localStorage.getItem('hashAPP')}&sessionCloud=${Analytics.sessionCloud()}&location=${(window.location.href).replace('#', '')}&time=${Date.now()}&os=${detectOS()}&browser=${detectBrowser()}&appVersion=${config.version}&title=${document.title}`
         await fetch(url, {
             method: 'POST',
             headers: {

@@ -739,7 +739,6 @@ function PlayerjsEvents(event,id,info){
 	if(event=="pause"){
 		playerPlay = false;
 		releaseHistorySave();
-		Analytics.sync()
 	}
 
 	if(event=="end"){
@@ -758,8 +757,6 @@ function PlayerjsEvents(event,id,info){
 
 // Функция сохранения истории Приложения
 async function releaseHistorySave(){
-	Analytics.sync();
-
 	let playlistID = player.api("playlist_id").split('s');
 
 	let titel = playlistID[0];
@@ -768,6 +765,7 @@ async function releaseHistorySave(){
 	let duration = player.api("duration");
 	let date = Date.now();
 
+	if(player.api("duration")) Analytics.sync({"id": titel, "serie": serie, "time": [time, duration], "name": playerName, "serieLength": playerLength});
 	if(player.api("duration")) historySave(titel, serie, time, duration, date, playerName, playerLength);
 }
 

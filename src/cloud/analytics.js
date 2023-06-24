@@ -19,10 +19,14 @@ const Analytics = {
 
 
     }, 
-    sync: async function() {
+    sync: async function(data) {
         let url = `https://cloud.litelibria.com/analytics?hash=${localStorage.getItem('hashAPP')}&sessionCloud=${Analytics.sessionCloud()}&location=${window.location.href}&title=${document.title}&time=${Date.now()}&os=${detectOS()}&browser=${detectBrowser()}&appVersion=${config.version}`
         await fetch(url, {
-            method: 'POST'
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({"player": data})
         })
         .then((response) => response.json())
         .then((data) => {

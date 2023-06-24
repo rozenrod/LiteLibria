@@ -739,6 +739,7 @@ function PlayerjsEvents(event,id,info){
 	if(event=="pause"){
 		playerPlay = false;
 		releaseHistorySave();
+		Analytics.sync()
 	}
 
 	if(event=="end"){
@@ -757,6 +758,8 @@ function PlayerjsEvents(event,id,info){
 
 // Функция сохранения истории Приложения
 async function releaseHistorySave(){
+	Analytics.sync();
+
 	let playlistID = player.api("playlist_id").split('s');
 
 	let titel = playlistID[0];

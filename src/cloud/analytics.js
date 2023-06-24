@@ -9,7 +9,7 @@ const Analytics = {
 
     init: async function() {
         let href;
-        window.addEventListener("click", (event) => {
+        window.addEventListener("click", () => {
             if(href != window.location.href){
                 href = window.location.href;
                 setTimeout(() => Analytics.sync(), 500)

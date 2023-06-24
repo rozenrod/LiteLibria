@@ -12,7 +12,7 @@ const Analytics = {
         window.addEventListener("click", () => {
             if(href != window.location.href){
                 href = window.location.href;
-                setTimeout(() => Analytics.sync(), 1500)
+                setTimeout(() => Analytics.sync(), 500)
             }
         });
     }, 

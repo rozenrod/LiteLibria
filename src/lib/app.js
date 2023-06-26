@@ -91,6 +91,7 @@ window.addEventListener('load', async function () {
 
 	if(styleDebug) console.log('13. Отправка аналитики');
 	Analytics.init();
+	Analytics.sync();
 });
 
 

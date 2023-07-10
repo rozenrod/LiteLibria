@@ -188,7 +188,7 @@ const Release = {
 
 		ReleaseSHIKIMORI.querySelector('a').href = `https://shikimori.me/animes?search=${this.list.names.en}`;
 
-		if(this.list.player.episodes.last == 1){
+		if(this.list.player.list.length == 1){
 			PlaySerie.setAttribute("style", "display:none;");
 			ReleasePlayer.dataset.state = 'SerieOne';
 		}

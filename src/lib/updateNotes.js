@@ -1,6 +1,16 @@
 updateNotes = [
   {
     "prefix":"Kaamira",
+    "version":"2.0.18",
+    "date":"10 July 2023",
+    "update":[
+      {
+				"type":"FIXED",
+        "text":"Исправлены ошибки.",
+			}
+    ]
+  },{
+    "prefix":"Kaamira",
     "version":"2.0.17",
     "date":"26 June 2023",
     "update":[

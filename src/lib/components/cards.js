@@ -8,9 +8,9 @@ const Card = {
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm-6 336H54a6 6 0 0 1-6-6V118a6 6 0 0 1 6-6h404a6 6 0 0 1 6 6v276a6 6 0 0 1-6 6zM128 152c-22.091 0-40 17.909-40 40s17.909 40 40 40 40-17.909 40-40-17.909-40-40-40zM96 352h320v-80l-87.515-87.515c-4.686-4.686-12.284-4.686-16.971 0L192 304l-39.515-39.515c-4.686-4.686-12.284-4.686-16.971 0L96 304v48z"/></svg>
 			<img src="${posters}" alt="">
 			<div class="LineCard-Hover">
-				<p class="LineCard-Hover-Name" style="-webkit-box-orient: vertical;">${name}</p>
-				<p class="LineCard-Hover-Genres" style="-webkit-box-orient: vertical;">${genres}</p>
-				<p class="LineCard-Hover-Description" style="-webkit-box-orient: vertical;">${description}</p>
+				<p class="LineCard-Hover-Name" style="-webkit-box-orient: vertical;">${name || ''}</p>
+				<p class="LineCard-Hover-Genres" style="-webkit-box-orient: vertical;">${genres || ''}</p>
+				<p class="LineCard-Hover-Description" style="-webkit-box-orient: vertical;">${description || ''}</p>
 			</div>
 			<a data-route class="LineCard-Click" href="/release/${id}"></a>
 		`;
@@ -30,10 +30,17 @@ const Card = {
 		}
 		text = () => {
 			if(minutes) return `
-				<p class="LineCard-Hover-Serie">Серия ${serie}</p>
-				<p class="LineCard-Hover-Serie">Минута ${minutes}</p>
+				<div class="LineCard-Hover">
+					<p class="LineCard-Hover-Serie">Серия ${serie}</p>
+					<p class="LineCard-Hover-Serie">Минута ${minutes}</p>
+				</div>
 			`;
-			return `<p class="LineCard-Hover-Serie">${type} ${serie}</p>`;
+			if(!serie) return ''
+			return `
+				<div class="LineCard-Hover">
+					<p class="LineCard-Hover-Serie">${type} ${serie}</p>
+				</div>
+			`;
 		};
 
 		let serie_loading = () => {
@@ -47,9 +54,7 @@ const Card = {
 		div.innerHTML += `
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm-6 336H54a6 6 0 0 1-6-6V118a6 6 0 0 1 6-6h404a6 6 0 0 1 6 6v276a6 6 0 0 1-6 6zM128 152c-22.091 0-40 17.909-40 40s17.909 40 40 40 40-17.909 40-40-17.909-40-40-40zM96 352h320v-80l-87.515-87.515c-4.686-4.686-12.284-4.686-16.971 0L192 304l-39.515-39.515c-4.686-4.686-12.284-4.686-16.971 0L96 304v48z"/></svg>
 			<img src="${posters}" alt="">
-			<div class="LineCard-Hover">
-				${text()}
-			</div>
+			${text()}
 			${serie_loading()}
 			<a data-route class="LineCard-Click" href="/release/${id}"></a>
 		`;
@@ -67,9 +72,9 @@ const Card = {
 				${Episode}
 			</div>
 			<div class="LineCard-LongHovers-Right">
-				<p class="LineCard-LongHovers-Name" style="-webkit-box-orient: vertical;">${name}</p>
-				<p class="LineCard-LongHovers-Genres" style="-webkit-box-orient: vertical;">${genres}</p>
-				<p class="LineCard-LongHovers-Description" style="-webkit-box-orient: vertical;">${description}</p>
+				<p class="LineCard-LongHovers-Name" style="-webkit-box-orient: vertical;">${name || ''}</p>
+				<p class="LineCard-LongHovers-Genres" style="-webkit-box-orient: vertical;">${genres || ''}</p>
+				<p class="LineCard-LongHovers-Description" style="-webkit-box-orient: vertical;">${description || ''}</p>
 			</div>
 			<a data-route class="LineCard-Click" href="/release/${id}"></a>
 		`;
@@ -86,9 +91,9 @@ const Card = {
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm-6 336H54a6 6 0 0 1-6-6V118a6 6 0 0 1 6-6h404a6 6 0 0 1 6 6v276a6 6 0 0 1-6 6zM128 152c-22.091 0-40 17.909-40 40s17.909 40 40 40 40-17.909 40-40-17.909-40-40-40zM96 352h320v-80l-87.515-87.515c-4.686-4.686-12.284-4.686-16.971 0L192 304l-39.515-39.515c-4.686-4.686-12.284-4.686-16.971 0L96 304v48z"/></svg>
 			<img src="${posters}" alt="">
 			<div class="LineCard-Hover">
-				<p class="LineCard-Hover-Name" style="-webkit-box-orient: vertical;">${name}</p>
-				<p class="LineCard-Hover-Genres" style="-webkit-box-orient: vertical;">${genres}</p>
-				<p class="LineCard-Hover-Description" style="-webkit-box-orient: vertical;">${description}</p>
+				<p class="LineCard-Hover-Name" style="-webkit-box-orient: vertical;">${name || ''}</p>
+				<p class="LineCard-Hover-Genres" style="-webkit-box-orient: vertical;">${genres || ''}</p>
+				<p class="LineCard-Hover-Description" style="-webkit-box-orient: vertical;">${description || ''}</p>
 			</div>
 			<a ${youtube ? '' : 'data-route'} class="LineCard-Click" href="${href}"></a>
 		`;

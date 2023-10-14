@@ -1,0 +1,23 @@
+#
+#
+
+name: Pre-release
+'on': pull_request
+
+jobs:
+  pre-release:
+    name: "Pre Release"
+    runs-on: "ubuntu-latest"
+
+    steps:
+      # ...
+      - uses: actions/checkout@v3
+      - run: npm ci && npm run build
+
+      - uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "pre-release"
+          prerelease: true
+          title: "Development Build"
+          files: archive/*.zip

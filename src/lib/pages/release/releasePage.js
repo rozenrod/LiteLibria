@@ -2,8 +2,10 @@ const Release = {
 	list: [],
 	init: async function(id) {
 		// let html = await fetch('/lib/pages/release/index.html').then((response) => response.text());
-		let html = `<div class="ReleaseBlock"><div class="ReleaseBlockReverse"><div class="ReleaseBlockAbout"><div id="ReleaseBlockAboutPoster"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm-6 336H54a6 6 0 0 1-6-6V118a6 6 0 0 1 6-6h404a6 6 0 0 1 6 6v276a6 6 0 0 1-6 6zM128 152c-22.091 0-40 17.909-40 40s17.909 40 40 40 40-17.909 40-40-17.909-40-40-40zM96 352h320v-80l-87.515-87.515c-4.686-4.686-12.284-4.686-16.971 0L192 304l-39.515-39.515c-4.686-4.686-12.284-4.686-16.971 0L96 304v48z"></path></svg><img id="ReleasePoster1" src="" alt=""></div><div class="ReleaseBlockAboutDetail"><p id="ReleaseNamesRu"><span class="TextLoad TextLoadW"></span></p><p id="ReleaseGenres"><span class="TextLoad TextLoadW" data="TextLoad1"></span><span class="TextLoad TextLoadW" data="TextLoad1"></span><span class="TextLoad TextLoadW" data="TextLoad1"></span></p><div id="ReleaseWeekDay"><a href="/schedule/0" data-route id="ReleaseWeekDay-0">Пн</a><a href="/schedule/1" data-route id="ReleaseWeekDay-1">Вт</a><a href="/schedule/2" data-route id="ReleaseWeekDay-2">Ср</a><a href="/schedule/3" data-route id="ReleaseWeekDay-3">Чт</a><a href="/schedule/4" data-route id="ReleaseWeekDay-4">Пт</a><a href="/schedule/5" data-route id="ReleaseWeekDay-5">Сб</a><a href="/schedule/6" data-route id="ReleaseWeekDay-6">Вс</a></div><div id="ReleasePersonal"><p id="ReleaseFavorite"><span class="TextLoad TextLoadB" data="TextLoad3"></span></p><div title="Отписатся от уведомлений" id="delSub"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M 12 2 C 11.172 2 10.5 2.672 10.5 3.5 L 10.5 4.1953125 C 7.9131836 4.862095 6 7.2048001 6 10 L 6 16 L 4.4648438 17.15625 L 4.4628906 17.15625 A 1 1 0 0 0 4 18 A 1 1 0 0 0 5 19 L 12 19 L 19 19 A 1 1 0 0 0 20 18 A 1 1 0 0 0 19.537109 17.15625 L 18 16 L 18 10 C 18 7.2048001 16.086816 4.862095 13.5 4.1953125 L 13.5 3.5 C 13.5 2.672 12.828 2 12 2 z M 10 20 C 10 21.1 10.9 22 12 22 C 13.1 22 14 21.1 14 20 L 10 20 z"/></svg></div><div title="Подписатся на уведомления" id="addSub"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M 12 2 C 11.172 2 10.5 2.672 10.5 3.5 L 10.5 4.1953125 C 7.9131836 4.862095 6 7.2048001 6 10 L 6 16 L 4.4648438 17.15625 L 4.4628906 17.15625 A 1 1 0 0 0 4 18 A 1 1 0 0 0 5 19 L 12 19 L 19 19 A 1 1 0 0 0 20 18 A 1 1 0 0 0 19.537109 17.15625 L 18 16 L 18 10 C 18 7.2048001 16.086816 4.862095 13.5 4.1953125 L 13.5 3.5 C 13.5 2.672 12.828 2 12 2 z M 10 20 C 10 21.1 10.9 22 12 22 C 13.1 22 14 21.1 14 20 L 10 20 z"/></svg></div><div title="Удалить из избранное" id="delFavorite"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 172 172"><path d="M86,129.65217l35.61117,21.49283c5.61867,3.38983 12.54883,-1.64833 11.05817,-8.03383l-9.45283,-40.51317l31.46883,-27.262c4.95933,-4.29283 2.30767,-12.44133 -4.22833,-12.99317l-41.42333,-3.51167l-16.20383,-38.23417c-2.5585,-6.02717 -11.10117,-6.02717 -13.65967,0l-16.20383,38.23417l-41.42333,3.51167c-6.536,0.55183 -9.18767,8.70033 -4.22833,12.99317l31.46883,27.262l-9.45283,40.51317c-1.49067,6.3855 5.4395,11.42367 11.05817,8.03383z"></path></svg></div><div title="Добавить в избранное" id="addFavorite"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 172 172"><path d="M86,129.65217l35.61117,21.49283c5.61867,3.38983 12.54883,-1.64833 11.05817,-8.03383l-9.45283,-40.51317l31.46883,-27.262c4.95933,-4.29283 2.30767,-12.44133 -4.22833,-12.99317l-41.42333,-3.51167l-16.20383,-38.23417c-2.5585,-6.02717 -11.10117,-6.02717 -13.65967,0l-16.20383,38.23417l-41.42333,3.51167c-6.536,0.55183 -9.18767,8.70033 -4.22833,12.99317l31.46883,27.262l-9.45283,40.51317c-1.49067,6.3855 5.4395,11.42367 11.05817,8.03383z"></path></svg></div></div><div id="ReleaseSYTC"><a id="ReleaseSeasonYear" data-route><span class="TextLoad TextLoadR" data="TextLoad2"></span></a><a id="ReleaseTypeCode" data-route><span class="TextLoad TextLoadR" data="TextLoad3"></span></a></div><div id="ReleaseBlockAnnounce"><h3 id="ReleaseAnnounce"></h3></div><div id="ReleaseBlockText"><p id="ReleaseDescription"><span class="TextLoad" data="TextLoad4"></span><span class="TextLoad" data="TextLoad5"></span><span class="TextLoad" data="TextLoad6"></span><span class="TextLoad" data="TextLoad4"></span><span class="TextLoad" data="TextLoad5"></span><span class="TextLoad" data="TextLoad6"></span></p><div id="Hidden-2"><br><p id="ReleaseStatus">Статус:</p><p id="ReleaseVoice">Озвучка:</p><p id="ReleaseTiming">Тайминг:</p><p id="ReleaseTranslator">Перевод:</p><p id="ReleaseEditing">Редактура:</p><p id="ReleaseDecor">Оформление:</p><br><p id="ReleaseNamesEn">Навзание EN:</p><br><p id="ReleaseSHIKIMORI"><a href="https://shikimori.one/animes?search=" target="_blank">Поиск SHIKIMORI</a></p><br><img id="ReleasePoster2" src="" alt=""></div><br><p id="ReleaseViewAll"><a>Подробнее...</a></p></div></div></div><div class="ReleaseBlockPlayer" id="ReleaseBlockPlayerRuTube"><div class="ReleaseBlockPlayerLeft" id="ReleasePlayerRuTube"></div><div class="ReleaseBlockPlayerRight" id="PlaySerieRuTube"><div class="posterSerie"></div><div class="posterSerie"></div><div class="posterSerie"></div><div class="posterSerie"></div><div class="posterSerie"></div><div class="posterSerie"></div></div></div><div class="ReleaseBlockPlayer" id="ReleaseBlockPlayer"><div class="ReleaseBlockPlayerLeft" id="ReleasePlayer"><div id="player"></div></div><div class="ReleaseBlockPlayerRight" id="PlaySerie"><div class="posterSerie"></div><div class="posterSerie"></div><div class="posterSerie"></div><div class="posterSerie"></div><div class="posterSerie"></div><div class="posterSerie"></div></div></div></div><div class="ReleaseBlockSliders"><div id="ReleaseBlockRelated"><h3>Связанные релизы</h3><div id="ReleaseRelated"></div></div><div id="ReleaseBlockRecomend"><h3>Вам также может понравиться</h3><div id="ReleaseRecomend"></div></div><details class="ReleaseBlockSlidersDetails" id="PlayerP2PGraf" style="display:none"><summary>Информация о вашем подключении.</summary><div id="chart_containerPad"><div id="chart_container"><div id="legend"></div><div id="legend-totals"></div><div id="y_axis"></div><div id="chart"></div></div></div><div id="graph"></div><p style="font-size:16px;margin:5px 20px">Трекеры:</p><p style="font-size:14px" id="trackerAnnounce"></p></details><div class="ReleaseBlockSlidersDetails" id="PlayerKeys"><p><span>Клавиша F</span><span>Полноэкранный режим видео</span></p><p><span>Клавиша M</span><span>Включение / выключение звука</span></p><p><span>Пробел</span><span>Переключение пуск / пауза</span></p><p><span>Стрелки ← и →</span><span>Перемотка</span></p></div><div class="ReleaseBlockSlidersDetails" id="PlayerP2PText" style="display:none"><center><p style="font-size:17px">Приложение использует P2P подключение!</p></center><p>Как это устроено? Очень просто. У нас 4 пользователя, которые хотят посмотреть новую серию любимого аниме. Все 4 пользователя начали смотреть серию не одновременно, а с интервалом в 2-10 минут. Самый первый загрузит серию с сервера AniLibria.tv. Второй и последующие пользователи загрузят большую часть у тех пользователей, которые уже немного прогрузили серию и совсем немного с сервера AniLibria.tv.</p><p>Зачем это нужно? Для того, чтоб сервера AniLibria.tv были менее загружены, и больше людей смогли посмотреть новую серию без проблем.</p></div></div></div>`
+		let html = `<div class="ReleaseBlock"><div class="ReleaseBlockReverse"><div class="ReleaseBlockAbout"><div id="ReleaseBlockAboutPoster"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm-6 336H54a6 6 0 0 1-6-6V118a6 6 0 0 1 6-6h404a6 6 0 0 1 6 6v276a6 6 0 0 1-6 6zM128 152c-22.091 0-40 17.909-40 40s17.909 40 40 40 40-17.909 40-40-17.909-40-40-40zM96 352h320v-80l-87.515-87.515c-4.686-4.686-12.284-4.686-16.971 0L192 304l-39.515-39.515c-4.686-4.686-12.284-4.686-16.971 0L96 304v48z"></path></svg><img id="ReleasePoster1" src="" alt=""></div><div class="ReleaseBlockAboutDetail"><p id="ReleaseNamesRu"><span class="TextLoad TextLoadW"></span></p><p id="ReleaseGenres"><span class="TextLoad TextLoadW" data="TextLoad1"></span><span class="TextLoad TextLoadW" data="TextLoad1"></span><span class="TextLoad TextLoadW" data="TextLoad1"></span></p><div id="ReleaseWeekDay"><a href="/schedule/0" data-route id="ReleaseWeekDay-0">Пн</a><a href="/schedule/1" data-route id="ReleaseWeekDay-1">Вт</a><a href="/schedule/2" data-route id="ReleaseWeekDay-2">Ср</a><a href="/schedule/3" data-route id="ReleaseWeekDay-3">Чт</a><a href="/schedule/4" data-route id="ReleaseWeekDay-4">Пт</a><a href="/schedule/5" data-route id="ReleaseWeekDay-5">Сб</a><a href="/schedule/6" data-route id="ReleaseWeekDay-6">Вс</a></div><div id="ReleasePersonal"><p id="ReleaseFavorite"><span class="TextLoad TextLoadB" data="TextLoad3"></span></p><div title="Отписатся от уведомлений" id="delSub"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M 12 2 C 11.172 2 10.5 2.672 10.5 3.5 L 10.5 4.1953125 C 7.9131836 4.862095 6 7.2048001 6 10 L 6 16 L 4.4648438 17.15625 L 4.4628906 17.15625 A 1 1 0 0 0 4 18 A 1 1 0 0 0 5 19 L 12 19 L 19 19 A 1 1 0 0 0 20 18 A 1 1 0 0 0 19.537109 17.15625 L 18 16 L 18 10 C 18 7.2048001 16.086816 4.862095 13.5 4.1953125 L 13.5 3.5 C 13.5 2.672 12.828 2 12 2 z M 10 20 C 10 21.1 10.9 22 12 22 C 13.1 22 14 21.1 14 20 L 10 20 z"/></svg></div><div title="Подписатся на уведомления" id="addSub"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M 12 2 C 11.172 2 10.5 2.672 10.5 3.5 L 10.5 4.1953125 C 7.9131836 4.862095 6 7.2048001 6 10 L 6 16 L 4.4648438 17.15625 L 4.4628906 17.15625 A 1 1 0 0 0 4 18 A 1 1 0 0 0 5 19 L 12 19 L 19 19 A 1 1 0 0 0 20 18 A 1 1 0 0 0 19.537109 17.15625 L 18 16 L 18 10 C 18 7.2048001 16.086816 4.862095 13.5 4.1953125 L 13.5 3.5 C 13.5 2.672 12.828 2 12 2 z M 10 20 C 10 21.1 10.9 22 12 22 C 13.1 22 14 21.1 14 20 L 10 20 z"/></svg></div><div title="Удалить из избранное" id="delFavorite"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 172 172"><path d="M86,129.65217l35.61117,21.49283c5.61867,3.38983 12.54883,-1.64833 11.05817,-8.03383l-9.45283,-40.51317l31.46883,-27.262c4.95933,-4.29283 2.30767,-12.44133 -4.22833,-12.99317l-41.42333,-3.51167l-16.20383,-38.23417c-2.5585,-6.02717 -11.10117,-6.02717 -13.65967,0l-16.20383,38.23417l-41.42333,3.51167c-6.536,0.55183 -9.18767,8.70033 -4.22833,12.99317l31.46883,27.262l-9.45283,40.51317c-1.49067,6.3855 5.4395,11.42367 11.05817,8.03383z"></path></svg></div><div title="Добавить в избранное" id="addFavorite"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 172 172"><path d="M86,129.65217l35.61117,21.49283c5.61867,3.38983 12.54883,-1.64833 11.05817,-8.03383l-9.45283,-40.51317l31.46883,-27.262c4.95933,-4.29283 2.30767,-12.44133 -4.22833,-12.99317l-41.42333,-3.51167l-16.20383,-38.23417c-2.5585,-6.02717 -11.10117,-6.02717 -13.65967,0l-16.20383,38.23417l-41.42333,3.51167c-6.536,0.55183 -9.18767,8.70033 -4.22833,12.99317l31.46883,27.262l-9.45283,40.51317c-1.49067,6.3855 5.4395,11.42367 11.05817,8.03383z"></path></svg></div></div><div id="ReleaseSYTC"><a id="ReleaseSeasonYear" data-route><span class="TextLoad TextLoadR" data="TextLoad2"></span></a><a id="ReleaseTypeCode" data-route><span class="TextLoad TextLoadR" data="TextLoad3"></span></a></div><div id="ReleaseBlockAnnounce"><h3 id="ReleaseAnnounce"></h3></div><div id="ReleaseBlockText"><p id="ReleaseDescription"><span class="TextLoad" data="TextLoad4"></span><span class="TextLoad" data="TextLoad5"></span><span class="TextLoad" data="TextLoad6"></span><span class="TextLoad" data="TextLoad4"></span><span class="TextLoad" data="TextLoad5"></span><span class="TextLoad" data="TextLoad6"></span></p><div id="Hidden-2"><br><p id="ReleaseStatus">Статус:</p><p id="ReleaseVoice">Озвучка:</p><p id="ReleaseTiming">Тайминг:</p><p id="ReleaseTranslator">Перевод:</p><p id="ReleaseEditing">Редактура:</p><p id="ReleaseDecor">Оформление:</p><br><p id="ReleaseNamesEn">Навзание EN:</p><br><p id="ReleaseSHIKIMORI"><a href="https://shikimori.one/animes?search=" target="_blank">Поиск SHIKIMORI</a></p><br></div><br><p id="ReleaseViewAll"><a>Подробнее...</a></p></div></div></div><div class="ReleaseBlockPlayer" id="ReleaseBlockPlayerRuTube"><div class="ReleaseBlockPlayerLeft" id="ReleasePlayerRuTube"></div><div class="ReleaseBlockPlayerRight" id="PlaySerieRuTube"><div class="posterSerie"></div><div class="posterSerie"></div><div class="posterSerie"></div><div class="posterSerie"></div><div class="posterSerie"></div><div class="posterSerie"></div></div></div><div class="ReleaseBlockPlayer" id="ReleaseBlockPlayer"><div class="ReleaseBlockPlayerLeft" id="ReleasePlayer"><div id="player"></div></div><div class="ReleaseBlockPlayerRight" id="PlaySerie"><div class="posterSerie"></div><div class="posterSerie"></div><div class="posterSerie"></div><div class="posterSerie"></div><div class="posterSerie"></div><div class="posterSerie"></div></div></div></div><div class="ReleaseBlockSliders"><div id="ReleaseBlockRelated"><h3>Связанные релизы</h3><div id="ReleaseRelated"></div></div><div id="ReleaseBlockRecomend"><h3>Вам также может понравиться</h3><div id="ReleaseRecomend"></div></div><details class="ReleaseBlockSlidersDetails" id="PlayerP2PGraf" style="display:none"><summary>Информация о вашем подключении.</summary><div id="chart_containerPad"><div id="chart_container"><div id="legend"></div><div id="legend-totals"></div><div id="y_axis"></div><div id="chart"></div></div></div><div id="graph"></div><p style="font-size:16px;margin:5px 20px">Трекеры:</p><p style="font-size:14px" id="trackerAnnounce"></p></details><div class="ReleaseBlockSlidersDetails" id="PlayerKeys"><p><span>Клавиша F</span><span>Полноэкранный режим видео</span></p><p><span>Клавиша M</span><span>Включение / выключение звука</span></p><p><span>Пробел</span><span>Переключение пуск / пауза</span></p><p><span>Стрелки ← и →</span><span>Перемотка</span></p></div><div class="ReleaseBlockSlidersDetails" id="PlayerP2PText" style="display:none"><center><p style="font-size:17px">Приложение использует P2P подключение!</p></center><p>Как это устроено? Очень просто. У нас 4 пользователя, которые хотят посмотреть новую серию любимого аниме. Все 4 пользователя начали смотреть серию не одновременно, а с интервалом в 2-10 минут. Самый первый загрузит серию с сервера AniLibria.tv. Второй и последующие пользователи загрузят большую часть у тех пользователей, которые уже немного прогрузили серию и совсем немного с сервера AniLibria.tv.</p><p>Зачем это нужно? Для того, чтоб сервера AniLibria.tv были менее загружены, и больше людей смогли посмотреть новую серию без проблем.</p></div></div></div>`
 		app.innerHTML = html;
+
+		historyConvert();
 
 		await this.setHTML(id);
 
@@ -36,7 +38,6 @@ const Release = {
 
 		let ReleaseBlockAboutPoster = document.getElementById("ReleaseBlockAboutPoster");
 		let ReleasePoster1 = document.getElementById("ReleasePoster1");
-		let ReleasePoster2 = document.getElementById("ReleasePoster2");
 		let ReleaseNamesRu = document.getElementById("ReleaseNamesRu");
 		let ReleaseGenres = document.getElementById("ReleaseGenres");
 		let ReleaseWeekDay = document.getElementById("ReleaseWeekDay");
@@ -123,8 +124,6 @@ const Release = {
 
 		ReleasePoster1.src = postersMode == 'webp' ? config["webpPosters"]+this.list.id+'.webp' : config["posters"]+this.list.posters.medium.url;
 
-		ReleasePoster2.src = config["posters"]+this.list.posters.medium.url;
-
 		ReleaseNamesRu.innerHTML = this.list.names.ru;
 		
 		ReleaseGenres.innerHTML = genres();
@@ -137,7 +136,7 @@ const Release = {
 			}
 		}
 
-		ReleaseFavorite.innerHTML = `В избранном у  ${this.list.in_favorites}`;
+		ReleaseFavorite.innerHTML = `В избранном у  ${this.list.in_favorites || 0}`;
 
 		if (this.list.season.year && this.list.season.string){
 			ReleaseSeasonYear.setAttribute("href", `/catalog?year=${this.list.season.year}&season_code=${this.list.season.code}`);
@@ -161,7 +160,17 @@ const Release = {
 		if(this.list.status.code == 1) if(this.list.announce) ReleaseBlockAnnounce.setAttribute("data-state", `active`);
 		ReleaseAnnounce.innerHTML =  this.list.announce;
 
-		ReleaseDescription.innerHTML = `${this.list.description.substr(0, 370)}<span id="Hidden-3" data-state="active">...</span><span id="Hidden-1">${this.list.description.substr(370)}</span></p>`;
+		this.list.description 
+			? ReleaseDescription.innerHTML = 
+				`
+					${this.list.description.substr(0, 370)}<span id="Hidden-3" data-state="active">...</span><span id="Hidden-1">${this.list.description.substr(370)}</span>
+				` 
+			: ReleaseDescription.innerHTML =
+				`	
+					${this.list.names.ru}
+					<span id="Hidden-3" data-state="active"></span>
+					<span id="Hidden-1"></span>
+				` ;
 		
 		if(this.list.status.string) ReleaseStatus.innerHTML = `Статус: ${this.list.status.string}`;
 		
@@ -177,14 +186,34 @@ const Release = {
 
 		ReleaseNamesEn.innerHTML = `Навзание EN: ${this.list.names.en}`;
 
-		ReleaseSHIKIMORI.querySelector('a').href = `https://shikimori.one/animes?search=${this.list.names.en}`;
+		ReleaseSHIKIMORI.querySelector('a').href = `https://shikimori.me/animes?search=${this.list.names.en}`;
 
-		if(this.list.player.episodes.last == 1){
+		if(this.list.player.list.length == 1){
 			PlaySerie.setAttribute("style", "display:none;");
 			ReleasePlayer.dataset.state = 'SerieOne';
 		}
 
-		ReleaseViewAll.addEventListener('click', function(e){
+		if(window.innerWidth <= 800){
+			document.getElementById('Hidden-1').setAttribute("data-state", "active");
+			document.getElementById('Hidden-2').setAttribute("data-state", "active");
+			document.getElementById('Hidden-3').setAttribute("data-state", "");
+			ReleaseViewAll.querySelector('a').innerHTML = "";
+		}
+		window.addEventListener(`resize`, e => {
+			if(window.innerWidth <= 800){
+				document.getElementById('Hidden-1').setAttribute("data-state", "active");
+				document.getElementById('Hidden-2').setAttribute("data-state", "active");
+				document.getElementById('Hidden-3').setAttribute("data-state", "");
+				ReleaseViewAll.querySelector('a').innerHTML = "";
+			} else {
+				document.getElementById('Hidden-1').setAttribute("data-state", "");
+				document.getElementById('Hidden-2').setAttribute("data-state", "");
+				document.getElementById('Hidden-3').setAttribute("data-state", "active");
+				ReleaseViewAll.querySelector('a').innerHTML = 'Подробнее...'
+			}
+		});
+
+		ReleaseViewAll.addEventListener('click', e => {
 			let Hidden1 = document.getElementById('Hidden-1');
 			let Hidden2 = document.getElementById('Hidden-2');
 			let Hidden3 = document.getElementById('Hidden-3');
@@ -209,8 +238,10 @@ const Release = {
 				Release.loadRuTube(id);
 			}
 		}
+		
+		if(Release.list.franchises) await Release.setFranchises.setHTML(id);
+		else await Release.setRelated.setHTML(id);
 
-		await Release.setRelated.setHTML(id);
 		await Release.setRecomend.setHTML();
 		if(localStorage.getItem('PHPSESSID')) Release.checkFavorites.setHTML(id);
 		if (localStorage.getItem('WebPushMode') == 'WebPushSubManual') await Release.checkSubscriptions(id);
@@ -253,6 +284,23 @@ const Release = {
 						idDOM: 'ReleaseRelated',
 						posters: `${config["webpPosters"]}${FilterTitel[0][i]}.webp`,
 						id: FilterTitel[0][i]
+					})
+				}
+			}
+		}
+	},
+	setFranchises: {
+		'setHTML': async function(id) {
+			let ReleaseBlockRelated = document.getElementById('ReleaseBlockRelated');
+	
+			// Заполнение контента связаных релизов
+			if(Release.list.franchises.length > 0){
+				ReleaseBlockRelated.setAttribute("data-state", "active");
+				for (let i = 0;Release.list.franchises[0].releases.length > i; i++) {
+					Card.SmallHovers({
+						idDOM: 'ReleaseRelated',
+						posters: `${config["webpPosters"]}${Release.list.franchises[0].releases[i].id}.webp`,
+						id: Release.list.franchises[0].releases[i].id
 					})
 				}
 			}
@@ -618,16 +666,16 @@ const Release = {
 
 // Функция смены серии плейлиста
 function releaseHistoryPlay(titel, serie){
-	playerID = "id:"+titel+"s"+serie;
-	playerTime = '';
-
-	if(historyGet().length != 0){
-		if(historyGet('titel', titel, serie) != -1){
-			time = historyGet('titel', titel, serie).time[0]
-			playerTime = "[seek:"+time+"]";
+	playerTime = () => {
+		if(historyGet().length != 0){
+			if(historyGet('titel', titel, serie) != -1){
+				return `[seek:${historyGet('titel', titel, serie).time[0]}]`;
+			}
 		}
-	}
-	player.api("play", playerID+playerTime)
+		return "[seek:0]";
+	};
+	
+	player.api("play", `id:${titel}s${serie}${playerTime(titel, serie)}`)
 }
 
 // Функции отслеживания событий плеера
@@ -678,6 +726,9 @@ function PlayerjsEvents(event,id,info){
 			}
 		}
 
+		playerPlay = true;
+		releaseHystorySync();
+
 		// Функция открытия полноэкранного режима в мобильной версии
 		var width = document.documentElement.clientWidth;
 		if(width <= 800){
@@ -686,6 +737,11 @@ function PlayerjsEvents(event,id,info){
 	}
 
 	if(event=="pause"){
+		playerPlay = false;
+		releaseHistorySave();
+	}
+
+	if(event=="end"){
 		releaseHistorySave();
 	}
 
@@ -695,21 +751,12 @@ function PlayerjsEvents(event,id,info){
 
 	if(event=="exitfullscreen"){
 		player_navigation('flex');
-	}
-
-	if(event=="seek"){
 		releaseHistorySave();
-	}
-
-	if(event=="time"){
-		if(Math.round(info) % 10 === 0){
-			releaseHistorySave();
-		}
 	}
 }
 
 // Функция сохранения истории Приложения
-function releaseHistorySave(){
+async function releaseHistorySave(){
 	let playlistID = player.api("playlist_id").split('s');
 
 	let titel = playlistID[0];
@@ -718,7 +765,8 @@ function releaseHistorySave(){
 	let duration = player.api("duration");
 	let date = Date.now();
 
-	historySave(titel, serie, time, duration, date, playerName, playerLength);
+	if(player.api("duration")) Analytics.sync({"id": titel, "serie": serie, "time": [time, duration], "name": playerName, "serieLength": playerLength});
+	if(player.api("duration")) historySave(titel, serie, time, duration, date, playerName, playerLength);
 }
 
 // Функция скрытия элементов интерфейса в полноэкранном режиме
@@ -747,4 +795,20 @@ function player_navigation(display){
 		document.getElementById('backToTop').style.display = '';
 		document.body.setAttribute("style", "");
 	}
+}
+
+let RELEASE_SYNC_PERIOD = 1000 * 60;
+let releaseSyncTimeoutId;
+
+function releaseHystorySync() {
+	if (releaseSyncTimeoutId) {
+		clearTimeout(releaseSyncTimeoutId);
+	}
+	releaseSyncTimeoutId = setTimeout(() => {
+		releaseHistorySave()
+			.catch(e => console.log('Failed to synchronize Cloud', e))
+			.finally(() => {
+                if(playerPlay) releaseHystorySync();
+            })
+	}, RELEASE_SYNC_PERIOD)
 }

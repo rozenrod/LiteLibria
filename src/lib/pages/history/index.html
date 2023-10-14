@@ -14,8 +14,6 @@
 			</label>
 		</span>	
 		<button class="SortingButton" id="ClearSortingHistory">Сбросить</button>
-		<button class="SortingButton" id="authorize-button">Синхронизировать Google</button>
-		<button class="SortingButton" id="signout-button" style="display:none;">Выйти из Google</button>
 	</div>
 </div>
 
@@ -24,6 +22,7 @@
 	<div class="HistoryList">
 		<div style="display: flow-root;">
 			<h1 style="float: left;">История просмотров</h1>
+			<h3 style="float: right;" id="CloudMess" title="Время последней синхронизации"></h3>
 		</div>
 		<div id="HistoryGenerator">
 			<!-- Карточки с контентом -->

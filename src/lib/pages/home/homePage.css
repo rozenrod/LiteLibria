@@ -240,15 +240,20 @@
 .timeline-Tweet{
 	color: var(--ColorThemes3);
 }
-@media (max-width: 1000px){
-	.LineList-Notes{
-		box-shadow: var(--shadow-l1);
-		width: calc(100% - 40px);
-	}
-}
 @media (prefers-color-scheme: dark) {
 	.LineList-Notes{
 		border: 2px solid var(--ColorThemes2);
+	}
+}
+@media (max-width: 1000px){
+	.LineList-Notes{
+		padding: 0;
+    	background: var(--ColorThemes1);
+	}
+	@media (prefers-color-scheme: dark) {
+		.LineList-Notes{
+			border: 0;
+		}
 	}
 }
 

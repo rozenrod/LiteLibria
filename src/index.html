@@ -95,7 +95,11 @@
 	<script src="/p2p/p2p-graph.js"></script> <!-- P2P -->
 	<script src="/p2p/d3.min.js"></script> <!-- P2P -->
 	<script src="/p2p/rickshaw.min.js"></script> <!-- P2P -->
-	
+
+	<script src="/cloud/history.js" defer></script> <!-- Скрипты истории просмотров -->
+	<script src="/cloud/loadNameHistory.js" defer></script> <!-- Скрипты истории просмотров -->
+	<script src="/cloud/cloud.js" defer></script>  <!-- Скрипт облачной синхронизации приложения -->
+	<script src="/cloud/analytics.js" defer></script>  <!-- Скрипт статистики -->
 
 	<!--build:js build/main.min.js -->
 
@@ -106,16 +110,16 @@
 	<script src="/lib/router/router.js" defer></script> <!-- Скрипт Роутера -->
 	<script src="/lib/router/routes.js" defer></script> <!-- Пути Роутера -->
 
-	<script src="/lib/history/history.js" defer></script> <!-- Скрипты истории просмотров -->
-	<script src="/lib/history/historySync.js" defer></script>  <!-- Скрипты истории просмотров -->
-	<script src="/lib/history/loadNameHistory.js" defer></script> <!-- Скрипты истории просмотров -->
-
 	<script src="/lib/player/hls.min.js" defer></script> <!-- HLS для плеера -->
 	<script src="/lib/player/playerjs.js" defer></script> <!-- Плеер -->
 
+	<script src="/lib/components/badging.js" defer></script> <!-- Загрузка компонентов -->
+	<script src="/lib/components/IsJsonString.js" defer></script> <!-- Загрузка компонентов -->
+	<script src="/lib/components/timeConverter.js" defer></script> <!-- Загрузка компонентов -->
 	<script src="/lib/components/preloaderHide.js" defer></script> <!-- Загрузка компонентов -->
 	<script src="/lib/components/swipeUpdater.js" defer></script> <!-- Загрузка компонентов -->
 	<script src="/lib/components/detectOS.js" defer></script> <!-- Загрузка компонентов -->
+	<script src="/lib/components/detectBrowser.js" defer></script> <!-- Загрузка компонентов -->
 	<script src="/lib/components/randomColor.min.js" defer></script> <!-- Загрузка компонентов -->
 	<script src="/lib/components/webPush.js" defer></script> <!-- Загрузка компонентов -->
 	<script src="/lib/components/statusEpisode.js" defer></script> <!-- Загрузка компонентов -->
@@ -123,6 +127,7 @@
 	<script src="/lib/components/scrollToTop.js" defer></script> <!-- Загрузка компонентов -->
 	<script src="/lib/components/cards.js" defer></script> <!-- Загрузка компонентов -->
 	<script src="/lib/components/popup.js" defer></script> <!-- Загрузка компонентов -->
+	<script src="/lib/components/uuidv4.js" defer></script> <!-- Загрузка компонентов -->
 
 	<script src="/lib/pages/home/homePage.js" defer></script> <!-- Загрузка страницы -->
 	<script src="/lib/pages/catalog/catalogPage.js" defer></script> <!-- Загрузка страницы -->
@@ -137,12 +142,6 @@
 
 	<script src="/lib/app.js" defer></script> <!-- Загрузка главного скрипта -->
 	<!-- endbuild -->
-
-
-
-	<!-- Подключенеие Google Service -->
-	<script async defer src="https://apis.google.com//js/api.js" onload="gapiLoaded()"></script>
-	<script async defer src="https://accounts.google.com/gsi/client" onload="gisLoaded()"></script>
 </head>
 <body version="Tyufon-2.0.0">
 

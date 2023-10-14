@@ -222,7 +222,7 @@ function push_subscribe_favorites(method){
   }
   localStorage.setItem('WebPushMode', 'WebPushSubFavorites');
 
-  var url = config["titels_api"]+"user/favorites?session="+localStorage.getItem('PHPSESSID')+"&filter=id&limit=-1";
+  var url = config["titels_API"]+"user/favorites?session="+localStorage.getItem('PHPSESSID')+"&filter=id&limit=-1";
   fetch(url)
   .then(function (response) {
     if (response.status !== 200) {

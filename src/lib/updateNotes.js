@@ -1,7 +1,7 @@
 updateNotes = [
   {
     "prefix":"Kaamira",
-    "version":"2.0.18",
+    "version":"2.0.19",
     "date":"14 October 2023",
     "update":[
       {
@@ -10,6 +10,16 @@ updateNotes = [
 			},{
 				"type":"FIXED",
         "text":"Исправлено отображение карт релизов в мобильном режиме.",
+			}
+    ]
+  },{
+    "prefix":"Kaamira",
+    "version":"2.0.18",
+    "date":"10 July 2023",
+    "update":[
+      {
+				"type":"FIXED",
+        "text":"Исправлены ошибки.",
 			}
     ]
   },{

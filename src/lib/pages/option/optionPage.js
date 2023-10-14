@@ -119,9 +119,14 @@ const Option = {
 						localStorage.setItem('PHPSESSID', data['sessionId']);
 						profile.setAttribute("data-state", "");
 						auth.setAttribute("data-state", "deactivated");
+						localStorage.setItem('CloudSync', 'true');
 						document.getElementById('WebPushSubFavorites').disabled = false;
 						Option.account.setHTML();
 						Favorites.loadAPI();
+
+						document.getElementById('Cloud_Sync1_style').dataset.state = "Select";
+						document.getElementById('Cloud_Sync2_style').dataset.state = "";
+						Cloud.init();
 					} else {
 						document.getElementById('error_mes').setAttribute("style", `display:block;`);
 					}

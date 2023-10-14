@@ -20,7 +20,11 @@ const CACHE_PREFIX = 'Kaamira';
 const CACHE_VERSION_MAJOR = 2;
 const CACHE_VERSION_MINOR = 0;
 // const CACHE_VERSION_PATCH = Date.now();
+<<<<<<< Updated upstream
 const CACHE_VERSION_PATCH = 2;
+=======
+const CACHE_VERSION_PATCH = 18;
+>>>>>>> Stashed changes
 const CACHE_VERSION = CACHE_VERSION_MAJOR+'.'+CACHE_VERSION_MINOR+'.'+CACHE_VERSION_PATCH;
 
 
@@ -164,3 +168,26 @@ gulp.task('archivate', function (callback) {
     callback
   )
 })
+<<<<<<< Updated upstream
+=======
+
+
+// gulp.task('ssh', function () {
+// 	return gulp.src('public/**/*')
+// 		.pipe(sftp({
+// 			host: '192.168.0.200',
+// 			auth: 'keyMain',
+// 			remotePath: '/home/rozenrod/webapps/server.litelibria.com/'
+// 		}));
+// });
+
+gulp.task('deploy', function (callback) {
+	runSequence(
+		  'build',
+		  'ssh',
+		  'clean:public',
+		  'clean:archive',
+	  callback
+	)
+})
+>>>>>>> Stashed changes

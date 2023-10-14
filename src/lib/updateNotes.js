@@ -1,6 +1,222 @@
 updateNotes = [
   {
     "prefix":"Kaamira",
+<<<<<<< Updated upstream
+=======
+    "version":"2.0.18",
+    "date":"14 October 2023",
+    "update":[
+      {
+				"type":"FIXED",
+        "text":"Исправлено отображение карточек жанров на главной странице.",
+			},{
+				"type":"IMPROVED",
+        "text":"Исправлено отображение карточек релизов в мобильном режиме.",
+			}
+    ]
+  },{
+    "prefix":"Kaamira",
+    "version":"2.0.16",
+    "date":"24 June 2023",
+    "update":[
+      {
+				"type":"FIXED",
+        "text":"Исправлены ошибки.",
+			},{
+				"type":"IMPROVED",
+        "text":"Обновлён PlayerJS.",
+			}
+    ]
+  },{
+    "prefix":"Kaamira",
+    "version":"2.0.15",
+    "date":"24 June 2023",
+    "update":[
+      {
+				"type":"FIXED",
+        "text":"Исправлены ошибки.",
+			},{
+				"type":"IMPROVED",
+        "text":"Обновлён PlayerJS.",
+			}
+    ]
+  },{
+    "prefix":"Kaamira",
+    "version":"2.0.14",
+    "date":"23 June 2023",
+    "update":[
+      {
+				"type":"FIXED",
+        "text":"Исправлены ошибки.",
+			},{
+				"type":"IMPROVED",
+        "text":"Обновлён PlayerJS.",
+			}
+    ]
+  },{
+    "prefix":"Kaamira",
+    "version":"2.0.13",
+    "date":"17 June 2023",
+    "update":[
+      {
+				"type":"FIXED",
+        "text":"Исправлены ошибки P2P.",
+			},{
+				"type":"IMPROVED",
+        "text":"Обновлён PlayerJS.",
+			}
+    ]
+  },{
+    "prefix":"Kaamira",
+    "version":"2.0.12",
+    "date":"13 June 2023",
+    "update":[
+      {
+				"type":"FIXED",
+        "text":"Исправлены ошибки.",
+			},{
+				"type":"FIXED",
+        "text":"Повышена стабильность.",
+			},{
+				"type":"IMPROVED",
+        "text":"Обновлён PlayerJS.",
+			}
+    ]
+  },{
+    "prefix":"Kaamira",
+    "version":"2.0.11",
+    "date":"5 June 2023",
+    "update":[
+      {
+				"type":"FIXED",
+        "text":"Исправлены ошибки.",
+			},{
+				"type":"FIXED",
+        "text":"Повышена стабильность.",
+			},{
+				"type":"IMPROVED",
+        "text":"Обновлён PlayerJS.",
+			}
+    ]
+  },{
+    "prefix":"Kaamira",
+    "version":"2.0.10",
+    "date":"5 June 2023",
+    "update":[
+      {
+				"type":"FIXED",
+        "text":"Исправлены ошибки.",
+			},{
+				"type":"FIXED",
+        "text":"Повышена стабильность.",
+			}
+    ]
+  },{
+    "prefix":"Kaamira",
+    "version":"2.0.9",
+    "date":"21 May 2023",
+    "update":[
+      {
+				"type":"FIXED",
+        "text":"Исправлены ошибки.",
+			},{
+				"type":"FIXED",
+        "text":"Повышена стабильность.",
+			}
+    ]
+  },{
+    "prefix":"Kaamira",
+    "version":"2.0.8",
+    "date":"19 May 2023",
+    "update":[
+      {
+				"type":"FIXED",
+        "text":"Исправлены ошибки на странице релиза.",
+			},{
+				"type":"FIXED",
+        "text":"Повышена стабильность синхронизации истории между устройствами.",
+			},{
+				"type":"IMPROVED",
+        "text":"Обновлён PlayerJS.",
+			}
+    ]
+  },{
+    "prefix":"Kaamira",
+    "version":"2.0.7",
+    "date":"8 May 2023",
+    "update":[
+      {
+				"type":"FIXED",
+        "text":"Исправлены ошибки.",
+			},{
+				"type":"IMPROVED",
+        "text":"Обновлён PlayerJS.",
+			}
+    ]
+  },{
+    "prefix":"Kaamira",
+    "version":"2.0.6",
+    "date":"3 May 2023",
+    "update":[
+      {
+				"type":"ADDED",
+        "text":"Добавлена ​​возможность фоновой синхронизации истории просмотров после авторизации в аккаунте на странице «<a href='/options' data-route>опции</a>».",
+			},{
+				"type":"FIXED",
+        "text":"Исправлена ссылка SHIKIMORI на страницах релизов.",
+			},{
+				"type":"IMPROVED",
+        "text":"Обновлён PlayerJS.",
+			}
+    ]
+  },{
+    "prefix":"Kaamira",
+    "version":"2.0.5",
+    "date":"17 April 2023",
+    "update":[
+      {
+				"type":"REFACTORING",
+        "text":"Переработан принцип синхронизации истории Google Drive.",
+			},{
+				"type":"REFACTORING",
+        "text":"Переработан блок `Связанные релизы`.",
+			},{
+				"type":"FIXED",
+        "text":"Исправлены мелкие ошибки.",
+			}
+    ]
+  },{
+    "prefix":"Kaamira",
+    "version":"2.0.4",
+    "date":"15 April 2023",
+    "update":[
+      {
+				"type":"REFACTORING",
+        "text":"Переработан принцип синхронизации истории Google Drive.",
+			},{
+				"type":"REFACTORING",
+        "text":"Переработан блок `Связанные релизы`.",
+			},{
+				"type":"FIXED",
+        "text":"Исправлены мелкие ошибки.",
+			}
+    ]
+  },{
+    "prefix":"Kaamira",
+    "version":"2.0.3",
+    "date":"14 April 2023",
+    "update":[
+      {
+				"type":"REFACTORING",
+        "text":"Переработан принцип синхронизации истории Google Drive.",
+			},{
+				"type":"FIXED",
+        "text":"Исправлены мелкие ошибки.",
+			}
+    ]
+  },{
+    "prefix":"Kaamira",
+>>>>>>> Stashed changes
     "version":"2.0.2",
     "date":"13 April 2023",
     "update":[

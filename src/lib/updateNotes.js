@@ -1,8 +1,6 @@
 updateNotes = [
   {
     "prefix":"Kaamira",
-<<<<<<< Updated upstream
-=======
     "version":"2.0.18",
     "date":"14 October 2023",
     "update":[
@@ -10,8 +8,21 @@ updateNotes = [
 				"type":"FIXED",
         "text":"Исправлено отображение карточек жанров на главной странице.",
 			},{
+				"type":"FIXED",
+        "text":"Исправлено отображение карт релизов в мобильном режиме.",
+			}
+    ]
+  },{
+    "prefix":"Kaamira",
+    "version":"2.0.17",
+    "date":"26 June 2023",
+    "update":[
+      {
+				"type":"FIXED",
+        "text":"Исправлены ошибки.",
+			},{
 				"type":"IMPROVED",
-        "text":"Исправлено отображение карточек релизов в мобильном режиме.",
+        "text":"Обновлён PlayerJS.",
 			}
     ]
   },{
@@ -216,7 +227,6 @@ updateNotes = [
     ]
   },{
     "prefix":"Kaamira",
->>>>>>> Stashed changes
     "version":"2.0.2",
     "date":"13 April 2023",
     "update":[

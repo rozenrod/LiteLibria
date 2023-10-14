@@ -5,7 +5,6 @@ const gulpIf = require('gulp-if');
 const rename = require('gulp-rename');
 const cssnano = require('gulp-cssnano');
 const imagemin = require('gulp-imagemin');
-const webp = require('gulp-webp');
 const cache = require('gulp-cache');
 const del = require('del');
 const runSequence = require('gulp4-run-sequence');
@@ -14,17 +13,14 @@ const dom = require('gulp-dom');
 const modifyFile = require('gulp-modify-file');
 const zip = require('gulp-zip');
 
+const sftp = require('gulp-sftp');
 
 // Condig
 const CACHE_PREFIX = 'Kaamira';
 const CACHE_VERSION_MAJOR = 2;
 const CACHE_VERSION_MINOR = 0;
 // const CACHE_VERSION_PATCH = Date.now();
-<<<<<<< Updated upstream
-const CACHE_VERSION_PATCH = 2;
-=======
 const CACHE_VERSION_PATCH = 18;
->>>>>>> Stashed changes
 const CACHE_VERSION = CACHE_VERSION_MAJOR+'.'+CACHE_VERSION_MINOR+'.'+CACHE_VERSION_PATCH;
 
 
@@ -49,6 +45,11 @@ gulp.task('assets', function() {
 gulp.task('p2p', function() {
 	return gulp.src('src/p2p/**/*')
 		.pipe(gulp.dest('public/p2p'))
+})
+
+gulp.task('cloud', function() {
+	return gulp.src('src/cloud/**/*')
+		.pipe(gulp.dest('public/cloud'))
 })
 
 gulp.task('config', function() {
@@ -95,8 +96,8 @@ gulp.task('dom', function() {
 				element.setAttribute('href', HREF.replace('build/', `/build-${CACHE_VERSION}/`));
 			}
 
-			for (let i = 0; i < this.querySelectorAll('script').length; i++) {
-				element = this.querySelectorAll('script')[i]
+			for (let i = 0; i < this.querySelectorAll('script[src]').length; i++) {
+				element = this.querySelectorAll('script[src]')[i]
 				SRC = element.src;
 				if(SRC == 'build/main.min.js') element.setAttribute('defer', '');
 				element.setAttribute('src', SRC.replace('build/', `/build-${CACHE_VERSION}/`));
@@ -146,40 +147,31 @@ gulp.task("sw", function(){
 
 gulp.task("archive", function(){
   return gulp.src('public/**/*')
-		.pipe(zip(`archive-${Date.now()}.zip`))
+		.pipe(zip(`release.zip`))
 		.pipe(gulp.dest('archive'))
 });
 
 gulp.task('build', function (callback) {
   runSequence(
 		'clean:public',
-		['static_img', 'config', 'images', 'assemble', 'filesToCache', 'manifest', 'assets', 'p2p'], 
+		['static_img', 'config', 'images', 'assemble', 'filesToCache', 'manifest', 'assets', 'p2p', 'cloud'], 
 		'dom',
 		'sw',
-    callback
-  )
-})
-
-gulp.task('archivate', function (callback) {
-  runSequence(
-		'build',
 		'clean:archive',
 		'archive',
     callback
   )
 })
-<<<<<<< Updated upstream
-=======
 
 
-// gulp.task('ssh', function () {
-// 	return gulp.src('public/**/*')
-// 		.pipe(sftp({
-// 			host: '192.168.0.200',
-// 			auth: 'keyMain',
-// 			remotePath: '/home/rozenrod/webapps/server.litelibria.com/'
-// 		}));
-// });
+gulp.task('ssh', function () {
+    return gulp.src('public/**/*')
+        .pipe(sftp({
+            host: '192.168.0.200',
+			auth: 'keyMain',
+			remotePath: '/home/rozenrod/webapps/server.litelibria.com/'
+        }));
+});
 
 gulp.task('deploy', function (callback) {
 	runSequence(
@@ -189,5 +181,4 @@ gulp.task('deploy', function (callback) {
 		  'clean:archive',
 	  callback
 	)
-})
->>>>>>> Stashed changes
+  })

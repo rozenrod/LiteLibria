@@ -1,6 +1,16 @@
 updateNotes = [
   {
     "prefix":"Kaamira",
+    "version":"2.0.20",
+    "date":"19 October 2023",
+    "update":[
+      {
+				"type":"ADDED",
+        "text":"Добавлено отображение названия релизов в уменьшенные карточки релизов.",
+			}
+    ]
+  },{
+    "prefix":"Kaamira",
     "version":"2.0.19",
     "date":"14 October 2023",
     "update":[

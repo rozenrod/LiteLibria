@@ -78,7 +78,8 @@ const Schedule = {
 					serie: TextSerie,
 					type: SerieType(),
 					posters: hrefPosters,
-					id: id
+					id: id,
+					name: API[i].names.ru
 				})
 
 				StatusEpisode.length == 0 ? loadAPIStatusEpisode() : GeneratorStatusEpisode();

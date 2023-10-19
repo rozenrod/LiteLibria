@@ -360,7 +360,8 @@ const Release = {
 						serie: json.list[i].player.episodes.last,
 						type: type(),
 						posters: posters(),
-						id: json.list[i].id
+						id: json.list[i].id,
+						name: json.list[i].names.ru
 					})
 				}
 			}

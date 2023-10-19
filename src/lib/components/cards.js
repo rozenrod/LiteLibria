@@ -16,7 +16,7 @@ const Card = {
 		`;
 	},
 
-	SmallHovers: ({idDOM, last, serie, type, posters, id, minutes = false}) => {
+	SmallHovers: ({idDOM, last, serie, type, posters, id, minutes = false, name}) => {
 		let div = document.createElement('div');
 		document.getElementById(idDOM).appendChild(div);
 		div.className = 'LineCard-SmallHovers';
@@ -28,9 +28,14 @@ const Card = {
 			if(last > serie) return `${serie} из ${last}`;
 			else return last;
 		}
+		names = () => {
+			if(name) return `<p class="LineCard-Hover-Names">${name}</p><br>`;
+			else return ''
+		}
 		text = () => {
 			if(minutes) return `
 				<div class="LineCard-Hover">
+					${names()}
 					<p class="LineCard-Hover-Serie">Серия ${serie}</p>
 					<p class="LineCard-Hover-Serie">Минута ${minutes}</p>
 				</div>
@@ -38,6 +43,7 @@ const Card = {
 			if(!serie) return ''
 			return `
 				<div class="LineCard-Hover">
+					${names()}
 					<p class="LineCard-Hover-Serie">${type} ${serie}</p>
 				</div>
 			`;

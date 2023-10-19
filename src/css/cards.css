@@ -499,13 +499,26 @@
 	z-index: 3;
 	border-radius: 20px;
 }
+.LineCard-Hover-Names{
+	position: relative;
+    width: 120px;
+    height: auto;
+    white-space: pre-wrap;
+    font-size: 14px;
+    display: block !important;
+    text-align: center;
+    font-weight: 500;
+    z-index: 3;
+    transition: .3s ease;
+}
 .LineCard-Hover-Serie{
-	font-size: 15px;
+	font-size: 14px;
 	display: block !important;
 	text-align: center;
-	font-weight: 600;
+	font-weight: 400;
 	z-index: 3;
 	transition: .3s ease;
+	opacity: 0.8;
 }
 
 .LineCard-MediumHovers > .LineCard-Hover{

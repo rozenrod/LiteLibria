@@ -173,7 +173,8 @@ const Home = {
 					serie: json[day()].list[i].player.episodes.last,
 					type: type(),
 					posters: posters(),
-					id: json[day()].list[i].id
+					id: json[day()].list[i].id,
+					name: json[day()].list[i].names.ru
 				})
 			}
 
@@ -290,7 +291,8 @@ const Home = {
 					serie: json.list[i].player.episodes.last,
 					type: type(),
 					posters: posters(),
-					id: json.list[i].id
+					id: json.list[i].id,
+					name: json.list[i].names.ru
 				})
 			}
 		}
@@ -329,7 +331,8 @@ const Home = {
 							serie: json[i].serie,
 							minutes: minutes,
 							posters: posters,
-							id: json[i].id
+							id: json[i].id,
+							name: json[i].name
 						})
 					}
 				}

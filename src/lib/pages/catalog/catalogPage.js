@@ -175,7 +175,8 @@ const Catalog = {
 					serie: TextSerie,
 					type: SerieType(),
 					posters: hrefPosters,
-					id: id
+					id: id,
+					name: name
 				})
 			} else {
 				Card.MediumHovers({

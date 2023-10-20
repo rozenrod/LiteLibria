@@ -1,6 +1,16 @@
 updateNotes = [
   {
     "prefix":"Kaamira",
+    "version":"2.0.21",
+    "date":"20 October 2023",
+    "update":[
+      {
+				"type":"ADDED",
+        "text":"Исправлена ошибка отображения неоптимизированных превью.",
+			}
+    ]
+  },{
+    "prefix":"Kaamira",
     "version":"2.0.20",
     "date":"19 October 2023",
     "update":[

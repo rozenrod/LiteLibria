@@ -571,6 +571,9 @@ const Release = {
 				a.push(b);
 			}
 
+
+			console.log(a);
+
 			return a;
 		}
 

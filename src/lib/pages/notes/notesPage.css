@@ -39,9 +39,10 @@
 }
 
 .his_block_v1 span{
-  color: var(--ColorThemes3);;
+  color: var(--ColorThemes3);
   padding: 5px 10px;
   border-radius: 10px;
+  font-size: 14px;
 }
 .his_block_v2{
   background: var(--PrimaryColor) !important;
@@ -72,7 +73,7 @@
   text-align: center;
   border-radius: 10px;
   padding: 5px 10px !important;
-  flex: 0 0 75px;
+  flex: 0 0 65px;
 }
 .change-description{
   padding-top: 4px;

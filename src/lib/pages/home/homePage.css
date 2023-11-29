@@ -222,7 +222,7 @@
 /* Адаптация LineList под раздел Twitter */
 .LineList-Notes{
 	margin: 10px 10px 0 10px;
-	width: calc(100% - 20px);
+	width: calc(100% - 24px);
 	border-radius: var(--border-radius-2);
 	background: var(--ColorThemes0);
 	padding: 5px 10px;

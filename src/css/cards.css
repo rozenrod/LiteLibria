@@ -353,7 +353,7 @@
 .LineGenerator-BigHovers{
 	white-space: nowrap;
 	align-items: start;
-  display: -webkit-box;
+    display: -webkit-box;
 	padding-bottom: 5px;
 	overflow-x: scroll;
 	-ms-scroll-snap-type: x mandatory;
@@ -364,7 +364,7 @@
 	height: 180px;
 	aspect-ratio: 16 / 9;
 	position: relative;
-	display: inline-flex;
+	display: flex;
 	overflow: hidden;
 	flex-direction: row;
 	background-color: var(--ColorThemes0);
@@ -410,15 +410,20 @@
 .LineCard-BigHovers:hover{
 	box-shadow: var(--shadow-l3);
 	transition: .3s ease;
-	-webkit-transform: scale(1.03) translateY(0);
-	-o-transform: scale(1.03) translateY(0);
-	transform: scale(1.03) translateY(0);
+	-webkit-transform: scale(1.030) translateY(0);
+	-o-transform: scale(1.030) translateY(0);
+	transform: scale(1.030) translateY(0);
 }
 .LineCard-BigHovers:hover .LineCard-Hover{
-	display: inline-block;
+	display: flex;
+	flex-direction: column;
 	opacity: 1;
 	cursor: pointer;
 	background: rgb(0 0 0 / 80%);
+	-webkit-transform: scale(1.030) translateY(0);
+	-o-transform: scale(1.030) translateY(0);
+	transform: scale(1.030) translateY(0);
+	border-radius: 20px;
 }
 .LineCard-BigHovers:hover .LineCard-TextSerie{
 	opacity:0;
@@ -613,6 +618,10 @@
   height: 200px;
   aspect-ratio: 7 / 10;
 	z-index: 3;
+	-webkit-transform: scale(1.030) translateY(0);
+	-o-transform: scale(1.030) translateY(0);
+	transform: scale(1.030) translateY(0);
+	border-radius: 20px;
 }
 .LineCard-Hover-SerieUnwatched{
 	z-index: 6;

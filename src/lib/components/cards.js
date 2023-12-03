@@ -9,7 +9,7 @@ const Card = {
 			<img src="${posters}" alt="">
 			<div class="LineCard-Hover">
 				<p class="LineCard-Hover-Name" style="-webkit-box-orient: vertical;">${name || ''}</p>
-				<p class="LineCard-Hover-Genres" style="-webkit-box-orient: vertical;">${genres || ''}</p>
+				<p class="LineCard-Hover-Genres" style="-webkit-box-orient: vertical;">${genres.toString().replaceAll(",", ", ") || ''}</p>
 				<p class="LineCard-Hover-Description" style="-webkit-box-orient: vertical;">${description || ''}</p>
 			</div>
 			<a data-route class="LineCard-Click" href="/release/${id}"></a>
@@ -79,7 +79,7 @@ const Card = {
 			</div>
 			<div class="LineCard-LongHovers-Right">
 				<p class="LineCard-LongHovers-Name" style="-webkit-box-orient: vertical;">${name || ''}</p>
-				<p class="LineCard-LongHovers-Genres" style="-webkit-box-orient: vertical;">${genres || ''}</p>
+				<p class="LineCard-LongHovers-Genres" style="-webkit-box-orient: vertical;">${genres.toString().replaceAll(",", ", ") || ''}</p>
 				<p class="LineCard-LongHovers-Description" style="-webkit-box-orient: vertical;">${description || ''}</p>
 			</div>
 			<a data-route class="LineCard-Click" href="/release/${id}"></a>
@@ -98,7 +98,7 @@ const Card = {
 			<img src="${posters}" alt="">
 			<div class="LineCard-Hover">
 				<p class="LineCard-Hover-Name" style="-webkit-box-orient: vertical;">${name || ''}</p>
-				<p class="LineCard-Hover-Genres" style="-webkit-box-orient: vertical;">${genres || ''}</p>
+				<p class="LineCard-Hover-Genres" style="-webkit-box-orient: vertical;">${genres.toString().replaceAll(",", ", ") || ''}</p>
 				<p class="LineCard-Hover-Description" style="-webkit-box-orient: vertical;">${description || ''}</p>
 			</div>
 			<a ${youtube ? '' : 'data-route'} class="LineCard-Click" href="${href}"></a>

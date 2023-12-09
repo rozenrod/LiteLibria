@@ -37,6 +37,9 @@ const Catalog = {
 
 		preloaderHide();
 
+		// Обнуление Badge
+		clearBadge();
+
 
 		window.addEventListener('scroll', async function(e) {
 			if(pageAPP == 'catalog'){

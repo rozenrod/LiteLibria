@@ -20,9 +20,6 @@ const Home = {
 		document.title = 'LiteLibria';
 
 		preloaderHide();
-
-		// Обнуление Badge
-		clearBadge();
 	},
 	updates: {
 		list: [],

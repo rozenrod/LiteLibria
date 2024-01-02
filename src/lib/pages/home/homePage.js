@@ -50,7 +50,7 @@ const Home = {
 
 				posters = function () {
 					return localStorage.getItem('postersMode') == 'webp'
-						? `${config.webpPreview}${json.list[i].id}/${json.list[i].player.episodes.last}`
+						? `${config.webpPreview}${json.list[i].id}`
 						: `${config.CustomPosters}${json.list[i].id}/${json.list[i].player.episodes.last}/1.jpg`
 				}
 

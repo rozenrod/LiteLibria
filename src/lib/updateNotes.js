@@ -1,6 +1,16 @@
 updateNotes = [
   {
     "prefix":"Kaamira",
+    "version":"2.0.28",
+    "date":"24 February 2024",
+    "update":[
+      {
+				"type":"IMPROVED",
+        "text":"Обновлён PlayerJS."
+			}
+    ]
+  },{
+    "prefix":"Kaamira",
     "version":"2.0.27",
     "date":"24 February 2024",
     "update":[
